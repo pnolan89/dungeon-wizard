@@ -1,14 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentUser: {},
+      messages: []
+    };
+  }
   componentDidMount() {
-    axios.get('/')
+    axios.get('http://localhost:3000', {
+      method: 'GET',
+      mode: 'no-cors',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+      },
+      // withCredentials: true,
+      // credentials: 'same-origin'
+    })
       .then(function (response) {
-      // handle success
-      console.log(response);
+        console.log(response);
+        // this.setState({
+        //   messages: response
+        // });
       })
     .catch(function (error) {
       // handle error
@@ -19,20 +36,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <p>Hello</p>
       </div>
     );
   }
