@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Nav from './Nav.jsx';
 import axios from 'axios';
 
 class App extends Component {
@@ -36,7 +37,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <p>Hello</p>
+        <Nav />
       </div>
     );
   }
