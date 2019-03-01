@@ -1,5 +1,11 @@
-font-family: 'Cinzel', serif;
-font-family: 'Montserrat', sans-serif;
+
+.App {
+  text-align: center;
+}
+
+body {
+  
+}
 
 html {
   height: 100%;
