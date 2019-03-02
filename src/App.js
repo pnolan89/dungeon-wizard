@@ -21,7 +21,8 @@ class App extends Component {
       .then((response) => {
         this.setState({
           campaignData: {
-            campaign: response.data
+            campaign: response.data.campaign,
+            dm: response.data.dm
           }
         });
         console.log(response.data);
