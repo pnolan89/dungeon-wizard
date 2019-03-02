@@ -9,7 +9,10 @@ class App extends Component {
     super(props);
     this.state = {
       currentUser: {},
-      currentCampaign: {},
+      campaignData: {
+        campaign: {},
+        dm: {}
+      },
       messages: []
     };
   }
@@ -17,24 +20,33 @@ class App extends Component {
     axios.get('http://localhost:3000/campaigns/21')
       .then((response) => {
         this.setState({
-          currentCampaign: response.data
+          campaignData: {
+            campaign: response.data
+          }
         });
         console.log(response.data);
-        // this.setState({
-        //   messages: response
-        // });
       })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
+      .catch(function (error) {
+        // handle error
+        console.log(error);
       });
+
+    // axios.get(`http://localhost:3000/users/${this.state.campaignData.campaign.user_id}`)
+    //   .then((response) => {
+    //     this.setState({
+    //       campaignData: {
+    //         dm: response.data
+    //       }
+    //     });
+    //     console.log(response.data);
+    //   });
   }
 
   render() {
     return (
       <div className="App">
         <Nav />
-        <Campaign campaign={this.state.currentCampaign}/>
+        <Campaign campaign={this.state.campaignData.campaign} dm={this.state.campaignData.dm}/>
       </div>
     );
   }
