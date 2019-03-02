@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Nav from './Nav.jsx';
+import User from './User.jsx';
 import Campaign from './campaign.jsx';
 import axios from 'axios';
 
@@ -39,7 +40,11 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
-        <Campaign />
+        <div className="main">
+             <User />
+        {/* <Campaign /> */}
+        </div>
+   
       </div>
     );
   }
