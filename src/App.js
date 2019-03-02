@@ -9,13 +9,17 @@ class App extends Component {
     super(props);
     this.state = {
       currentUser: {},
+      currentCampaign: {},
       messages: []
     };
   }
   componentDidMount() {
-    axios.get('http://localhost:3000/users/29')
-      .then(function (response) {
-        console.log(response);
+    axios.get('http://localhost:3000/campaigns/21')
+      .then((response) => {
+        this.setState({
+          currentCampaign: response.data
+        });
+        console.log(response.data);
         // this.setState({
         //   messages: response
         // });
@@ -30,7 +34,7 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
-        <Campaign />
+        <Campaign campaign={this.state.currentCampaign}/>
       </div>
     );
   }
