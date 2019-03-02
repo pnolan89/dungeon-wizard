@@ -10,22 +10,17 @@ class App extends Component {
     super(props);
     this.state = {
       currentUser: {},
+      currentCampaign: {},
       messages: []
     };
   }
   componentDidMount() {
-    axios.get('http://localhost:3000', {
-      method: 'GET',
-      mode: 'no-cors',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json'
-      },
-      // withCredentials: true,
-      // credentials: 'same-origin'
-    })
-      .then(function (response) {
-        console.log(response);
+    axios.get('http://localhost:3000/campaigns/21')
+      .then((response) => {
+        this.setState({
+          currentCampaign: response.data
+        });
+        console.log(response.data);
         // this.setState({
         //   messages: response
         // });
@@ -40,11 +35,8 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
-        <div className="main">
-             <User />
-        {/* <Campaign /> */}
-        </div>
-   
+        {/* <User /> */}
+        <Campaign campaign={this.state.currentCampaign}/>
       </div>
     );
   }
