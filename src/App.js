@@ -10,7 +10,10 @@ class App extends Component {
     super(props);
     this.state = {
       currentUser: {},
-      currentCampaign: {},
+      campaignData: {
+        campaign: {},
+        dm: {}
+      },
       messages: []
     };
   }
@@ -18,16 +21,16 @@ class App extends Component {
     axios.get('http://localhost:3000/campaigns/21')
       .then((response) => {
         this.setState({
-          currentCampaign: response.data
+          campaignData: {
+            campaign: response.data.campaign,
+            dm: response.data.dm
+          }
         });
         console.log(response.data);
-        // this.setState({
-        //   messages: response
-        // });
       })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
+      .catch(function (error) {
+        // handle error
+        console.log(error);
       });
   }
 
@@ -35,8 +38,7 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
-        {/* <User /> */}
-        <Campaign campaign={this.state.currentCampaign}/>
+        <Campaign campaign={this.state.campaignData.campaign} dm={this.state.campaignData.dm}/>
       </div>
     );
   }
