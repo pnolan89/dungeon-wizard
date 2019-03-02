@@ -9,7 +9,7 @@ class Campaign extends Component {
                         <div className="Campaign-Details">
                             <h1>{this.props.campaign.name}</h1>
                             <p>JOIN CAMPAIGN</p>
-                            <p>4/6 Spots Filled</p>
+                            <p> 4/6 Spots Filled</p>
                             <p>Dungeon Master: ME</p>
                             <p>Location: MY PLACE</p>
                             <p>Description: it's a good one...</p>
