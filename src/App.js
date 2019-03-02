@@ -11,16 +11,7 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    axios.get('http://localhost:3000', {
-      method: 'GET',
-      mode: 'no-cors',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json'
-      },
-      // withCredentials: true,
-      // credentials: 'same-origin'
-    })
+    axios.get('http://localhost:3000/users/29')
       .then(function (response) {
         console.log(response);
         // this.setState({
