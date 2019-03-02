@@ -11,9 +11,7 @@ class Campaign extends Component {
                         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
                         <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet"/>
                     </head>
-                    <div className="Nav-Bar">
-                        <h1>Dungeon Wizard</h1>
-                    </div>
+                   
                     <div className="Campaign-Box"> 
                         <div className="Campaign-Details">
                             <h1>THE COOL CAMPAIGN</h1>
