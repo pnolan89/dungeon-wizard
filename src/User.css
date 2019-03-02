@@ -1,17 +1,17 @@
 
 .user {
+  width: 90vw;
   text-align: left;
   background: rgba(13, 31, 45, 0.7);
   font-family: 'Montserrat', sans-serif;
   border-style: solid;  
   border-radius: 5px;
-  width: 90%;
-  padding-top: 20px;
-  padding-right: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
+  padding: 20px;
   position: relative;
+  margin: 0 auto;
   top: 120px;
+  /* display: inline-block; */
+  /* left: 50%; */
 }
 
 .user-box  {
