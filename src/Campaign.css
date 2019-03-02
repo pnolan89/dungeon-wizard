@@ -1,0 +1,56 @@
+
+.Campaign {
+    
+    text-align: left;
+    background-color: #D4A446;
+    font-family: 'Montserrat', sans-serif;
+    border-style: solid;  
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 90%;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+
+    position: relative;
+    top: 120px;
+
+ 
+
+}
+.Campaign-Box  {
+    
+    display: flex;
+    align-items: center;
+}
+
+.Campaign-Details h1{
+    font-family: 'Cinzel', serif;
+    color: #285D82;
+    margin: auto;
+}
+.Campaign-Details p {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    color: #285D82;
+}
+
+.Campaign-Image img {
+    width: 200px;
+    height: 200px;
+    border-style: solid;
+    display: flex;
+    margin-left: 5em;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+.Campaign-Description {
+    font-family: 'Montserrat', sans-serif;
+    border-style: solid; 
+}
+

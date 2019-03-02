@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "n": "^2.1.12",
+    "normalize.css": "^8.0.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-scripts": "2.1.5",

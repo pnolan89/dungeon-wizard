@@ -1,0 +1,22 @@
+.navbar {
+  width: 100%;
+  position: fixed;
+  height: 100px;
+  background-color: #546A7B;
+  font-family: 'Cinzel Decorative', cursive;
+  padding-left: 25px;
+  
+}
+
+a {
+  text-decoration: none;
+  color: #D4A446;
+}
+
+.logo {
+  line-height: 40px;
+}
+
+.navbar h1 {
+  font-size: 3em;
+}
