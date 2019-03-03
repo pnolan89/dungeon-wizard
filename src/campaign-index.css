@@ -1,5 +1,5 @@
  .Campaign-Index {
-     display: flex;
+   
       
       text-align: left;
       background-color: #D4A446;
@@ -7,7 +7,7 @@
       border-style: solid;  
       border-radius: 5px;
       margin: 0 auto;
-      width: 90%;
+     
       padding-top: 20px;
       padding-right: 20px;
       padding-bottom: 20px;
@@ -15,4 +15,44 @@
 
       position: relative;
       top: 120px;
+  }
+
+  .Campaign-Card {
+    display: flex;
+    flex-direction: row;
+    width: 30em;
+  }
+
+  .Campaign-Card-Details h1 {
+
+    border: 1px solid;
+    border-radius: 5px;
+
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+  }
+
+  .Campaign-Index-Image img {
+    display: flex;
+    width: 8em;
+    height: 8em;
+    border-style: solid;  
+    border-radius: 5px;
+    margin: 0 auto;
+   
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .container {
+    padding: 2px 16px;
   }
