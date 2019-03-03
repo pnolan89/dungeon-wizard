@@ -18,6 +18,10 @@ a {
   line-height: 40px;
 }
 
+.pages a {
+  color: black;
+}
+
 .navbar h1 {
   font-size: 3em;
 }
