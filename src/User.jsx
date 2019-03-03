@@ -7,11 +7,11 @@ class User extends Component {
                  <div className="user">
                     <div className="user-box"> 
                         <div className="user-details">
-                            <h1>LolaTheElfDog</h1>
+                            <h1>{this.props.user.name}</h1>
                             <p>Member since: </p>
                             <p>Currently playing:</p>
-                            <p>Playing Style: super tough </p>
-                            <p>Experience level: newbie</p>
+                            <p>Playing Style: {this.props.user.playing_style} </p>
+                            <p>Experience level: {this.props.user.exp_level}</p>
                         </div>
                         <div className="user-image">
                             <img src="https://bit.ly/2C3tnvb" />
