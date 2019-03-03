@@ -17,6 +17,7 @@ class App extends Component {
       messages: []
     };
   }
+  
   componentDidMount() {
     axios.get('http://localhost:3000/campaigns/21')
       .then((response) => {
