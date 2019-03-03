@@ -24,12 +24,12 @@ class Home extends Component {
       messages: []}
   }
   componentDidMount() {
-    console.log("first:", this.state);
-    console.log("second", this.state);
-    axios.get('http://localhost:3000/campaigns')
+    let campaignId = this.props.match.params.campaignId;
+    console.log('campaignId: ', campaignId);
+    axios.get(`http://localhost:3000/campaigns/${campaignId}`)
       .then((response) => {
         this.setState({
-          currentCampaign: response.data[0]
+          currentCampaign: response.data
         });
         console.log(response.data);
         // this.setState({
@@ -56,8 +56,8 @@ class Home extends Component {
   //       });
   //       // console.log(campaigns.data)
   //     }
-      
-  
+
+
 
   render() {
     return (
@@ -65,11 +65,11 @@ class Home extends Component {
         <div className="App">
         <Nav />
         <Route path="/user/" render={(props) => <User {...props} user={this.state.currentUser} />} />
-        <Route path="/campaign/" render={(props) => <Campaign {...props} campaign={this.state.currentCampaign} />} />
+        <Route path="/campaign/" render={(props) => <Campaign {...props} campaign={this.state.currentCampaign.campaign} dm={this.state.currentCampaign.dm}/>} />
         {/* <Campaign campaign={this.state.currentCampaign}/> */}
       </div>
       </Router>
-      
+
     );
   }
 }
