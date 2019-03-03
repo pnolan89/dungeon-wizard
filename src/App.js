@@ -3,6 +3,8 @@ import './App.css';
 import Nav from './Nav.jsx';
 import User from './User.jsx';
 import Campaign from './campaign.jsx';
+import CampaignIndex from './campaign-index.jsx';
+
 import axios from 'axios';
 
 class App extends Component {
@@ -17,9 +19,9 @@ class App extends Component {
       messages: []
     };
   }
-  
+
   componentDidMount() {
-    axios.get('http://localhost:3000/campaigns/21')
+    axios.get('http://localhost:3000/campaigns/4')
       .then((response) => {
         this.setState({
           campaignData: {
@@ -39,7 +41,8 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
-        <Campaign campaign={this.state.campaignData.campaign} dm={this.state.campaignData.dm}/>
+        {/* <Campaign campaign={this.state.campaignData.campaign} dm={this.state.campaignData.dm}/> */}
+        <CampaignIndex campaign={this.state.campaignData.campaign} dm={this.state.campaignData.dm}/>
       </div>
     );
   }
