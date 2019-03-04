@@ -1,20 +1,46 @@
 import React, { Component } from "react";
 import './User.css';
+// import querystring from "querystring";
+import axios from 'axios';
+
 
 class UserRegistration extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: ""};
+  constructor() {
+    super();
+    this.state = {
+  };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
   }
 
   handleSubmit(event) {
     event.preventDefault();
+    const data = new FormData(event.target);
+    console.log(data);
+    axios({
+      method: 'post',
+      url: 'http://localhost.com:3000/user',
+      data: data,
+      config: { headers: {'Content-Type': 'multipart/form-data' }}
+      })
+      .then(function (response) {
+          //handle success
+          console.log(response);
+      })
+      .catch(function (response) {
+          //handle error
+          console.log(response);
+      });
   }
     render() {  
         return(
@@ -22,30 +48,52 @@ class UserRegistration extends Component {
                     <div className="user-box"> 
                         <div className="user-details">
                             <form onSubmit={this.handleSubmit}>
+                            <div className="form">
                             <label>
                               Username:
-                              <input type="text" value={this.state.value} onChange={this.handleChange} />
+                              <input name="username" type="text" value="" onChange={this.handleChange}/>
                             </label>
+                            </div>
+                            <div className="form">
                             <label>
                               Email:
-                              <input type="email" value={this.state.value} onChange={this.handleChange} />
+                              <input name="email" type="email" value="@" onChange={this.handleChange}/>
                             </label>
+                            </div>
+                            <div className="form">
                             <label>
                               Play-style:
-                              <select value={this.state.value} onChange={this.handleChange}>
+                              <select name="play_style" onChange={this.handleChange}>
                               <option value="aggressive">Aggressive</option>
                               <option value="rpg">RPG</option>
                               <option value="easy-going">Easy-going</option>
                               </select>
                             </label>
+                            </div>
+                            <div className="form">
                             <label>
-                              <select value={this.state.value} onChange={this.handleChange}>
+                              Experience level:
+                              <select name="exp" onChange={this.handleChange}>
                               <option value="newbie">Newbie</option>
                               <option value="moderate">Moderate</option>
                               <option value="advanced">Advanced</option>
                               <option value="wizard">Wizard</option>
                               </select>
                             </label>
+                            </div>
+                            <div className="form">
+                            <label>
+                              Password:
+                              <input name="password" type="password" value="" onChange={this.handleChange}/>
+                            </label>
+                            </div>
+                            {/* <div className="form">
+                            <label>
+                              Confirm password:
+                              <input name="password-confirmation" type="password" value={this.state.password_confirmation} onChange={this.handleInputChange} />
+                            </label>
+                            </div> */}
+                            
                             <input type="submit" value="Submit" />
                             </form>
                         </div>

@@ -3,6 +3,7 @@ import './App.css';
 import Nav from './Nav.jsx';
 import User from './User.jsx';
 import Campaign from './campaign.jsx';
+import UserRegistration from './user_registration.js';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -31,6 +32,7 @@ class Home extends Component {
         this.setState({
           currentCampaign: response.data
         });
+        // this.props.history.push("/campaign");
         console.log(response.data);
         // this.setState({
         //   messages: response
@@ -65,6 +67,7 @@ class Home extends Component {
         <div className="App">
         <Nav />
         <Route path="/user/" render={(props) => <User {...props} user={this.state.currentUser} />} />
+        <Route path="/registration/" exact component={UserRegistration} />
         <Route path="/campaign/" render={(props) => <Campaign {...props} campaign={this.state.currentCampaign.campaign} dm={this.state.currentCampaign.dm}/>} />
         {/* <Campaign campaign={this.state.currentCampaign}/> */}
       </div>
