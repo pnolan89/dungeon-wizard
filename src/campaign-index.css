@@ -1,10 +1,12 @@
  .Campaign-Index {
    
-      
+     
       text-align: left;
-      background-color: #D4A446;
+      background: rgba(13, 31, 45, 0.7);
       font-family: 'Montserrat', sans-serif;
-      border-style: solid;  
+      border-style:  solid;  
+      border-width: 1px;
+
       border-radius: 5px;
       margin: 0 auto;
      
@@ -15,44 +17,60 @@
 
       position: relative;
       top: 120px;
+      box-shadow: 3px 3px 10px;
   }
 
   .Campaign-Card {
     display: flex;
     flex-direction: row;
-    width: 30em;
+    width: 32em;
+    color: white;
+
   }
 
   .Campaign-Card-Details h1 {
 
-    border: 1px solid;
-    border-radius: 5px;
+    margin-right: 1em;;
 
     padding-top: 2px;
     padding-right: 2px;
     padding-bottom: 2px;
     padding-left: 2px;
+
+    color: #D4A446;
   }
+
+ 
+
+  .Campaign-Card-Details h3 {
+    border-style: solid;  
+    border-width: 1px;
+    border-radius: 5px;
+    width: 50px;
+
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+  }
+
+  .Campaign-Card-Details h3:hover {
+    background-color: #D4A446;
+    transform: scale(1.1) perspective(1px);
+  }
+
 
   .Campaign-Index-Image img {
     display: flex;
     width: 8em;
     height: 8em;
     border-style: solid;  
+    border-width: 1px;
     border-radius: 5px;
     margin: 0 auto;
+    box-shadow: 3px 3px 10px;
+    color: black;
    
   }
 
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-  }
   
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-  
-  .container {
-    padding: 2px 16px;
-  }

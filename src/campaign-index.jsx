@@ -7,8 +7,11 @@ class CampaignIndex extends Component {
             <div className="Campaign-Index">
                 <div className="Campaign-Card">
                     <div className="Campaign-Card-Details">
-                        <h1>{this.props.campaign.name}</h1>
-                        <p>Dungeon Master: {this.props.dm.name}</p>
+                        <h1>The Great Campaign</h1>
+                        <p>Dungeon Master: ME</p>
+                        <p>Description: It's so good omg.</p>
+                        <p>Playing Style: Easy Peasy</p>
+                        <h3>JOIN!</h3>
                     </div>
                     <div className="Campaign-Index-Image">
                         <img src="https://bit.ly/2C3tnvb" />
