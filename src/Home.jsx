@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Nav from './Nav.jsx';
-import User from './User.jsx';
-import Campaign from './campaign.jsx';
+import Nav from './Nav';
+import User from './User';
+import Campaign from './campaign';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
