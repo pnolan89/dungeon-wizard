@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom'
 
 
-class CampaignCreate extends Component {
+class CampaignRegistration extends Component {
   constructor() {
     super();
     this.state = {
@@ -138,4 +138,4 @@ class CampaignCreate extends Component {
         );
     }
 }
-export default CampaignCreate;
+export default CampaignRegistration;
