@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import './campaign-create.css';
+import axios from 'axios';
 
 class CampaignCreate extends Component {
     render() {
         return(
             <div className="Campaign-Create">
-            <form>
+            <form id="NewCampaign">
 
               <h1>Make a Campaign!</h1>
 
@@ -13,7 +14,7 @@ class CampaignCreate extends Component {
                 <label for="fname">Campaign Name...</label>
                 <br>
                 </br>
-                <input type="text" id="name" name="firstname" placeholder="Make it a good one..."/>
+                <input type="text" id="name" name="name" placeholder="Make it a good one..."/>
                 <br>
                 </br>
                 <br>
@@ -24,7 +25,7 @@ class CampaignCreate extends Component {
                 <label for="lname">Dungeon Master...</label>
                 <br>
                 </br>
-                <input type="text" id="master" name="lastname" placeholder="Your leader..."/>
+                <input type="text" id="master" name="master" placeholder="Your leader..."/>
                 <br>
                 </br>
                 <br>
@@ -35,7 +36,7 @@ class CampaignCreate extends Component {
                 <label for="lname">Description...</label>
                 <br>
                 </br>
-                <input type="text" id="description" name="lastname" placeholder="What is your quest?"/>
+                <input type="text" id="description" name="description" placeholder="What is your quest?"/>
                 <br>
                 </br>
                 <br>
@@ -46,7 +47,7 @@ class CampaignCreate extends Component {
                 <label for="lname">Location...</label>
                 <br>
                 </br>
-                <input type="text" id="location" name="lastname" placeholder="Where is your dungeon?"/>
+                <input type="text" id="location" name="location" placeholder="Where is your dungeon?"/>
                 <br>
                 </br>
                 <br>
@@ -82,7 +83,7 @@ class CampaignCreate extends Component {
                 <br>
                 </br>
 
-              <input type="submit" value="Submit"/>
+              <input className="Input" type="submit" value="Submit"/>
           </form>      
       </div>
 

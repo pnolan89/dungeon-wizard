@@ -3,6 +3,7 @@ import './App.css';
 import Nav from './Nav.jsx';
 import User from './User.jsx';
 import Campaign from './campaign.jsx';
+import CampaignCreate from './campaign-create.jsx';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -69,7 +70,7 @@ class Home extends Component {
         <Route path="/user/" render={(props) => <User {...props} user={this.state.currentUser} />} />
         <Route path="/campaign/" render={(props) => <Campaign {...props} campaign={this.state.currentCampaign.campaign} dm={this.state.currentCampaign.dm}/>} />
         {/* <Campaign campaign={this.state.currentCampaign}/> */}
-        <Route path="/campaign/create/" />
+        <CampaignCreate />
       </div>
       </Router>
 
