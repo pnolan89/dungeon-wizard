@@ -37,18 +37,18 @@ class Home extends Component {
   render() {
     return (
       <Router>
-        <Switch>
+        
         <div className="App">
         <Nav />
+        <Switch>
         <Route exact path="/users/" component={UserIndex} />
-        <Route exact path="/create/" component={CampaignCreate} />
+        <Route exact path="/campaigns/new/" component={CampaignCreate} />
         <Route path="/campaigns/:campaignId" component={Campaign}/>
-        <Route path="/users/:userId" component={User}/>
         <Route path="/users/new" component={User}/>
+        <Route path="/users/:userId" component={User}/>
         <Route path="/register" component={UserRegistration} />
-        
+        </Switch>
       </div>
-      </Switch>
       </Router>
 
     );

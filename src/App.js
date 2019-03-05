@@ -10,7 +10,7 @@ class App extends Component {
       <Switch>
        <Route path='/' exact component={Home} />
        <Route path='/campaigns/' exact component={Home} />
-       <Route path='/create' exact component={Home} />
+       <Route path='/campaigns/new' exact component={Home} />
        <Route path='/campaigns/:campaignId' exact component={Home} />
        <Route path='/users/' exact component={Home} />
        <Route path='/users/:userId' exact component={Home} />
