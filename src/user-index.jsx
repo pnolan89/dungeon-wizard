@@ -34,9 +34,10 @@ getUserData() {
           <div className="Campaign-Index">
           <div className="Campaign-Card">
             <div className="Campaign-Card-Details">
-                <h1><Link to={`/users/${user.id}`}>{user.name}</Link></h1>
-                <p>Play-style: {user.playing_style}</p>
-                <p>Experience level: {user.exp_level}</p>
+                <h1><Link to={`/users/${user.user.id}`}>{user.user.name}</Link></h1>
+                <p>Play-style: {user.user.playing_style}</p>
+                <p>Experience level: {user.user.exp_level}</p>
+                <p>Campaigns: {user.campaigns.length}</p>
             </div>
             <div className="Campaign-Index-Image">
                 <img src="https://bit.ly/2C3tnvb" />
@@ -51,7 +52,7 @@ getUserData() {
   }
 }
     render() {
-      
+
         return(
             <React.Fragment>
             {this.getUserData()}
