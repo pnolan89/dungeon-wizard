@@ -28,11 +28,11 @@ class User extends Component {
         if (this.state.user) {
             return (
                 <React.Fragment>
-                    <h1>{this.state.user.name}</h1>
-                    <p>Member since: {this.state.user.created_at}</p>
+                    <h1>{this.state.user.user.name}</h1>
+                    <p>Member since: {this.state.user.user.created_at}</p>
                     <p>Currently playing:</p>
-                    <p>Playing Style: {this.state.user.playing_style} </p>
-                    <p>Experience level: {this.state.user.exp_level}</p>
+                    <p>Playing Style: {this.state.user.user.playing_style} </p>
+                    <p>Experience level: {this.state.user.user.exp_level}</p>
                 </React.Fragment>
             );
         } else {
