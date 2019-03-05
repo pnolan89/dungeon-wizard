@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './campaign-index.css';
 import axios from 'axios';
-import { BrowserRouter as Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 class UserIndex extends Component {
@@ -26,15 +26,15 @@ componentDidMount() {
   });
 }
 
+
 getUserData() {
   if (this.state.users) {
       const users = this.state.users.map((user) => {
-        let route = `/users/${user.id}`
         return(
           <div className="Campaign-Index">
           <div className="Campaign-Card">
             <div className="Campaign-Card-Details">
-                <h1><Link to="/users/">{user.name}</Link></h1>
+                <h1><Link to={`/users/${user.id}`}>{user.name}</Link></h1>
                 <p>Play-style: {user.playing_style}</p>
                 <p>Experience level: {user.exp_level}</p>
             </div>
