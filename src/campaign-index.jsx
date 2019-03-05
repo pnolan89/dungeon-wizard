@@ -16,14 +16,8 @@ class CampaignIndex extends Component {
                     <div className="Campaign-Index-Image">
                         <img src="https://bit.ly/2C3tnvb" />
                     </div>
-
-
-                </div>
-            
-                
-            </div>
-
-           
+                </div>  
+            </div>        
         );
     }
 }
