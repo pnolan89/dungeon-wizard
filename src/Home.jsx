@@ -3,6 +3,7 @@ import './App.css';
 import Nav from './Nav.jsx';
 import User from './User.jsx';
 import Campaign from './campaign.jsx';
+import UserRegistration from './user_registration.js';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -48,6 +49,7 @@ class Home extends Component {
         <Nav />
         <Route path="/campaigns/:campaignId" component={Campaign}/>
         <Route path="/users/:userId" component={User}/>
+        <Route path="/register" component={UserRegistration} />
         {/* <Campaign campaign={this.state.currentCampaign}/> */}
       </div>
       </Router>
