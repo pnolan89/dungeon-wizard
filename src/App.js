@@ -14,7 +14,7 @@ class App extends Component {
        <Route path='/campaigns/:campaignId' exact component={Home} />
        <Route path='/users/' exact component={Home} />
        <Route path='/users/:userId' exact component={Home} />
-       <Route path='/users/new' exact component={Home} />
+       <Route path='/register' component={Home} />
        <Route component={NotFound} />
       </Switch>
     </Router>

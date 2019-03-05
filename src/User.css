@@ -19,6 +19,13 @@
   align-items: center;
 }
 
+.user-details {
+}
+
+.form {
+  padding-bottom: 10px;
+}
+
 .user-details h1{
   font-family: 'Cinzel', serif;
   color: #285D82;
