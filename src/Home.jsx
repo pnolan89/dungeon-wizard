@@ -5,14 +5,17 @@ import User from './User.jsx';
 import Campaign from './campaign.jsx';
 import UserRegistration from './user_registration.js';
 import UserIndex from './user-index.jsx';
+import CampaignCreate from './campaign-create.jsx';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     
   }
+
+
 
   // getCampaigns () {
   //   axios.get(`http://localhost:3000/campaigns`)
@@ -34,13 +37,17 @@ class Home extends Component {
   render() {
     return (
       <Router>
+        
         <div className="App">
         <Nav />
+        <Switch>
         <Route exact path="/users/" component={UserIndex} />
+        <Route exact path="/campaigns/new/" component={CampaignCreate} />
         <Route path="/campaigns/:campaignId" component={Campaign}/>
-        <Route path="/users/:userId" component={User}/>
         <Route path="/users/new" component={User}/>
+        <Route path="/users/:userId" component={User}/>
         <Route path="/register" component={UserRegistration} />
+        </Switch>
       </div>
       </Router>
 
