@@ -1,24 +1,61 @@
 import React, { Component } from "react";
 import './Campaign.css';
+import axios from 'axios';
 
 class Campaign extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            campaignId: this.props.match.params.campaignId
+        };
+    }
+
+    componentDidMount() {
+        let campaignId = this.state.campaignId;
+        axios.get(`http://localhost:3000/campaigns/${campaignId}`)
+      .then((response) => {
+        console.log('RESPONSE DATA: ', response);
+        this.setState({
+          campaign: response.data.campaign,
+          dm: response.data.dm
+        });
+      })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+      });
+    }
+
+    getCampaignData() {
+        if (this.state.campaign) {
+            return (
+                <React.Fragment>
+                <h1>{this.state.campaign.name}</h1>
+                <p>JOIN CAMPAIGN</p>
+                <p>4/6 Spots Filled</p>
+                <p>Dungeon Master: {this.state.dm.name}</p>
+                <p>Location: {this.state.campaign.location}</p>
+                <p>Description: {this.state.campaign.description}</p>
+                <p>Playing Style: super tough </p>
+                </React.Fragment>
+           );
+        } else {
+            return (<p>Loading...</p>);
+        }
+    }
+
     render() {
+        let dm = this.state.dm;
         return(
                  <div className="Campaign">
+
                     <div className="Campaign-Box">
                         <div className="Campaign-Details">
-                            <h1>{this.props.campaign.name}</h1>
-                            <p>JOIN CAMPAIGN</p>
-                            <p>4/6 Spots Filled</p>
-                            <p>Dungeon Master: {this.props.dm.name}</p>
-                            <p>Location: {this.props.campaign.location}</p>
-                            <p>Description: {this.props.campaign.description}</p>
-                            <p>Playing Style: super tough </p>
+                        {this.getCampaignData()}
                         </div>
                         <div className="Campaign-Image">
                             <img src="https://bit.ly/2C3tnvb" />
                         </div>
-
                     </div>
                     <div className="Campaign-Description">
                         <h2>Our Noble Quest... </h2>

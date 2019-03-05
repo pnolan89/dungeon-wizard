@@ -3,44 +3,16 @@ import './App.css';
 import Nav from './Nav.jsx';
 import User from './User.jsx';
 import Campaign from './campaign.jsx';
+import UserRegistration from './user_registration.js';
+import UserIndex from './user-index.jsx';
 import CampaignCreate from './campaign-create.jsx';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      currentUser: {
-        id: 10,
-        name: "Gandalf Grey",
-        email: "mithran@dir.com",
-        password: "youshallnotpass",
-        playing_style: "casual",
-        exp_level: "beginner",
-        created_at: "2019-03-02T18:47:29.686Z",
-        updated_at: "2019-03-02T18:47:29.686Z"
-      },
-      currentCampaign: {},
-      messages: []}
-  }
-  componentDidMount() {
-    let campaignId = this.props.match.params.campaignId;
-    console.log('campaignId: ', campaignId);
-    axios.get(`http://localhost:3000/campaigns/${campaignId}`)
-      .then((response) => {
-        this.setState({
-          currentCampaign: response.data
-        });
-        console.log(response.data);
-        // this.setState({
-        //   messages: response
-        // });
-      })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-      });
+    
   }
 
 
@@ -65,13 +37,18 @@ class Home extends Component {
   render() {
     return (
       <Router>
+        <Switch>
         <div className="App">
         <Nav />
-        <Route path="/user/" render={(props) => <User {...props} user={this.state.currentUser} />} />
-        <Route path="/campaign/" render={(props) => <Campaign {...props} campaign={this.state.currentCampaign.campaign} dm={this.state.currentCampaign.dm}/>} />
-        {/* <Campaign campaign={this.state.currentCampaign}/> */}
-        <CampaignCreate />
+        <Route exact path="/users/" component={UserIndex} />
+        <Route exact path="/create/" component={CampaignCreate} />
+        <Route path="/campaigns/:campaignId" component={Campaign}/>
+        <Route path="/users/:userId" component={User}/>
+        <Route path="/users/new" component={User}/>
+        <Route path="/register" component={UserRegistration} />
+        
       </div>
+      </Switch>
       </Router>
 
     );
