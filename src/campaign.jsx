@@ -19,11 +19,6 @@ class Campaign extends Component {
           campaign: response.data.campaign,
           dm: response.data.dm
         });
-        // console.log('Campaign: ', this.state.campaign);
-        // console.log('DM: ', this.state.dm);
-        // this.setState({
-        //   messages: response
-        // });
       })
     .catch(function (error) {
       // handle error
