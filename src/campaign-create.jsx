@@ -204,7 +204,7 @@ class CampaignCreate extends Component {
     //  dm: this.state.master,
       description: this.state.description,
       location: this.state.location,
-      user_id: 10,
+      user_id: 37,
     //   avatar: this.state.avatar,
     // style: this.state.style
     }
