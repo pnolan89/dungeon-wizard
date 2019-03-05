@@ -4,25 +4,14 @@ import Nav from './Nav.jsx';
 import User from './User.jsx';
 import Campaign from './campaign.jsx';
 import UserRegistration from './user_registration.js';
+import UserIndex from './user-index.jsx';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      currentUser: {
-        id: 10,
-        name: "Gandalf Grey",
-        email: "mithran@dir.com",
-        password: "youshallnotpass",
-        playing_style: "casual",
-        exp_level: "beginner",
-        created_at: "2019-03-02T18:47:29.686Z",
-        updated_at: "2019-03-02T18:47:29.686Z"
-      },
-      currentCampaign: {},
-      messages: []}
+    
   }
 
   // getCampaigns () {
@@ -47,6 +36,7 @@ class Home extends Component {
       <Router>
         <div className="App">
         <Nav />
+        <Route exact path="/users/" component={UserIndex} />
         <Route path="/campaigns/:campaignId" component={Campaign}/>
         <Route path="/users/:userId" component={User}/>
         <Route path="/users/new" component={User}/>
