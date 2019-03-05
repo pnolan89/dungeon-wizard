@@ -6,8 +6,8 @@ export default class Nav extends Component {
   render() {
       return (
         <nav className='navbar'>
-          <div className='logo'><a href='/' className='navbar-brand'><h1>DuNgeOn WiZarD</h1></a> </div>
-          <div className='pages'> <Link to="/user/">User</Link> <Link to="/campaigns/">Campaign</Link> <Link to="/register/">Register</Link></div>
+          <span className='logo'><a href='/' className='navbar-brand'><h1>DuNgeOn WiZarD</h1></a> </span>
+          <span className='links'> <Link to="/users/">Users</Link> | <Link to="/campaigns/">Campaign</Link> | <Link to="/register/">Register</Link></span>
         </nav>
         )
     }

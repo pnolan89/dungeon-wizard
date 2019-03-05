@@ -8,7 +8,7 @@ class App extends Component {
   render () {
     return <Router>
       <Switch>
-        <Route path='/' exact component={Home} />
+       <Route path='/' exact component={Home} />
        <Route path='/campaigns/' exact component={Home} />
        <Route path='/campaigns/new' exact component={Home} />
        <Route path='/campaigns/:campaignId' exact component={Home} />
