@@ -42,6 +42,8 @@ class Home extends Component {
       });
   }
 
+
+
   // getCampaigns () {
   //   axios.get(`http://localhost:3000/campaigns`)
   //     .then((campaigns) => {
@@ -67,7 +69,7 @@ class Home extends Component {
         <Route path="/user/" render={(props) => <User {...props} user={this.state.currentUser} />} />
         <Route path="/campaign/" render={(props) => <Campaign {...props} campaign={this.state.currentCampaign.campaign} dm={this.state.currentCampaign.dm}/>} />
         {/* <Campaign campaign={this.state.currentCampaign}/> */}
-      
+        <Route path="/campaign/create/" />
       </div>
       </Router>
 
