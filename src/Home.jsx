@@ -47,6 +47,7 @@ class Home extends Component {
       <Router>
         <div className="App">
         <Nav />
+        <Route path="/campaigns/new" component={CampainCreation}/>
         <Route path="/campaigns/:campaignId" component={Campaign}/>
         <Route path="/users/:userId" component={User}/>
         <Route path="/users/new" component={User}/>
