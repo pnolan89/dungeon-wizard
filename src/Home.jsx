@@ -24,25 +24,6 @@ class Home extends Component {
       currentCampaign: {},
       messages: []}
   }
-  componentDidMount() {
-    let campaignId = this.props.match.params.campaignId;
-    console.log('campaignId: ', campaignId);
-    axios.get(`http://localhost:3000/campaigns/${campaignId}`)
-      .then((response) => {
-        this.setState({
-          currentCampaign: response.data
-        });
-        // this.props.history.push("/campaign");
-        console.log(response.data);
-        // this.setState({
-        //   messages: response
-        // });
-      })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-      });
-  }
 
   // getCampaigns () {
   //   axios.get(`http://localhost:3000/campaigns`)
@@ -66,9 +47,7 @@ class Home extends Component {
       <Router>
         <div className="App">
         <Nav />
-        <Route path="/user/" render={(props) => <User {...props} user={this.state.currentUser} />} />
-        <Route path="/registration/" exact component={UserRegistration} />
-        <Route path="/campaign/" render={(props) => <Campaign {...props} campaign={this.state.currentCampaign.campaign} dm={this.state.currentCampaign.dm}/>} />
+        <Route path="/campaigns/:campaignId" component={Campaign}/>
         {/* <Campaign campaign={this.state.currentCampaign}/> */}
       </div>
       </Router>
