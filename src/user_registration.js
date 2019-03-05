@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import './User.css';
-// import querystring from "querystring";
 import axios from 'axios';
+import { Redirect } from 'react-router-dom'
 
 
 class UserRegistration extends Component {
   constructor() {
     super();
     this.state = {
+      redirect: false,
   };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,15 +26,20 @@ class UserRegistration extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const data = new FormData(event.target);
-    console.log(data);
-    axios({
-      method: 'post',
-      url: 'http://localhost.com:3000/user',
-      data: data,
-      config: { headers: {'Content-Type': 'multipart/form-data' }}
-      })
-      .then(function (response) {
+    const formData = {
+      name: this.state.username,
+      email: this.state.email,
+      playing_style: this.state.play_style,
+      exp_level: this.state.exp,
+      password: this.state.password
+    }
+    console.log(formData);
+    axios.post('http://localhost:3000/users', formData)
+      .then((response) => {
+        this.setState({
+          userId: response.data,
+          redirect: true
+        });
           //handle success
           console.log(response);
       })
@@ -42,28 +48,37 @@ class UserRegistration extends Component {
           console.log(response);
       });
   }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      let route = `/users/${this.state.userId}`
+      return <Redirect to={route} />
+    }
+  }
     render() {  
         return(
                  <div className="user">
+                 {this.renderRedirect()}
                     <div className="user-box"> 
                         <div className="user-details">
                             <form onSubmit={this.handleSubmit}>
                             <div className="form">
                             <label>
                               Username:
-                              <input name="username" type="text" value="" onChange={this.handleChange}/>
+                              <input name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
                             </label>
                             </div>
                             <div className="form">
                             <label>
                               Email:
-                              <input name="email" type="email" value="@" onChange={this.handleChange}/>
+                              <input name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
                             </label>
                             </div>
                             <div className="form">
                             <label>
                               Play-style:
-                              <select name="play_style" onChange={this.handleChange}>
+                              <select name="play_style" value={this.state.play_style} onChange={this.handleChange}>
+                              <option value=":">Choose...</option>
                               <option value="aggressive">Aggressive</option>
                               <option value="rpg">RPG</option>
                               <option value="easy-going">Easy-going</option>
@@ -73,7 +88,8 @@ class UserRegistration extends Component {
                             <div className="form">
                             <label>
                               Experience level:
-                              <select name="exp" onChange={this.handleChange}>
+                              <select name="exp" value={this.state.exp} onChange={this.handleChange}>
+                              <option value=":">Choose...</option>
                               <option value="newbie">Newbie</option>
                               <option value="moderate">Moderate</option>
                               <option value="advanced">Advanced</option>
@@ -84,15 +100,9 @@ class UserRegistration extends Component {
                             <div className="form">
                             <label>
                               Password:
-                              <input name="password" type="password" value="" onChange={this.handleChange}/>
+                              <input name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
                             </label>
                             </div>
-                            {/* <div className="form">
-                            <label>
-                              Confirm password:
-                              <input name="password-confirmation" type="password" value={this.state.password_confirmation} onChange={this.handleInputChange} />
-                            </label>
-                            </div> */}
                             
                             <input type="submit" value="Submit" />
                             </form>
