@@ -57,10 +57,12 @@
   .join-request {
     margin-left: 30px;
     border-style: solid;
+    flex-basis: 40%;
   }
 
   .Campaign-Description {
       font-family: 'Montserrat', sans-serif;
       border-style: solid; 
+      flex-basis: 60%;
   }
 

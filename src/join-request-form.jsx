@@ -6,8 +6,8 @@ class JoinRequestForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          user_id: this.props.user_id,
-          campaign_id: this.props.campaign_id
+          // user_id: this.props.user_id,
+          // campaign_id: this.props.campaign_id
         };
     }
 
@@ -27,8 +27,8 @@ class JoinRequestForm extends Component {
         message: this.state.message,
         dm_confirm: false,
         player_confirm: true,
-        user_id: this.state.user_id,
-        campaign_id: this.state.campaign_id
+        // user_id: this.state.user_id,
+        // campaign_id: this.state.campaign_id
       }
       console.log(formData);
       axios.post('http://localhost:3000/join_request', formData)
@@ -50,16 +50,16 @@ class JoinRequestForm extends Component {
     render() {
         return(
           <div className="join-box">
+          <div className="title">
+          <h3>Request to join this campaign!</h3>
+          </div>
+          <div className="form">
             <form onSubmit={this.handleSubmit}>
-              <div className="form">
-              <label>
-                Message:
-                <textarea name="message" rows="10" cols="30" value={this.state.message} onChange={this.handleChange}/>
-              </label>
-              </div>
+              <label for="message">Why should the DM let you join?</label>
+                <textarea id="message" name="message" rows="10" cols="30" value={this.state.message} onChange={this.handleChange}/>
               <input type="submit" value="Submit" />
               </form>
-    
+              </div>
           </div>
                  
         );
