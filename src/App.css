@@ -1,6 +1,7 @@
 
 .App {
   text-align: center;
+  display: block;
 }
 
 .main {
@@ -22,9 +23,9 @@ body {
   background-position: top;
   background-repeat: repeat;
   background-size: center;
+  background-attachment: fixed;
   font-family: 'Cinzel', serif;
 }
 
 .App {
-  display: flex;
 }

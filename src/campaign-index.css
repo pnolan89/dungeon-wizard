@@ -1,14 +1,15 @@
  .Campaign-Index {
    
-     
       text-align: left;
       background: rgba(13, 31, 45, 0.7);
       font-family: 'Montserrat', sans-serif;
       border-style:  solid;  
       border-width: 1px;
+      width: 600px;
 
       border-radius: 5px;
-      margin: 0 auto;
+      margin:0 auto;
+      margin-bottom: 20px;
      
       padding-top: 20px;
       padding-right: 20px;
