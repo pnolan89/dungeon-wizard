@@ -212,8 +212,8 @@ class CampaignCreate extends Component {
     axios.post('http://localhost:3000/campaigns', formData)
       .then((response) => {
         this.setState({
-        //   userId: response.data,
-          redirect: true
+            campaignID: response.data,
+            redirect: true
         });
           //handle success
           console.log(response);
@@ -226,7 +226,7 @@ class CampaignCreate extends Component {
 
   renderRedirect = () => {
     if (this.state.redirect) {
-      let route = `/campaigns/`
+      let route = `/campaigns/${this.state.campaignID}`
       return <Redirect to={route} />
     }
   }
@@ -235,7 +235,7 @@ class CampaignCreate extends Component {
                
 
 <div className="Campaign-Create">
-    {/* {this.renderRedirect()} */}
+    {this.renderRedirect()}
 
     <div className="Campaign-Box">
 
