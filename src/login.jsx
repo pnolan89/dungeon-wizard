@@ -15,7 +15,7 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    console.log('STORAGE: ', localStorage.currentUser);
+    console.log('STORAGE: ', localStorage);
   }
 
   handleChange(event) {
@@ -39,7 +39,12 @@ class Login extends Component {
         response.data.forEach((user) => {
           if (user.user.email === formData.email) {
             if (user.user.password === formData.password) {
-              localStorage.setItem('currentUser', user.user.id);
+              let userData = {
+                id: user.user.id,
+                name: user.user.name
+              };
+              localStorage.setItem('user_id', userData.id);
+              localStorage.setItem('username', userData.name);
               this.setState({
                 redirect: true
               });
@@ -57,7 +62,7 @@ class Login extends Component {
 
   renderRedirect = () => {
     if (this.state.redirect) {
-      let route = `/users/${localStorage.currentUser}`
+      let route = `/users/${localStorage.user_id}`
       return <Redirect to={route} />
     }
   }
