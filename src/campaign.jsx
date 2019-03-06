@@ -31,7 +31,7 @@ class Campaign extends Component {
             return (
                 <React.Fragment>
                 <h1>{this.state.campaign.name}</h1>
-                <p>JOIN CAMPAIGN</p>
+                <p className="Join">JOIN CAMPAIGN</p>
                 <p>4/6 Spots Filled</p>
                 <p>Dungeon Master: {this.state.dm.name}</p>
                 <p>Location: {this.state.campaign.location}</p>

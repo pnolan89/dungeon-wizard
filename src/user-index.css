@@ -40,6 +40,20 @@
     padding-left: 2px;
 
     color: #D4A446;
+
+    transition: all .2s ease-in-out;
+  }
+
+  .User-Card-Details h1:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(1.05);
+  
+    }
+
+
+
+  .User-Card-Details {
+    width: 30em;
   }
 
  
@@ -54,12 +68,13 @@
     padding-right: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
+
+   
   }
 
-  .User-Card-Details h3:hover {
-    background-color: #D4A446;
-    transform: scale(1.1) perspective(1px);
-  }
+
+ 
+
 
 
   .User-Index-Image img {
@@ -69,10 +84,19 @@
     border-style: solid;  
     border-width: 1px;
     border-radius: 5px;
+    margin-left: 5em;
     margin: 0 auto;
+   
     box-shadow: 3px 3px 10px;
     color: black;
+
+    
+
+  
    
   }
+
+
+  
 
   

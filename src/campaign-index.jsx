@@ -41,7 +41,7 @@ getCampaignData() {
 
             </div>
             <div className="Campaign-Index-Image">
-                <img src="https://bit.ly/2C3tnvb" />
+                <img src="https://bit.ly/2XE42RH" />
             </div>
           </div>
           </div>

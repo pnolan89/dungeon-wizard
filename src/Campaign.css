@@ -3,10 +3,10 @@
       text-align: left;
       background: rgba(58, 9, 13, 0.7);
       font-family: 'Montserrat', sans-serif;
-      border-style: solid;  
+      border: 1px solid;  
       border-radius: 5px;
       margin: 0 auto;
-      width: 90%;
+      width: 50em;
       padding-top: 20px;
       padding-right: 20px;
       padding-bottom: 20px;
@@ -14,12 +14,17 @@
 
       position: relative;
       top: 120px;
+
+      box-shadow: 3px 3px 10px;
   }
 
   .Campaign-Box  {   
       display: flex;
       align-items: center;
+    
   }
+
+ 
 
   .Campaign-Details h1{
       font-family: 'Cinzel', serif;
@@ -32,24 +37,51 @@
       display: flex;
       /* color: #285D82; */
       color: white;
+
+      
   }
 
   .Campaign-Image img {
       width: 200px;
       height: 200px;
-      border-style: solid;
+      border: 1px solid;
       display: flex;
-      margin-left: 5em;
+      margin-left: 12em;
       border-radius: 5px;
-      padding-top: 20px;
-      padding-right: 20px;
-      padding-bottom: 20px;
-      padding-left: 20px;
+      box-shadow: 3px 3px 10px;
+
+    
   }
 
   .Campaign-Description {
       font-family: 'Montserrat', sans-serif;
       border-style: solid; 
+  }
+
+  .Join {
+    border: 1px solid;
+    border-radius: 5px;
+    width: 9em;
+
+    box-shadow: 3px 3px 10px black;
+
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+
+    text-align: center;
+
+    transition: all .2s ease-in-out;
+
+  }
+
+  .Join:hover {
+      color: #D4A446;
+      /* transition: all .2s ease; */
+      transition: all .2s ease-out;
+      transform: scale(1.1);
+
   }
 
 
