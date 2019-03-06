@@ -6,7 +6,9 @@
       font-family: 'Montserrat', sans-serif;
       border-style:  solid;  
       border-width: 1px;
+
       width: 600px;
+      height: 15em;
 
       border-radius: 5px;
       margin:0 auto;
@@ -20,6 +22,15 @@
       position: relative;
       top: 120px;
       box-shadow: 3px 3px 10px;
+
+      transition: all .2s ease-in-out;
+  }
+
+  .Campaign-Index:hover {
+
+  transition: all .2s ease-in-out;
+  transform: scale(1.005);
+
   }
 
   .Campaign-Card {
@@ -32,6 +43,8 @@
 
   .Campaign-Card-Details h1 {
 
+    font-family: 'Cinzel', serif;
+    
     margin-right: 1em;;
 
     padding-top: 2px;
@@ -41,11 +54,9 @@
 
     color: #D4A446;
 
-    transition: all .2s ease-in-out;
   }
   .Campaign-Card-Details h1:hover {
-  transition: all .2s ease-in-out;
-  transform: scale(1.05);
+ 
 
   }
 
@@ -75,14 +86,17 @@
 
   .Campaign-Index-Image img {
     display: flex;
-    width: 8em;
-    height: 8em;
+    width: 10em;
+    height: 10em;
     border-style: solid;  
     border-width: 1px;
     border-radius: 5px;
     margin: 0 auto;
     box-shadow: 3px 3px 10px;
     color: black;
+
+    position: relative;
+    top: 20px; left: 1em;
 
    
    

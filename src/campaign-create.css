@@ -8,7 +8,7 @@
     width: 20em;
     padding-top: 20px;
     padding-right: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
     padding-left: 20px;
 
     position: relative;
@@ -24,11 +24,19 @@
   .Campaign-Create h1 {
       color: #D4A446;
       font-family: 'Cinzel', serif;
+
+      padding-top: 10px;
+      padding-right: 2px;
+      padding-bottom: 10px;
+      padding-left: 5px;
   }
 
 
 
   .Input {
+
+    background-color: #D4A446;
+
 
     border-style: solid;  
     border-width: 1px;
@@ -39,10 +47,14 @@
     padding-right: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
+
+    position: relative;
+    top: 1em; left: .7em
   }
 
   .Input:hover {
-    background-color: #D4A446;
-    transform: scale(1.1) perspective(1px);
+    background-color: #285D82;
+    color: white;
+  
   }
 

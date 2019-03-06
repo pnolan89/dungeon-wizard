@@ -31,6 +31,10 @@ a {
   color: black;
 }
 
+.links a:hover {
+  color: #D4A446;
+}
+
 .navbar h1 {
   font-size: 3em;
 }

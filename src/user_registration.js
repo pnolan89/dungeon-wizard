@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './User.css';
+import './user_registration.css';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom'
 
@@ -57,26 +57,30 @@ class UserRegistration extends Component {
   }
     render() {  
         return(
-                 <div className="user">
+                 <div className="registration">
                  {this.renderRedirect()}
                     <div className="user-box"> 
                         <div className="user-details">
                             <form onSubmit={this.handleSubmit}>
                             <div className="form">
+                            <h1>Register...</h1>
                             <label>
-                              Username:
+                              Username: 
+                              <br></br>
                               <input name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
                             </label>
                             </div>
                             <div className="form">
                             <label>
-                              Email:
+                              Email: 
+                              <br></br>
                               <input name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
                             </label>
                             </div>
                             <div className="form">
                             <label>
-                              Play-style:
+                              Play-style: 
+                              <br></br>
                               <select name="play_style" value={this.state.play_style} onChange={this.handleChange}>
                               <option value=":">Choose...</option>
                               <option value="aggressive">Aggressive</option>
@@ -87,7 +91,8 @@ class UserRegistration extends Component {
                             </div>
                             <div className="form">
                             <label>
-                              Experience level:
+                              Experience level: 
+                              <br></br>
                               <select name="exp" value={this.state.exp} onChange={this.handleChange}>
                               <option value=":">Choose...</option>
                               <option value="newbie">Newbie</option>
@@ -99,12 +104,13 @@ class UserRegistration extends Component {
                             </div>
                             <div className="form">
                             <label>
-                              Password:
+                              Password: 
+                              <br></br>
                               <input name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
                             </label>
                             </div>
                             
-                            <input type="submit" value="Submit" />
+                            <input className="input" type="submit" value="Submit" />
                             </form>
                         </div>
                     </div>       
