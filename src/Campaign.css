@@ -2,7 +2,8 @@
   .Campaign {
       
       text-align: left;
-      background-color: #D4A446;
+      /* background-color: #D4A446; */
+      background: rgba(58, 9, 13, 0.7);
       font-family: 'Montserrat', sans-serif;
       border-style: solid;  
       border-radius: 5px;
@@ -27,13 +28,15 @@
 
   .Campaign-Details h1{
       font-family: 'Cinzel', serif;
-      color: #285D82;
+      /* color: #285D82; */
+      color: white;
       margin: auto;
   }
   .Campaign-Details p {
       font-family: 'Montserrat', sans-serif;
       display: flex;
-      color: #285D82;
+      /* color: #285D82; */
+      color: white;
   }
 
   .Campaign-Image img {

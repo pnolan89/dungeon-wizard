@@ -52,7 +52,7 @@ class User extends Component {
                         </div>
 
                     </div>
-                    <div classname="user-campaign">
+                    <div className="user-campaign">
                         <p>A campaign!</p>
                     </div>
             </div>

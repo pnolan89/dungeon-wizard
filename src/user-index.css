@@ -1,8 +1,8 @@
- .Campaign-Index {
+.User-Index {
    
       text-align: left;
-      
-      background: rgba(58, 9, 13, 0.7);
+      background: rgba(13, 31, 45, 0.7);
+    
       font-family: 'Montserrat', sans-serif;
       border-style:  solid;  
       border-width: 1px;
@@ -22,7 +22,7 @@
       box-shadow: 3px 3px 10px;
   }
 
-  .Campaign-Card {
+  .User-Card {
     display: flex;
     flex-direction: row;
     width: 32em;
@@ -30,7 +30,7 @@
 
   }
 
-  .Campaign-Card-Details h1 {
+  .User-Card-Details h1 {
 
     margin-right: 1em;;
 
@@ -44,7 +44,7 @@
 
  
 
-  .Campaign-Card-Details h3 {
+  .User-Card-Details h3 {
     border-style: solid;  
     border-width: 1px;
     border-radius: 5px;
@@ -56,13 +56,13 @@
     padding-left: 5px;
   }
 
-  .Campaign-Card-Details h3:hover {
+  .User-Card-Details h3:hover {
     background-color: #D4A446;
     transform: scale(1.1) perspective(1px);
   }
 
 
-  .Campaign-Index-Image img {
+  .User-Index-Image img {
     display: flex;
     width: 8em;
     height: 8em;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './campaign-index.css';
+import './user-index.css';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
@@ -31,15 +31,15 @@ getUserData() {
   if (this.state.users) {
       const users = this.state.users.map((user) => {
         return(
-          <div className="Campaign-Index">
-          <div className="Campaign-Card">
-            <div className="Campaign-Card-Details">
+          <div className="User-Index">
+          <div className="User-Card">
+            <div className="User-Card-Details">
                 <h1><Link to={`/users/${user.user.id}`}>{user.user.name}</Link></h1>
                 <p>Play-style: {user.user.playing_style}</p>
                 <p>Experience level: {user.user.exp_level}</p>
                 <p>Campaigns: {user.campaigns.length}</p>
             </div>
-            <div className="Campaign-Index-Image">
+            <div className="User-Index-Image">
                 <img src="https://bit.ly/2C3tnvb" />
             </div>
           </div>
