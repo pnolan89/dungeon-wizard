@@ -16,6 +16,8 @@ class Campaign extends Component {
     this.getRequestData = this.getRequestData.bind(this);
   }
   componentDidMount() {
+    console.log("Storage!", typeof localStorage.user_id)
+
     let campaignId = this.state.campaignId;
     axios.get(`http://localhost:3000/campaigns/${campaignId}`)
     .then((response) => {
@@ -57,15 +59,15 @@ class Campaign extends Component {
     } else {
       console.log("1 - State doesn't exist!")
       return (<p>Loading</p>)
-    }
   }
-
+  }
   checkUserRequest() {
     let existenceCheck = function(element) {
       return element !== undefined
     }
     let array = this.state.join_requests.map((object) => {
-      if (object.user_id === 43) {
+      console.log("obj.user_id", object.user_id)
+      if (object.user_id === parseInt(localStorage.user_id)) {
         console.log("2 - objec.userid matches 43")
         console.log("check",object)
         return this.getUserRequest();
@@ -84,7 +86,7 @@ class Campaign extends Component {
   
   getUserRequest() {
     let array = this.state.join_requests.map((object) => {
-      if (object.user_id === 43) {
+      if (object.user_id === parseInt(localStorage.user_id)) {
         console.log("3 - user_id matches 43")
         console.log(" second check",object)
         return object
@@ -137,6 +139,7 @@ class Campaign extends Component {
       </div>
       </div>
       
+      <div className="player-box">
       <div className="join-request">
       { this.state.campaign ? (
       this.getRequestData()
@@ -144,6 +147,8 @@ class Campaign extends Component {
         <p>Loading...</p>
       ) }
       </div>
+      </div>
+      
     </div>
     );
   }

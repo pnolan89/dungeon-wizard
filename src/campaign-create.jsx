@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom'
 
 
-class CampaignCreate extends Component {
+class CampaignRegistration extends Component {
   constructor() {
     super();
     this.state = {
@@ -12,6 +12,10 @@ class CampaignCreate extends Component {
   };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    console.log(localStorage.currentUser)
   }
 
   handleChange(event) {
@@ -33,7 +37,7 @@ class CampaignCreate extends Component {
     //  dm: this.state.master,
       description: this.state.description,
       location: this.state.location,
-      user_id: 151,
+      user_id: localStorage.currentUser,
     //   avatar: this.state.avatar,
     // style: this.state.style
     }
@@ -72,12 +76,13 @@ class CampaignCreate extends Component {
 
             <form onSubmit={this.handleSubmit}>
 
-                <h1>Make a Campaign!</h1>
+                <h1>Create Campaign...</h1>
 
                         <div className="form">
                         <label>
-                        Campaign Name...
-                        <input name="name" type="text" placeholder="Make it a good one..." value={this.state.name} onChange={this.handleChange}/>
+                        Campaign Name:
+                        <br></br>
+                        <input name="name" type="text" value={this.state.name} onChange={this.handleChange}/>
                         </label>
                         </div>
 
@@ -90,15 +95,17 @@ class CampaignCreate extends Component {
 
                         <div className="form">
                         <label>
-                        Description...
-                        <input name="description" type="text" placeholder="What is your quest?" value={this.state.description} onChange={this.handleChange}/>
+                        Description:
+                        <br></br>
+                        <input name="description" type="text"  value={this.state.description} onChange={this.handleChange}/>
                         </label>
                         </div>
 
                         <div className="form">
                         <label>
-                        Location...
-                        <input name="location" type="text" placeholder="Where is your dungeon?" value={this.state.location} onChange={this.handleChange}/>
+                        Location:
+                        <br></br>
+                        <input name="location" type="text"  value={this.state.location} onChange={this.handleChange}/>
                         </label>
                         </div>
 
@@ -116,7 +123,8 @@ class CampaignCreate extends Component {
 
                         <div className="form">
                         <label>
-                        Playing Style...
+                        Playing Style:
+                        <br></br>
                         <select name="style" value={this.state.exp} onChange={this.handleChange}>
                         <option value=":">Choose...</option>
                         <option value="Easy Peasy">Easy Peasy</option>
@@ -138,4 +146,4 @@ class CampaignCreate extends Component {
         );
     }
 }
-export default CampaignCreate;
+export default CampaignRegistration;

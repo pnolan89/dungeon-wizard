@@ -1,0 +1,62 @@
+.registration {
+  width: 20em;
+  height: 29em;
+
+  text-align: left;
+  background: rgba(13, 31, 45, 0.7);
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid;  
+  border-radius: 5px;
+  padding: 20px;
+  position: relative;
+  margin: 0 auto;
+  top: 120px;
+  
+
+  box-shadow: 3px 3px 10px;
+}
+
+.user-details {
+    color: white;
+}
+
+.user-details h1 {
+    color: #D4A446;
+
+    padding-top: 0px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+}
+
+.form {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+}
+
+.input {
+
+    background-color: #D4A446;
+
+    color: black;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+
+    border: black 1px;
+    border-radius: 5px;
+
+
+    position: relative;
+    top: .4em; left: .7em
+}
+
+.input:hover {
+    background-color: #285D82;
+    color: white;
+    
+
+}

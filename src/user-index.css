@@ -1,13 +1,11 @@
- .Campaign-Index {
+.User-Index {
    
       text-align: left;
-
-      
-      background: rgba(58, 9, 13, 0.7);
+      background: rgba(13, 31, 45, 0.7);
+    
       font-family: 'Montserrat', sans-serif;
       border-style:  solid;  
       border-width: 1px;
-
       width: 600px;
       height: 15em;
 
@@ -22,32 +20,29 @@
 
       position: relative;
       top: 50px;
-
-     
       box-shadow: 3px 3px 10px;
 
-      transition: all .2s ease-in-out;
-  }
-
-  .Campaign-Index:hover {
-
-  transition: all .2s ease-in-out;
-  transform: scale(1.005);
+    transition: all .2s ease-in-out;
 
   }
 
-  .Campaign-Card {
+  .User-Card {
     display: flex;
     flex-direction: row;
     width: 32em;
     color: white;
 
+
+
   }
 
-  .Campaign-Card-Details h1 {
+  .User-Index:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(1.005);
+  }
 
-    font-family: 'Cinzel', serif;
-    
+  .User-Card-Details h1 {
+
     margin-right: 1em;;
 
     padding-top: 2px;
@@ -57,52 +52,66 @@
 
     color: #D4A446;
 
+    font-family: 'Cinzel', serif;
+
+
   }
-  .Campaign-Card-Details h1:hover {
+
+  .User-Card-Details h1:hover {
+
+  
+    }
+
+
+
+  .User-Card-Details {
+    width: 30em;
+  }
+
  
 
-  }
-
-  .Campaign-Card-Details p {
-    width: 20em;
-    margin-right: 4em;
-
-
-  }
-
- 
-
-  .Campaign-Card-Details h3 {
+  .User-Card-Details h3 {
     border-style: solid;  
     border-width: 1px;
     border-radius: 5px;
     width: 50px;
-    
+
     padding-top: 5px;
     padding-right: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
+
+   
   }
 
 
+ 
 
 
-  .Campaign-Index-Image img {
+
+  .User-Index-Image img {
     display: flex;
     width: 10em;
     height: 10em;
     border-style: solid;  
     border-width: 1px;
     border-radius: 5px;
+    margin-left: 5em;
     margin: 0 auto;
+   
     box-shadow: 3px 3px 10px;
     color: black;
 
     position: relative;
-    top: 20px; left: 1em;
+    top: 20px; left: 3em;
 
-   
+    
+
+  
    
   }
+
+
+  
 
   

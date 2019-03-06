@@ -5,6 +5,14 @@ import NotFound from './NotFound'
 import Campaign from './campaign'
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    console.log(localStorage);
+  }
+
   render () {
     return <Router>
       <Switch>
@@ -13,8 +21,10 @@ class App extends Component {
        <Route path='/campaigns/new' exact component={Home} />
        <Route path='/campaigns/:campaignId' exact component={Home} />
        <Route path='/users/' exact component={Home} />
+       <Route path='/users/new' component={Home} />
        <Route path='/users/:userId' exact component={Home} />
        <Route path='/register' component={Home} />
+       <Route path='/login' component={Home} />
        <Route component={NotFound} />
       </Switch>
     </Router>
