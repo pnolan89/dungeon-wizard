@@ -5,6 +5,19 @@ import NotFound from './NotFound'
 import Campaign from './campaign'
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {currentUser: null};
+  }
+
+  componentDidMount() {
+    localStorage.setItem('currentUser', 151);
+    const userLogin = localStorage.getItem('currentUser');
+    if (userLogin) {
+      this.setState({currentUser: userLogin});
+    }
+  }
+
   render () {
     return <Router>
       <Switch>
