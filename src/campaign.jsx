@@ -53,12 +53,11 @@ class Campaign extends Component {
   }
 
   getRequestData() {
-    if (this.state.join_requests) {
-      console.log("1 - State exists!")
-      return this.checkUserRequest()
+    if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
+      return <JoinStatusCampaign requests={this.state.join_requests} />
+      
     } else {
-      console.log("1 - State doesn't exist!")
-      return (<p>Loading</p>)
+      return this.checkUserRequest()
   }
   }
   checkUserRequest() {
