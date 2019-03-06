@@ -3,6 +3,7 @@ import './Campaign.css';
 import axios from 'axios';
 import JoinRequestForm from "./join-request-form";
 import JoinStatusCampaign from "./join-status-campaign";
+import JoinRequestDM from "./join-request-dm";
 
 class Campaign extends Component {
   constructor(props) {
@@ -54,7 +55,7 @@ class Campaign extends Component {
 
   getRequestData() {
     if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
-      return <JoinStatusCampaign requests={this.state.join_requests} />
+      return <JoinRequestDM requests={this.state.join_requests} />
       
     } else {
       return this.checkUserRequest()
@@ -65,8 +66,8 @@ class Campaign extends Component {
       return element !== undefined
     }
     let array = this.state.join_requests.map((object) => {
-      console.log("obj.user_id", object.user_id)
-      if (object.user_id === parseInt(localStorage.user_id)) {
+      console.log("obj.user_id", object.request.user_id)
+      if (object.request.user_id === parseInt(localStorage.user_id)) {
         console.log("2 - objec.userid matches 43")
         console.log("check",object)
         return this.getUserRequest();
@@ -85,7 +86,7 @@ class Campaign extends Component {
   
   getUserRequest() {
     let array = this.state.join_requests.map((object) => {
-      if (object.user_id === parseInt(localStorage.user_id)) {
+      if (object.request.user_id === parseInt(localStorage.user_id)) {
         console.log("3 - user_id matches 43")
         console.log(" second check",object)
         return object
@@ -96,7 +97,7 @@ class Campaign extends Component {
       console.log("4 - map over the array for rendering")
       console.log("double check", request)
       return (
-        <JoinStatusCampaign key={request.id} request={request.dm_confirm} />
+        <JoinStatusCampaign key={request.request.id} request={request.request.dm_confirm} />
       )
     })
     return join_request
@@ -139,13 +140,16 @@ class Campaign extends Component {
       </div>
       
       <div className="player-box">
-      <div className="join-request">
-      { this.state.campaign ? (
-      this.getRequestData()
-      ) : (
-        <p>Loading...</p>
-      ) }
-      </div>
+        <div className="join-request">
+          { this.state.campaign ? (
+            this.getRequestData()
+          ) : (
+            <p>Loading...</p>
+          ) }
+        </div>
+        <div className="player-list">
+        <h3>testing</h3>
+        </div>
       </div>
       
     </div>

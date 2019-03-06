@@ -28,12 +28,13 @@ class JoinRequestForm extends Component {
         message: this.state.message,
         dm_confirm: false,
         player_confirm: true,
-        user_id: 43,
+        user_id: localStorage.user_id,
         campaign_id: this.props.campaign.id
       }
       console.log(formData);
       axios.post('http://localhost:3000/join_requests', formData)
         .then((response) => {
+          console.log(response)
           this.setState({
             dm_confirm: response.data,
             redirect: true
