@@ -15,11 +15,9 @@ class CampaignIndex extends Component {
 componentDidMount() {
   axios.get(`http://localhost:3000/campaigns/`)
   .then ((response) => {
-      console.log('CAMPAIGNS: ', response.data);
       this.setState({
           campaigns: response.data
       });
-      console.log(this.state);
   })
   .catch(function (error) {
       console.log(error);

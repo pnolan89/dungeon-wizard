@@ -12,8 +12,6 @@ class UserIndex extends Component {
 }
 
 componentDidMount() {
-  console.log("LOCAL STORAGE:");
-  console.log(localStorage);
   axios.get(`http://localhost:3000/users/`)
   .then ((response) => {
       console.log('USER: ', response.data);
