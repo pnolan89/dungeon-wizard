@@ -14,6 +14,10 @@ class CampaignRegistration extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    console.log(localStorage.currentUser)
+  }
+
   handleChange(event) {
     const target = event.target;
     const value = target.value;
@@ -33,7 +37,7 @@ class CampaignRegistration extends Component {
     //  dm: this.state.master,
       description: this.state.description,
       location: this.state.location,
-      user_id: 151,
+      user_id: localStorage.currentUser,
     //   avatar: this.state.avatar,
     // style: this.state.style
     }

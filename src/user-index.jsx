@@ -11,7 +11,6 @@ class UserIndex extends Component {
     };
 }
 
-
 componentDidMount() {
   axios.get(`http://localhost:3000/users/`)
   .then ((response) => {
