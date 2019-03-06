@@ -24,6 +24,11 @@ componentDidMount() {
   });
 }
 
+filterCampaigns(campaigns) {
+    let filteredList = campaigns.filter((campaign) => campaign.playstyle === "example");
+    return filteredList;
+}
+
 
 getCampaignData() {
   if (this.state.campaigns) {
@@ -36,9 +41,6 @@ getCampaignData() {
                 <p>Dungeon Master: {campaign.dm.name}</p>
                 <p>Description: {campaign.campaign.description}</p>
                 <p>Location: {campaign.campaign.location}</p>
-
-
-
             </div>
             <div className="Campaign-Index-Image">
                 <img src="https://bit.ly/2XE42RH" />
