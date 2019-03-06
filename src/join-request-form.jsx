@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import './join-request.css';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom'
+
 
 class JoinRequestForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
+          redirect: false,
           message: ""
         };
+        console.log("Getting to join request")
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -24,14 +28,15 @@ class JoinRequestForm extends Component {
         message: this.state.message,
         dm_confirm: false,
         player_confirm: true,
-        user_id: 45,
+        user_id: 43,
         campaign_id: this.props.campaign.id
       }
       console.log(formData);
       axios.post('http://localhost:3000/join_requests', formData)
         .then((response) => {
           this.setState({
-
+            dm_confirm: response.data,
+            redirect: true
           });
             //handle success
             console.log(response);
@@ -45,6 +50,12 @@ class JoinRequestForm extends Component {
     componentDidMount() {
     }
 
+    renderRedirect = () => {
+      if (this.state.redirect) {
+        let route = `/users/${this.state.userId}`
+        return <Redirect to={route} />
+      }
+    }
     render() {
         return(
           <div className="join-box">
@@ -56,13 +67,13 @@ class JoinRequestForm extends Component {
             <div>Campaign Name: {this.props.campaign.name}</div>
             <div className="form">
             <form onSubmit={this.handleSubmit}>
-            <div><label for="message">Why should the DM let you join?</label></div>
-              
+            <div>
+              <label for="message">Why should the DM let you join?</label></div>
                 <textarea id="message" name="message"  value={this.state.message} onChange={this.handleChange}/>
-              <div><input type="submit" value="Submit" /></div>
+              <div>
+                <input type="submit" value="Submit" /></div>
             </form>
             </div>
-            
           </div>
           </div>
                  
