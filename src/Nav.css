@@ -22,6 +22,10 @@ a {
   line-height: 40px;
 }
 
+.login {
+  line-height: 100px;
+}
+
 .links {
   float: right;
   line-height: 100px;
