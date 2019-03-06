@@ -76,12 +76,13 @@ class CampaignRegistration extends Component {
 
             <form onSubmit={this.handleSubmit}>
 
-                <h1>Make a Campaign!</h1>
+                <h1>Create Campaign...</h1>
 
                         <div className="form">
                         <label>
-                        Campaign Name...
-                        <input name="name" type="text" placeholder="Make it a good one..." value={this.state.name} onChange={this.handleChange}/>
+                        Campaign Name:
+                        <br></br>
+                        <input name="name" type="text" value={this.state.name} onChange={this.handleChange}/>
                         </label>
                         </div>
 
@@ -94,15 +95,17 @@ class CampaignRegistration extends Component {
 
                         <div className="form">
                         <label>
-                        Description...
-                        <input name="description" type="text" placeholder="What is your quest?" value={this.state.description} onChange={this.handleChange}/>
+                        Description:
+                        <br></br>
+                        <input name="description" type="text"  value={this.state.description} onChange={this.handleChange}/>
                         </label>
                         </div>
 
                         <div className="form">
                         <label>
-                        Location...
-                        <input name="location" type="text" placeholder="Where is your dungeon?" value={this.state.location} onChange={this.handleChange}/>
+                        Location:
+                        <br></br>
+                        <input name="location" type="text"  value={this.state.location} onChange={this.handleChange}/>
                         </label>
                         </div>
 
@@ -120,7 +123,8 @@ class CampaignRegistration extends Component {
 
                         <div className="form">
                         <label>
-                        Playing Style...
+                        Playing Style:
+                        <br></br>
                         <select name="style" value={this.state.exp} onChange={this.handleChange}>
                         <option value=":">Choose...</option>
                         <option value="Easy Peasy">Easy Peasy</option>

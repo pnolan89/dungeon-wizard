@@ -7,6 +7,7 @@
       border-style:  solid;  
       border-width: 1px;
       width: 600px;
+      height: 15em;
 
       border-radius: 5px;
       margin:0 auto;
@@ -20,6 +21,9 @@
       position: relative;
       top: 120px;
       box-shadow: 3px 3px 10px;
+
+    transition: all .2s ease-in-out;
+
   }
 
   .User-Card {
@@ -28,6 +32,13 @@
     width: 32em;
     color: white;
 
+
+
+  }
+
+  .User-Index:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(1.005);
   }
 
   .User-Card-Details h1 {
@@ -40,6 +51,21 @@
     padding-left: 2px;
 
     color: #D4A446;
+
+    font-family: 'Cinzel', serif;
+
+
+  }
+
+  .User-Card-Details h1:hover {
+
+  
+    }
+
+
+
+  .User-Card-Details {
+    width: 30em;
   }
 
  
@@ -54,25 +80,38 @@
     padding-right: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
+
+   
   }
 
-  .User-Card-Details h3:hover {
-    background-color: #D4A446;
-    transform: scale(1.1) perspective(1px);
-  }
+
+ 
+
 
 
   .User-Index-Image img {
     display: flex;
-    width: 8em;
-    height: 8em;
+    width: 10em;
+    height: 10em;
     border-style: solid;  
     border-width: 1px;
     border-radius: 5px;
+    margin-left: 5em;
     margin: 0 auto;
+   
     box-shadow: 3px 3px 10px;
     color: black;
+
+    position: relative;
+    top: 20px; left: 3em;
+
+    
+
+  
    
   }
+
+
+  
 
   
