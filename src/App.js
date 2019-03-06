@@ -9,10 +9,6 @@ class App extends Component {
     super(props);
   }
 
-  componentDidMount() {
-    localStorage.setItem('currentUser', 151);
-  }
-
   render () {
     return <Router>
       <Switch>
@@ -23,6 +19,7 @@ class App extends Component {
        <Route path='/users/' exact component={Home} />
        <Route path='/users/:userId' exact component={Home} />
        <Route path='/register' component={Home} />
+       <Route path='/login' component={Home} />
        <Route component={NotFound} />
       </Switch>
     </Router>
