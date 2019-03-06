@@ -2,12 +2,13 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
-  position: fixed;
+  position: static;
   height: 100px;
   background-color: #546A7B;
   font-family: 'Cinzel Decorative', cursive;
   padding-left: 25px;
   z-index: 1;
+
 
 }
 

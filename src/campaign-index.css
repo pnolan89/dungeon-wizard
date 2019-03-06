@@ -1,6 +1,7 @@
  .Campaign-Index {
    
       text-align: left;
+
       
       background: rgba(58, 9, 13, 0.7);
       font-family: 'Montserrat', sans-serif;
@@ -20,7 +21,9 @@
       padding-left: 20px;
 
       position: relative;
-      top: 120px;
+      top: 50px;
+
+     
       box-shadow: 3px 3px 10px;
 
       transition: all .2s ease-in-out;
