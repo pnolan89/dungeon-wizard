@@ -1,4 +1,4 @@
-.Campaign-Create {
+.Campaign-Edit {
     text-align: left;
     font-family: 'Montserrat', sans-serif;
     border: 1px solid black; 
@@ -21,7 +21,7 @@
    
 
   }
-  .Campaign-Create h1 {
+  .Campaign-Edit h1 {
       color: #D4A446;
       font-family: 'Cinzel', serif;
 
@@ -57,4 +57,3 @@
     color: white;
   
   }
-

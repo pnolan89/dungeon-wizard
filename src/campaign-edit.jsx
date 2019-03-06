@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import './campaign-create.css';
+import './campaign-edit.css';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom'
 
 
-class CampaignRegistration extends Component {
+class CampaignEdit extends Component {
   constructor() {
     super();
     this.state = {
@@ -67,7 +67,7 @@ class CampaignRegistration extends Component {
         return(
 
 
-<div className="Campaign-Create">
+<div className="Campaign-Edit">
     {this.renderRedirect()}
 
     <div className="Campaign-Box">
@@ -146,4 +146,4 @@ class CampaignRegistration extends Component {
         );
     }
 }
-export default CampaignRegistration;
+export default CampaignEdit;
