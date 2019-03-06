@@ -25,14 +25,16 @@ componentDidMount() {
 }
 
 filterCampaigns(campaigns) {
-    let filteredList = campaigns.filter((campaign) => campaign.playstyle === "example");
+    let filteredList = campaigns.filter((campaign) => campaign.campaign.playing_style === "story-focused");
     return filteredList;
 }
 
 
 getCampaignData() {
   if (this.state.campaigns) {
-      const campaigns = this.state.campaigns.map((campaign) => {
+    let filteredList = this.filterCampaigns(this.state.campaigns);
+    console.log("FILTEREDLIST: ", filteredList);
+      const campaigns = filteredList.map((campaign) => {
         return(
           <div className="Campaign-Index">
           <div className="Campaign-Card">
