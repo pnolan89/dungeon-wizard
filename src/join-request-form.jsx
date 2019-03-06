@@ -6,18 +6,15 @@ class JoinRequestForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          // user_id: this.props.user_id,
-          // campaign_id: this.props.campaign_id
+          message: ""
         };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
-      const target = event.target;
-      const value = target.value;
-      const name = target.name;
-  
+    handleChange(event) { 
       this.setState({
-        [name]: value
+        message: event.target.value
       });
     }
 
@@ -27,13 +24,14 @@ class JoinRequestForm extends Component {
         message: this.state.message,
         dm_confirm: false,
         player_confirm: true,
-        // user_id: this.state.user_id,
-        // campaign_id: this.state.campaign_id
+        user_id: 45,
+        campaign_id: this.props.campaign.id
       }
       console.log(formData);
-      axios.post('http://localhost:3000/join_request', formData)
+      axios.post('http://localhost:3000/join_requests', formData)
         .then((response) => {
           this.setState({
+
           });
             //handle success
             console.log(response);
@@ -50,16 +48,22 @@ class JoinRequestForm extends Component {
     render() {
         return(
           <div className="join-box">
-          <div className="title">
+          <div className="top">
           <h3>Request to join this campaign!</h3>
           </div>
-          <div className="form">
+          <div className="bottom">
+            <div>Username:</div>
+            <div>Campaign Name: {this.props.campaign.name}</div>
+            <div className="form">
             <form onSubmit={this.handleSubmit}>
-              <label for="message">Why should the DM let you join?</label>
-                <textarea id="message" name="message" rows="10" cols="30" value={this.state.message} onChange={this.handleChange}/>
-              <input type="submit" value="Submit" />
-              </form>
-              </div>
+            <div><label for="message">Why should the DM let you join?</label></div>
+              
+                <textarea id="message" name="message"  value={this.state.message} onChange={this.handleChange}/>
+              <div><input type="submit" value="Submit" /></div>
+            </form>
+            </div>
+            
+          </div>
           </div>
                  
         );
