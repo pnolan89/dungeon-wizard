@@ -1,8 +1,6 @@
 
   .Campaign {
-      
       text-align: left;
-      /* background-color: #D4A446; */
       background: rgba(58, 9, 13, 0.7);
       font-family: 'Montserrat', sans-serif;
       border-style: solid;  
@@ -16,12 +14,9 @@
 
       position: relative;
       top: 120px;
-
-  
-
   }
-  .Campaign-Box  {
-      
+
+  .Campaign-Box  {   
       display: flex;
       align-items: center;
   }
