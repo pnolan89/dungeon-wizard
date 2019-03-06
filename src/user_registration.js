@@ -36,7 +36,8 @@ class UserRegistration extends Component {
     console.log(formData);
     axios.post('http://localhost:3000/users', formData)
       .then((response) => {
-        localStorage.setItem('currentUser', response.data);
+        localStorage.setItem('user_id', response.data.id);
+        localStorage.setItem('username', response.data.name);
         this.setState({
           userId: response.data,
           redirect: true

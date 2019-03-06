@@ -9,6 +9,10 @@ class App extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    console.log(localStorage);
+  }
+
   render () {
     return <Router>
       <Switch>
