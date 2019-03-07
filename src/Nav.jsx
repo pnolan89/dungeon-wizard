@@ -6,24 +6,37 @@ export default class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dropClass: "dropdown-content"
+      dropClass: "dropdown-content",
+      logout: false
     };
     this.dropdownClick = this.dropdownClick.bind(this);
     this.logoutClick = this.logoutClick.bind(this);
+    this.handleWindowClick = this.handleWindowClick.bind(this);
   }
 
+  componentWillUnmount() {
+    console.log("WillUnmount")
+    document.removeEventListener('click', this.handleWindowClick);
+  }
+
+  componentWillMount() {
+    console.log("WillMount: ", this.state.dropClass)
+    document.addEventListener('click', this.handleWindowClick);
+  }
+
+
   dropdownClick() {
-    return () => {
-      if (this.state.dropClass === "dropdown-content") {
-        this.setState({
-          dropClass: "dropdown-content show"
-        });
-      } else {
-        this.setState({
-          dropClass: "dropdown-content"
-        });
-      }
-    };
+    console.log(this.state.dropClass)
+    if (this.state.dropClass === "dropdown-content") {
+      this.setState({
+        dropClass: "dropdown-content show"
+      });
+    } else {
+      console.log("Got to else")
+      this.setState({
+        dropClass: "dropdown-content"
+      });
+    }
   }
 
   logoutClick() {
@@ -36,24 +49,48 @@ export default class Nav extends Component {
     };
   }
 
-  componentDidMount() {
-    console.log(this.state.dropClass);
+  handleWindowClick() {
+    if (this.state.dropClass === 'dropdown-content show') {
+      this.setState({
+        dropClass: "dropdown-content"
+      }, () => {
+        console.log("I'm here");
+        // window.removeEventListener('click', this.handleWindowClick);
+      });
+    }
+  }
+
+  getDropdown() {
+    if (localStorage.user_id) {
+      let profilePath = `/users/${localStorage.user_id}/`;
+      return (
+        <div id="dropdown" className="dropdown">
+          <button onClick={this.dropdownClick} className="dropbtn">{localStorage.username}</button>
+          <div id="loginDropdown" className={this.state.dropClass}>
+            <Link to={profilePath}>Profile</Link>
+            <a onClick={this.logoutClick()}>Logout</a>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div id="dropdown" className="dropdown">
+          <button onClick={this.dropdownClick} className="dropbtn">Login/Register</button>
+          <div id="loginDropdown" className={this.state.dropClass}>
+            <Link to="/login/">Login</Link>
+            <Link to="/users/new">Register</Link>
+          </div>
+        </div>
+      )
+    }
   }
 
   render() {
-    let profilePath = `/users/${localStorage.user_id}/`;
       return (
         <nav className='navbar'>
           <span className='logo'><a href='/' className='navbar-brand'><h1>DuNgeOn WiZarD</h1></a> </span>
           <span className='links'> <Link to="/users/">Users</Link> | <Link to="/campaigns/">Campaigns</Link> | <Link to="/users/new/">Register</Link> | <Link to="/campaigns/new/">Create</Link></span>
-          <div className="dropdown">
-            <button onClick={this.dropdownClick()} className="dropbtn">{localStorage.username}</button>
-            <div id="loginDropdown" className={this.state.dropClass}>
-              <Link to={profilePath}>Profile</Link>
-              <a onClick={this.logoutClick()}>Logout</a>
-            </div>
-          </div>
-          <span className='login'></span>
+          {this.getDropdown()}
         </nav>
         )
     }
