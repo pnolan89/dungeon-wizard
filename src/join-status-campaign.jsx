@@ -12,18 +12,22 @@ class JoinStatusCampaign extends Component {
   }
 
   checkStatus() {
-    if (!this.props.request.dm_confirm) {
-      console.log("if status join status");
+    if (this.props.request.dm_confirm === "pending") {
       return (
         <React.Fragment>
           <h3>Pending</h3>
         </React.Fragment>
       )
-    } else {
-      console.log("else status join status");
+    } else if (this.props.request.dm_confirm === "approved") {
       return (
         <React.Fragment>
-          <h3>Accepted</h3>
+          <h3>Approved</h3>
+        </React.Fragment>
+      )
+    } else if (this.props.request.dm_confirm === "rejected") {
+      return (
+        <React.Fragment>
+          <h3>Rejected</h3>
         </React.Fragment>
       )
     }

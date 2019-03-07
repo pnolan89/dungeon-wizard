@@ -87,8 +87,6 @@ class Campaign extends Component {
   getUserRequest() {
     let array = this.state.join_requests.map((object) => {
       if (object.request.user_id === parseInt(localStorage.user_id)) {
-        console.log("3 - user_id matches 43")
-        console.log(" second check",object)
         return object
       }
     });

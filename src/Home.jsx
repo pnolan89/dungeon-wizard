@@ -8,14 +8,9 @@ import Login from './login.jsx';
 import UserIndex from './user-index.jsx';
 import CampaignRegistration from './campaign-create.jsx';
 import CampaignIndex from './campaign-index.jsx';
-import axios from 'axios';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-
-  }
 
   render() {
     return (
