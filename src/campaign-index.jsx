@@ -67,10 +67,33 @@ getCampaignData() {
       return (<p>Loading...</p>);
   }
 }
+
+getFilters() {
+    return(
+        <div className="filter-container">
+            <h2>Filters</h2>
+            <select name="exp_level">
+              <option value=""></option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Expert">Expert</option>
+            </select>
+            <select name="playing_style">
+              <option value=""></option>
+              <option value="Easy Peasy">Easy Peasy</option>
+              <option value="We're serious">We're serious</option>
+              <option value="Dungeon Wizard level play">Dungeon Wizard level play</option>
+            </select>
+        </div>
+
+    )
+}
+
     render() {
 
         return(
             <React.Fragment>
+            {this.getFilters()}
             {this.getCampaignData()}
             </React.Fragment>
         );
