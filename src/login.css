@@ -1,0 +1,51 @@
+.Login {
+    width: 20em;
+    text-align: left;
+    background: rgba(13, 31, 45, 0.7);
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid black;  
+    border-radius: 5px;
+    padding: 20px;
+    position: relative;
+    margin: 0 auto;
+    top: 50px;
+    box-shadow: black 3px 3px 10px;
+    color: white;
+    transition: 0.25s;
+  }
+
+  .Login:hover {
+    /* transform: skew(30deg, 20deg); */
+
+    transition: 0.25s;
+  }
+
+  
+
+  .Login-Details h1 {
+    font-family: 'Cinzel', serif;
+    color: #D4A446;
+    position: relative;
+    left: 10px;
+  }
+
+
+
+  .Input {
+    background-color: #D4A446;
+    color: black;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    border: solid black 1px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    position: relative;
+    top: .4em; left: .7em
+}
+
+.Input:hover {
+    background-color: #285D82;
+    color: white;
+}

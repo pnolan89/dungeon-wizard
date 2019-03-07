@@ -36,10 +36,11 @@ class UserRegistration extends Component {
     console.log(formData);
     axios.post('http://localhost:3000/users', formData)
       .then((response) => {
+        console.log(response.data);
         localStorage.setItem('user_id', response.data.id);
-        localStorage.setItem('username', response.data.name);
+        localStorage.setItem('username', response.data.username);
         this.setState({
-          userId: response.data,
+          userId: response.data.id,
           redirect: true
         });
           //handle success
@@ -58,31 +59,31 @@ class UserRegistration extends Component {
     }
   }
 
-    render() {  
+    render() {
         return(       //// changed className to 'registration' from 'user'
-                 <div className="registration">  
+                 <div className="registration">
                  {this.renderRedirect()}
-                    <div className="user-box"> 
+                    <div className="user-box">
                         <div className="user-details">
                             <form onSubmit={this.handleSubmit}>
                             <div className="form">
                             <h1>Register...</h1>
                             <label>
-                              Username: 
+                              Username:
                               <br></br>
                               <input name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
                             </label>
                             </div>
                             <div className="form">
                             <label>
-                              Email: 
+                              Email:
                               <br></br>
                               <input name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
                             </label>
                             </div>
                             <div className="form">
                             <label>
-                              Play-style: 
+                              Play-style:
                               <br></br>
                               <select name="play_style" value={this.state.play_style} onChange={this.handleChange}>
                               <option value=":">Choose...</option>
@@ -94,7 +95,7 @@ class UserRegistration extends Component {
                             </div>
                             <div className="form">
                             <label>
-                              Experience level: 
+                              Experience level:
                               <br></br>
                               <select name="exp" value={this.state.exp} onChange={this.handleChange}>
                               <option value=":">Choose...</option>
@@ -107,19 +108,19 @@ class UserRegistration extends Component {
                             </div>
                             <div className="form">
                             <label>
-                              Password: 
+                              Password:
                               <br></br>
                               <input name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
                             </label>
                             </div>
-                            
+
                             <input className="input" type="submit" value="Submit" />
                             </form>
                         </div>
-                    </div>       
+                    </div>
             </div>
-        
-   
+
+
     );
   }
 }

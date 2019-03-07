@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
-  position: static;
+  position: fixed;
+  top: 0px;
   height: 100px;
   background-color: #546A7B;
   font-family: 'Cinzel Decorative', cursive;
@@ -23,10 +24,6 @@ a {
   line-height: 40px;
 }
 
-.login {
-  line-height: 100px;
-}
-
 .links {
   float: right;
   line-height: 100px;
@@ -43,3 +40,46 @@ a {
 .navbar h1 {
   font-size: 3em;
 }
+
+
+#dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top: 28px;
+  min-width: 160px;
+}
+
+.dropbtn {
+  min-width: 160px;
+  min-height: 45px;
+  border-radius: 5px;
+  border: 1px solid #D4A446;
+  background: rgba(13, 31, 45, 0.7);
+  color: #D4A446;
+}
+
+.dropbtn:hover {
+  background-color: #9b9b9b;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  background: rgba(13, 31, 45, 0.7);
+  border: 1px solid #D4A446;
+}
+
+.dropdown-content a {
+  color: #D4A446;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #9b9b9b}
+
+.show {display:block;}

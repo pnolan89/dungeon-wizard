@@ -6,11 +6,14 @@ import JoinStatusCampaign from "./join-status-campaign";
 import JoinRequestDM from "./join-request-dm";
 import { join } from "path";
 
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+
 class Campaign extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      campaignId: this.props.match.params.campaignId,
+      campaignID: this.props.match.params.campaignID,
     };
     this.getJoinRequestObject = this.getJoinRequestObject.bind(this);
     this.getUserRequest = this.getUserRequest.bind(this);
@@ -21,8 +24,8 @@ class Campaign extends Component {
   componentDidMount() {
     console.log("Storage!", typeof localStorage.user_id)
 
-    let campaignId = this.state.campaignId;
-    axios.get(`http://localhost:3000/campaigns/${campaignId}`)
+    let campaignID = this.state.campaignID;
+    axios.get(`http://localhost:3000/campaigns/${campaignID}`)
     .then((response) => {
       console.log('RESPONSE DATA: ', response);
       this.setState({
@@ -50,23 +53,26 @@ class Campaign extends Component {
     })
   }
 
-  getCampaignData() {
-    if (this.state.campaign) {
-      return (
-        <React.Fragment>
-        <h1>{this.state.campaign.name}</h1>
-        <p>JOIN CAMPAIGN</p>
-        <p>4/6 Spots Filled</p>
-        <p>Dungeon Master: {this.state.dm.name}</p>
-        <p>Location: {this.state.campaign.location}</p>
-        <p>Description: {this.state.campaign.description}</p>
-        <p>Playing Style: super tough </p>
-        </React.Fragment>
-      );
-    } else {
-        return (<p>Loading...</p>);
+    getCampaignData() {
+        if (this.state.campaign) {
+            let route = `/campaigns/edit/${this.state.campaignID}`;
+            return (
+                <React.Fragment>
+                <h1>{this.state.campaign.name}</h1>
+                <p className="Join">JOIN CAMPAIGN</p>
+                <p>4/6 Spots Filled</p>
+                <p>Dungeon Master: {this.state.dm.name}</p>
+                <p>Location: {this.state.campaign.location}</p>
+                <p>Description: {this.state.campaign.description}</p>
+                <p>Playing Style: super tough </p>
+                <span className='edit'> <Link to={route}>EDIT</Link></span>
+                </React.Fragment>
+           );
+        } else {
+            return (<p>Loading...</p>);
+        }
     }
-  }
+  
 
   getRequestData() {
     if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
