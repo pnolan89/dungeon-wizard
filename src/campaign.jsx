@@ -14,6 +14,7 @@ class Campaign extends Component {
     super(props);
     this.state = {
       campaignID: this.props.match.params.campaignID,
+      
     };
     this.getJoinRequestObject = this.getJoinRequestObject.bind(this);
     this.getUserRequest = this.getUserRequest.bind(this);
