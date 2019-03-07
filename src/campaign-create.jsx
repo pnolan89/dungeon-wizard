@@ -37,7 +37,7 @@ class CampaignRegistration extends Component {
     //  dm: this.state.master,
       description: this.state.description,
       location: this.state.location,
-      user_id: localStorage.currentUser,
+      user_id: localStorage.user_id,
     //   avatar: this.state.avatar,
     // style: this.state.style
     }
