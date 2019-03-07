@@ -61,6 +61,7 @@ class Campaign extends Component {
                         </div>
                         <div className="Campaign-Image">
                             <img src="https://bit.ly/2C3tnvb" />
+                            
                         </div>
                     </div>
                     {/* <div className="Campaign-Description">
