@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import './join-request.css';
+import DMButton from './dm_button.jsx';
+import { Redirect } from 'react-router-dom'
 import axios from 'axios';
 
 
@@ -7,10 +9,16 @@ class JoinRequestDM extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      reload: false
     };
     this.checkStatus = this.checkStatus.bind(this);
+    this.handler = this.handler.bind(this);
   }
 
+
+ handler() {
+  return this.forceUpdate();
+ }
 
   checkStatus() {
     let existenceCheck = function(element) {
@@ -27,13 +35,17 @@ class JoinRequestDM extends Component {
       const join_requests = array.map((request) => {
         return (
           <div className="join-requests" key={request.request.id}>
+          { request.request.dm_confirm === "approved" ? (
+            <p>Approved</p>
+          ) : (
+            <p>Loading...</p>
+          ) }
           <div className="user-info">
           <p>{request.user.name}</p>
             <p>{request.request.message}</p>
           </div>
           <div className="operations">
-          <input type="submit" name="action" value="Approve"  onClick={this.approve(request.request.id)} />
-          <input type="submit" name="action" value="Reject" onClick={this.reject(request.request.id)} />
+          <DMButton dm_confirm={request.request.dm_confirm} id={request.request.id} />
           </div>
           </div>
         )
@@ -42,39 +54,24 @@ class JoinRequestDM extends Component {
     }
   }
 
-  approve(id) {
-    return function(){
-      let update = {
-        dm_confirm: "approved"
-      }
-    axios.put(`http://localhost:3000/join_requests/${id}`, update)
-      .then((response) => {
-        console.log("Success", response)
-      })
-      .catch((response) => {
-        console.log("Failure", response)
+  
+ 
 
-      })
-    }
+  renderRedirect = () => {
+      if (this.state.redirect) {
+        let route = `/campaigns/${this.props.requests.request.campaign_id}`
+        return <Redirect to={route} />
+      }
   }
 
-  reject(id) {
-    return function(){
-      let update = {
-        dm_confirm: "rejected"
-      }
-    axios.put(`http://localhost:3000/join_requests/${id}`, update)
-      .then((response) => {
-        console.log("Success", response)
-      })
-      .catch((response) => {
-        console.log("Failure", response)
-      })
-    }
+  componentDidUpdate(prevProps, prevStates) {
+    console.log("props", prevProps)
+    console.log("props", prevStates)
+    console.log("inside CDU", this.state)
   }
-
 
   componentDidMount() {
+    console.log("Parent CDM")
   }
 
   render() {
