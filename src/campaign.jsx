@@ -9,13 +9,14 @@ class Campaign extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            campaignId: this.props.match.params.campaignId
+            campaignID: this.props.match.params.campaignID,
         };
     }
 
     componentDidMount() {
-        let campaignId = this.state.campaignId;
-        axios.get(`http://localhost:3000/campaigns/${campaignId}`)
+        let campaignID = this.state.campaignID;
+        console.log(campaignID);
+        axios.get(`http://localhost:3000/campaigns/${campaignID}`)
       .then((response) => {
         console.log('RESPONSE DATA: ', response);
         this.setState({
@@ -31,6 +32,7 @@ class Campaign extends Component {
 
     getCampaignData() {
         if (this.state.campaign) {
+            let route = `/campaigns/edit/${this.state.campaignID}`;
             return (
                 <React.Fragment>
                 <h1>{this.state.campaign.name}</h1>
@@ -40,7 +42,7 @@ class Campaign extends Component {
                 <p>Location: {this.state.campaign.location}</p>
                 <p>Description: {this.state.campaign.description}</p>
                 <p>Playing Style: super tough </p>
-                <span className='edit'> <Link to="/campaigns/edit/">EDIT</Link></span>
+                <span className='edit'> <Link to={route}>EDIT</Link></span>
                 </React.Fragment>
            );
         } else {

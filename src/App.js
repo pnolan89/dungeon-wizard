@@ -19,11 +19,11 @@ class App extends Component {
        <Route path='/' exact component={Home} />
        <Route path='/campaigns/' exact component={Home} />
        <Route path='/campaigns/new' exact component={Home} />
-       <Route path='/campaigns/edit' exact component={Home} />
-       <Route path='/campaigns/:campaignId' exact component={Home} />
+       <Route path='/campaigns/edit/:campaignID' exact component={Home} />
+       <Route path='/campaigns/:campaignID' exact component={Home} />
        <Route path='/users/' exact component={Home} />
        <Route path='/users/new' component={Home} />
-       <Route path='/users/edit' exact component={Home} />
+       <Route path='/users/edit/:userID' exact component={Home} />
        <Route path='/users/:userId' exact component={Home} />
        <Route path='/login' component={Home} />
        <Route component={NotFound} />

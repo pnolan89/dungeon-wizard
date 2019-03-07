@@ -8,7 +8,10 @@ class CampaignEdit extends Component {
   constructor() {
     super();
     this.state = {
-        campaignID: 84,
+        // campaignID: 80,
+
+        // campaignID: this.props.match.params.campaignID,
+        // ID: this.props.match.params.campaignID,
         redirect: false,
   };
     this.handleChange = this.handleChange.bind(this);
@@ -16,9 +19,13 @@ class CampaignEdit extends Component {
   }
 
   componentDidMount() {
-    console.log(localStorage.currentUser)
+    
+    console.log(localStorage.currentUser);
+    // console.log(this.props.match.params.campaignID);
+   
 
-    let campaignID = this.state.campaignID;
+    let campaignID = this.props.match.params.campaignID;
+    console.log(campaignID);
     axios.get(`http://localhost:3000/campaigns/${campaignID}`)
   .then((response) => {
     console.log('RESPONSE DATA: ', response.data.campaign.name);
@@ -58,14 +65,14 @@ class CampaignEdit extends Component {
 
       name: this.state.name,
       description: this.state.description,
-      location: this.state.location,
+      location: this.state.location, 
     //   avatar: this.state.avatar,
     //   style: this.state.style
     //   dm: this.state.master,
     }
 
     console.log(formData);
-    let campaignID = this.state.campaignID;
+    let campaignID = this.props.match.params.campaignID;
     axios.put(`http://localhost:3000/campaigns/${campaignID}`, formData)
       .then((response) => {
         this.setState({
@@ -83,7 +90,7 @@ class CampaignEdit extends Component {
 
   renderRedirect = () => {
     if (this.state.redirect) {
-      let route = `/campaigns/${this.state.campaignID}`
+      let route = `/campaigns/${this.props.match.params.campaignID}`
       return <Redirect to={route} />
     }
   }
@@ -92,7 +99,7 @@ class CampaignEdit extends Component {
 
 
 <div className="Campaign-Edit">
-    {/* {this.renderRedirect()} */}
+    {this.renderRedirect()}
 
     <div className="Campaign-Box">
 

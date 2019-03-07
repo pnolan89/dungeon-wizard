@@ -28,12 +28,12 @@ class Home extends Component {
         <Switch>
         <Route exact path="/users/" component={UserIndex} />
         <Route exact path="/users/new" component={UserRegistration}/>
-        <Route exact path="/users/edit" component={UserEdit}/>
+        <Route exact path="/users/edit/:userID" component={UserEdit}/>
         <Route exact path="/users/:userId" component={User}/>     
         <Route exact path="/campaigns/" component={CampaignIndex} />
         <Route exact path="/campaigns/new" component={CampaignRegistration} />
-        <Route exact path="/campaigns/edit" component={CampaignEdit} />
-        <Route exact path="/campaigns/:campaignId" component={Campaign} />    
+        <Route exact path="/campaigns/edit/:campaignID" component={CampaignEdit} />
+        <Route exact path="/campaigns/:campaignID" component={Campaign} />    
         <Route exact path="/login" component={Login} />
         </Switch>
       </div>
