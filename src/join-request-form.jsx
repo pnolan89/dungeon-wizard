@@ -26,7 +26,7 @@ class JoinRequestForm extends Component {
       event.preventDefault();
       const formData = {
         message: this.state.message,
-        dm_confirm: false,
+        dm_confirm: "pending",
         player_confirm: true,
         user_id: localStorage.user_id,
         campaign_id: this.props.campaign.id
@@ -51,12 +51,11 @@ class JoinRequestForm extends Component {
     componentDidMount() {
     }
 
-    renderRedirect = () => {
-      if (this.state.redirect) {
-        let route = `/users/${this.state.userId}`
-        return <Redirect to={route} />
-      }
+    componentWillUpdate(nextProps, nextState) {
+      console.log("this", this.props)
+      console.log("next", nextProps)
     }
+    
     render() {
         return(
           <div className="join-box">
