@@ -13,6 +13,7 @@ class CampaignIndex extends Component {
             playing_style: ""
         }
     };
+    this.filterChange = this.filterChange.bind(this);
 }
 
 
@@ -68,22 +69,70 @@ getCampaignData() {
   }
 }
 
+filterChange(event) {
+    if (event.target.name === 'exp_level') {
+        this.setState({
+            filters: {
+                exp_level: event.target.value
+            }
+        })
+    } else {
+        this.setState({
+            filters: {
+                playing_style: event.target.value
+            }
+        })
+    console.log(this.state)
+    }
+    // console.log("EVENT: ", event.target.name)
+    // console.log("EVENT: ", event.target.value)
+}
+
 getFilters() {
     return(
         <div className="filter-container">
             <h2>Filters</h2>
-            <select name="exp_level">
-              <option value=""></option>
-              <option value="Beginner">Beginner</option>
-              <option value="Intermediate">Intermediate</option>
-              <option value="Expert">Expert</option>
-            </select>
-            <select name="playing_style">
-              <option value=""></option>
-              <option value="Easy Peasy">Easy Peasy</option>
-              <option value="We're serious">We're serious</option>
-              <option value="Dungeon Wizard level play">Dungeon Wizard level play</option>
-            </select>
+            <table>
+                <tr>
+                    <td><label for="exp_level">Experience Level: </label></td>
+                    <td>
+                        <select name="exp_level" onChange={this.filterChange}>
+                            <option value=""></option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="expert">Expert</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="playing_style">Playing Style: </label></td>
+                    <td>
+                       <select name="playing_style" onChange={this.filterChange}>
+                          <option value=""></option>
+                          <option value="story-focused">Story-focused</option>
+                          <option value="combat-focused">Combat-focused</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div className="filter-list">
+                <div className="filter-item">
+                    <div className="filter-label">
+
+                    </div>
+                    <div className="filter-select">
+
+                    </div>
+                </div>
+                <div className="filter-item">
+                    <div className="filter-label">
+
+                    </div>
+                    <div className="filter-select">
+
+                    </div>
+                </div>
+            </div>
         </div>
 
     )

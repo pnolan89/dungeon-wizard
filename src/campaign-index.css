@@ -101,12 +101,18 @@
     box-shadow: 3px 3px 10px;
     border: 1px solid;
     border-radius: 5px;
-    margin-top: 160px;
+    margin-top: 140px;
     margin-left: 50px;
     position: fixed;
-    width: 20em;
-    height: 10em;
+    width: 25em;
     color: black;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filter-container td {
+    padding: 10px;
   }
 
   .filter-container h2 {
@@ -114,8 +120,17 @@
     padding-top: 10px;
   }
 
-  .filter-container select {
-    width: 130px;
-    display: block;
-    margin-left: 100px;
+  .filter-container label {
+    color: white;
   }
+
+  .filter-list {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .filter-container select {
+    width: 200px;
+  }
+
