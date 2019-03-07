@@ -9,16 +9,16 @@ class JoinRequestDM extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      reload: false
     };
     this.checkStatus = this.checkStatus.bind(this);
-    this.handler = this.handler.bind(this);
+    this.handleDMForm = this.handleDMForm
   }
 
-
- handler() {
-  return this.forceUpdate();
- }
+  handleDMForm(newDMResponse) {
+    this.setState({
+      dm: newDMResponse
+    })
+  }
 
   checkStatus() {
     let existenceCheck = function(element) {
@@ -47,7 +47,7 @@ class JoinRequestDM extends Component {
             <p>{request.request.message}</p>
           </div>
           <div className="operations">
-          <DMButton dm_confirm={request.request.dm_confirm} id={request.request.id} />
+          <DMButton handleDMForm={this.handleDMForm} id={request.request.id} />
           </div>
           </div>
         )

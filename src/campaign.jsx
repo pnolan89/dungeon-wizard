@@ -40,6 +40,8 @@ class Campaign extends Component {
     });
   }
 
+  
+
   handleRequestForm(newPostData) {
     let joinRequests = this.state.join_requests.slice(0)
     let campaignObject = {
@@ -76,7 +78,7 @@ class Campaign extends Component {
 
   getRequestData() {
     if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
-      return <JoinRequestDM requests={this.state.join_requests} />
+      return <JoinRequestDM  requests={this.state.join_requests} />
       
     } else {
       return this.checkUserRequest()

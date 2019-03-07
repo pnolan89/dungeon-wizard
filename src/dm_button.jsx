@@ -8,11 +8,9 @@ class DMButton extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        redir: false
       };
       this.approve = this.approve.bind(this);
       this.reject = this.reject.bind(this);
-      this.fetchInfo = this.reject.bind(this);
   }
 
   approve() {
@@ -24,11 +22,7 @@ class DMButton extends Component {
       let id = this.props.id
     axios.put(`http://localhost:3000/join_requests/${id}`, update)
       .then((response) => {
-        console.log("in then")
-        this.setState({
-          redir: true
-        })
-        this.location.reload()
+        this.props.handleDMForm(update.dm_confirm)
       })
       .catch((response) => {
         console.log("Failure", response)
@@ -42,41 +36,21 @@ class DMButton extends Component {
 
     axios.put(`http://localhost:3000/join_requests/${id}`, update)
       .then((response) => {
-        console.log("Success", response)
-        this.setState({
-          redir: true
-        })
+        this.props.handleDMForm(update.dm_confirm)
       })
       .catch((response) => {
         console.log("Failure", response)
       })
     }
 
-    fetchInfo() {
-      let id = this.props.id
-      axios.get(`http://localhost:3000/join_requests/${id}`)
-      .then((response) => {
-        this.setState({
-          reload: true
-        })
-      })
-      .catch((response) => {
-
-      })
-    }
 
   componentDidMount() {
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    console.log("this", this.props.dm_confirm);
-    console.log("next", nextProps.dm_confirm);
-  }
   
   render() {
       return(
-//         <div>
-// {!this.state.redir (
+
   <div key={this.props.id}>
   { this.props.dm_confirm === "pending" ? (
     <div>
@@ -92,12 +66,6 @@ class DMButton extends Component {
   ): (
     <p>Pending</p>
   )}
-{/* </div> */}
-// ) : (
-//   <div>
-//     <p>Thanks for the response!</p>
-//   </div>
-// )}
 
 </div>
 
