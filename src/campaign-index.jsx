@@ -45,18 +45,20 @@ getCampaignData() {
     let filteredList = this.filterCampaigns(this.state.campaigns);
     const campaigns = filteredList.map((campaign) => {
       return(
-        <div className="Campaign-Index">
-        <div className="Campaign-Card">
-        <div className="Campaign-Card-Details">
-            <h1><Link to={`/campaigns/${campaign.campaign.id}`}>{campaign.campaign.name}</Link></h1>
-            <p>Dungeon Master: {campaign.dm.name}</p>
-            <p>Description: {campaign.campaign.description}</p>
-            <p>Location: {campaign.campaign.location}</p>
-        </div>
-        <div className="Campaign-Index-Image">
-            <img src="https://bit.ly/2XE42RH" />
-        </div>
-        </div>
+        <div className="Campaign-Index" >
+            <Link to={`/campaigns/${campaign.campaign.id}`}>
+                <div className="Campaign-Card">
+                    <div className="Campaign-Card-Details">
+                        <h1>{campaign.campaign.name}</h1>
+                        <p>Dungeon Master: {campaign.dm.name}</p>
+                        <p>Description: {campaign.campaign.description}</p>
+                        <p>Location: {campaign.campaign.location}</p>
+                    </div>
+                    <div className="Campaign-Index-Image">
+                        <img src="https://bit.ly/2XE42RH" />
+                    </div>
+                </div>
+            </Link>
         </div>
         )
       })

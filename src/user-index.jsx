@@ -31,9 +31,10 @@ getUserData() {
       const users = this.state.users.map((user) => {
         return(
           <div className="User-Index">
+          <Link to={`/users/${user.user.id}`}>
           <div className="User-Card">
             <div className="User-Card-Details">
-                <h1><Link to={`/users/${user.user.id}`}>{user.user.name}</Link></h1>
+                <h1>{user.user.name}</h1>
                 <p>Play-style: {user.user.playing_style}</p>
                 <p>Experience level: {user.user.exp_level}</p>
                 <p>Campaigns: {user.campaigns.length}</p>
@@ -42,6 +43,7 @@ getUserData() {
                 <img src="https://bit.ly/2C3tnvb" />
             </div>
           </div>
+          </Link>
           </div>
           
         )
