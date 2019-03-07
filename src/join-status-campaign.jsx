@@ -8,23 +8,24 @@ class JoinStatusCampaign extends Component {
       this.state = {
       };
       console.log("Getting to join status")
+      console.log("props", this.props)
 
   }
 
   checkStatus() {
-    if (this.props.request.dm_confirm === "pending") {
+    if (this.props.request === "pending") {
       return (
         <React.Fragment>
           <h3>Pending</h3>
         </React.Fragment>
       )
-    } else if (this.props.request.dm_confirm === "approved") {
+    } else if (this.props.request === "approved") {
       return (
         <React.Fragment>
           <h3>Approved</h3>
         </React.Fragment>
       )
-    } else if (this.props.request.dm_confirm === "rejected") {
+    } else if (this.props.request === "rejected") {
       return (
         <React.Fragment>
           <h3>Rejected</h3>
@@ -40,11 +41,10 @@ class JoinStatusCampaign extends Component {
       return(
         <div className="join-box">
           <div className="top">
-          <h3>Request status: {this.checkStatus()}</h3>
+          <h2>Request status: {this.checkStatus()}</h2>
           </div>
           <div className="bottom">
-            <div>Username:</div>
-            <div>Campaign Name: {this.props.request.message}</div>
+            
           </div>
         </div>
                
