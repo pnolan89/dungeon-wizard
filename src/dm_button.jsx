@@ -8,7 +8,7 @@ class DMButton extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        redirect: false
+        redir: false
       };
       this.approve = this.approve.bind(this);
       this.reject = this.reject.bind(this);
@@ -26,7 +26,7 @@ class DMButton extends Component {
       .then((response) => {
         console.log("in then")
         this.setState({
-          redirect: true
+          redir: true
         })
         this.location.reload()
       })
@@ -44,7 +44,7 @@ class DMButton extends Component {
       .then((response) => {
         console.log("Success", response)
         this.setState({
-          redirect: true
+          redir: true
         })
       })
       .catch((response) => {
@@ -75,11 +75,9 @@ class DMButton extends Component {
   
   render() {
       return(
-
-//         <button onClick={this.approve}>
-//   Approve
-// </button>
-<div key={this.props.id}>
+//         <div>
+// {!this.state.redir (
+  <div key={this.props.id}>
   { this.props.dm_confirm === "pending" ? (
     <div>
     <button onClick={this.approve}>Approve</button>
@@ -89,16 +87,20 @@ class DMButton extends Component {
     </div>
   ) : this.props.dm_confirm === "approved" ? (
     <p>Approved</p>
-  ) : (
+  ) : this.props.dm_confirm === "rejected" ? (
     <p>Rejected</p>
+  ): (
+    <p>Pending</p>
   )}
+{/* </div> */}
+// ) : (
+//   <div>
+//     <p>Thanks for the response!</p>
+//   </div>
+// )}
 
 </div>
-        // <React.Fragment>
-          // <button type="submit" name="action" value="Approve"  onClick={this.approve(this.props.id)} />
-          // <input type="submit" name="action" value="Reject" onClick={this.reject(this.props.id)} />
-        // </React.Fragment>
-               
+
       );
   }
 }

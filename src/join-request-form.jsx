@@ -35,6 +35,7 @@ class JoinRequestForm extends Component {
       axios.post('http://localhost:3000/join_requests', formData)
         .then((response) => {
           console.log(response)
+          this.props.handleRequestForm(response.data)
           this.setState({
             dm_confirm: response.data,
             redirect: true

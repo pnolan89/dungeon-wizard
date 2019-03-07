@@ -37,9 +37,11 @@ class JoinRequestDM extends Component {
           <div className="join-requests" key={request.request.id}>
           { request.request.dm_confirm === "approved" ? (
             <p>Approved</p>
+          ) : request.request.dm_confirm === "rejected" ? (
+            <p>Rejected...</p>
           ) : (
-            <p>Loading...</p>
-          ) }
+            <p>Pending...</p>
+          )}
           <div className="user-info">
           <p>{request.user.name}</p>
             <p>{request.request.message}</p>

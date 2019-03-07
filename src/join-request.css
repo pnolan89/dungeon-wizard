@@ -26,6 +26,10 @@
   padding: 15px;
 }
 
+.join-requests p {
+  margin-right: 10px;
+}
+
 .user-info {
   display: flex;
   flex-direction: column; 

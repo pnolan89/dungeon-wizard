@@ -4,6 +4,7 @@ import axios from 'axios';
 import JoinRequestForm from "./join-request-form";
 import JoinStatusCampaign from "./join-status-campaign";
 import JoinRequestDM from "./join-request-dm";
+import { join } from "path";
 
 class Campaign extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class Campaign extends Component {
     this.getUserRequest = this.getUserRequest.bind(this);
     this.checkUserRequest = this.checkUserRequest.bind(this);
     this.getRequestData = this.getRequestData.bind(this);
+    this.handleRequestForm = this.handleRequestForm.bind(this);
   }
   componentDidMount() {
     console.log("Storage!", typeof localStorage.user_id)
@@ -33,6 +35,19 @@ class Campaign extends Component {
     // handle error
     console.log(error);
     });
+  }
+
+  handleRequestForm(newPostData) {
+    let joinRequests = this.state.join_requests.slice(0)
+    let campaignObject = {
+      request: newPostData,
+      user: {id: newPostData.user_id }
+    }
+    joinRequests.push(campaignObject)
+    console.log("campaignObject", campaignObject)
+    this.setState({
+      join_requests: joinRequests
+    })
   }
 
   getCampaignData() {
@@ -92,8 +107,6 @@ class Campaign extends Component {
     });
     const result = array.filter(array => array !== undefined);
     const join_request = result.map((request) => {
-      console.log("4 - map over the array for rendering")
-      console.log("double check", request)
       return (
         <JoinStatusCampaign key={request.request.id} request={request.request.dm_confirm} />
       )
@@ -108,7 +121,7 @@ class Campaign extends Component {
         name: this.state.campaign.name,
         id: this.state.campaign.id
       }
-      return <JoinRequestForm campaign={campaign} />
+      return <JoinRequestForm handleRequestForm={this.handleRequestForm} campaign={campaign} />
     } else {
       console.log("3 - state doesn't exist - non 43")
       return (<p>Loading...</p>);
