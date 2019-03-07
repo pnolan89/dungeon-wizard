@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import './Campaign.css';
 import axios from 'axios';
 
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+
 class Campaign extends Component {
     constructor(props) {
         super(props);
@@ -37,6 +40,7 @@ class Campaign extends Component {
                 <p>Location: {this.state.campaign.location}</p>
                 <p>Description: {this.state.campaign.description}</p>
                 <p>Playing Style: super tough </p>
+                <span className='edit'> <Link to="/campaigns/edit/">EDIT</Link></span>
                 </React.Fragment>
            );
         } else {
