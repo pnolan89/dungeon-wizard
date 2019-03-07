@@ -29,7 +29,7 @@ class Home extends Component {
         <Route exact path="/users/" component={UserIndex} />
         <Route exact path="/users/new" component={UserRegistration}/>
         <Route exact path="/users/edit/:userID" component={UserEdit}/>
-        <Route exact path="/users/:userId" component={User}/>     
+        <Route exact path="/users/:userID" component={User}/>     
         <Route exact path="/campaigns/" component={CampaignIndex} />
         <Route exact path="/campaigns/new" component={CampaignRegistration} />
         <Route exact path="/campaigns/edit/:campaignID" component={CampaignEdit} />

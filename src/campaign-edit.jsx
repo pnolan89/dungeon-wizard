@@ -8,10 +8,7 @@ class CampaignEdit extends Component {
   constructor() {
     super();
     this.state = {
-        // campaignID: 80,
-
-        // campaignID: this.props.match.params.campaignID,
-        // ID: this.props.match.params.campaignID,
+    
         redirect: false,
   };
     this.handleChange = this.handleChange.bind(this);

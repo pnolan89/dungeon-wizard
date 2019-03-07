@@ -24,7 +24,7 @@ class App extends Component {
        <Route path='/users/' exact component={Home} />
        <Route path='/users/new' component={Home} />
        <Route path='/users/edit/:userID' exact component={Home} />
-       <Route path='/users/:userId' exact component={Home} />
+       <Route path='/users/:userID' exact component={Home} />
        <Route path='/login' component={Home} />
        <Route component={NotFound} />
       </Switch>

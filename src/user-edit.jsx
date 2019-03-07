@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import './campaign-edit.css';
+import './user-edit.css';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom'
 
 
-class CampaignEdit extends Component {
+class UserEdit extends Component {
   constructor() {
     super();
     this.state = {
@@ -24,16 +24,17 @@ class CampaignEdit extends Component {
     // console.log(this.props.match.params.campaignID);
    
 
-    let campaignID = this.props.match.params.campaignID;
-    console.log(campaignID);
-    axios.get(`http://localhost:3000/campaigns/${campaignID}`)
+    let userID = this.props.match.params.userID;
+    console.log(userID);
+    axios.get(`http://localhost:3000/users/${userID}`)
   .then((response) => {
-    console.log('RESPONSE DATA: ', response.data.campaign.name);
+    console.log('RESPONSE DATA: ', response.data.user);
     this.setState({
-      campaignName: response.data.campaign.name,
-      campaignDescription: response.data.campaign.description,
-      campaignLocation: response.data.campaign.location, 
-      dm: response.data.dm
+        userName: response.data.user.name,
+        userEmail: response.data.user.email,
+        userPlaying_style: response.data.user.playing_style,
+        userExp_level: response.data.user.exp_level,
+        userPassword: response.data.user.password,
     });
   })
 .catch(function (error) {
@@ -56,27 +57,21 @@ class CampaignEdit extends Component {
     event.preventDefault();
     const formData = {
 
-        // name: "Matt",
-        // description: "Matt",
-        // location: "Matt",
-        // user_id: 55,
-        exp_level: "intermediate",
-        playing_style: "story-focused",
-
-      name: this.state.name,
-      description: this.state.description,
-      location: this.state.location, 
-    //   avatar: this.state.avatar,
-    //   style: this.state.style
-    //   dm: this.state.master,
+        name: this.state.name,
+        email: this.state.email,
+        playing_style: this.state.playing_style,
+        exp_level: this.state.exp_level,
+        password: this.state.password,
     }
 
     console.log(formData);
-    let campaignID = this.props.match.params.campaignID;
-    axios.put(`http://localhost:3000/campaigns/${campaignID}`, formData)
+    let userID = this.props.match.params.userID;
+    axios.put(`http://localhost:3000/users/${userID}`, formData)
+    
       .then((response) => {
+        console.log('RESPONSE DATA: ', response.data);
         this.setState({
-            campaignID: response.data,
+            userID: response.data,
             redirect: true
         });
           //handle success
@@ -90,7 +85,7 @@ class CampaignEdit extends Component {
 
   renderRedirect = () => {
     if (this.state.redirect) {
-      let route = `/campaigns/${this.props.match.params.campaignID}`
+      let route = `/users/${this.props.match.params.userID}`
       return <Redirect to={route} />
     }
   }
@@ -98,83 +93,65 @@ class CampaignEdit extends Component {
         return(
 
 
-<div className="Campaign-Edit">
-    {this.renderRedirect()}
-
-    <div className="Campaign-Box">
-
-        <div className="Campaign-Details">
-
-            <form onSubmit={this.handleSubmit}>
-
-                <h1>Edit Campaign...</h1>
-
-                        <div className="form">
-                        <label>
-                        Campaign Name:
-                        <br></br>
-                        <input name="name" type="text"  defaultValue={this.state.campaignName}  onChange={this.handleChange}  />
-                        </label>
-                        </div>
-
-                        {/* <div className="form">
-                        <label>
-                        Dungeon Master...
-                        <input name="dm" type="text" placeholder="Your leader..." value={this.state.dm} onChange={this.handleChange}/>
-                        </label>
-                        </div> */}
-
-                        <div className="form">
-                        <label>
-                        Description:
-                        <br></br>
-                        <input name="description" type="text"  /* value={this.state.description} */ onChange={this.handleChange} defaultValue={this.state.campaignDescription} />
-                        </label>
-                        </div>
-
-                        <div className="form">
-                        <label>
-                        Location:
-                        <br></br>
-                        <input name="location" type="text"  /* value={this.state.location} */ onChange={this.handleChange} defaultValue={this.state.campaignLocation}/>
-                        </label>
-                        </div>
-
-                        {/*
-                        <div className="form">
-                        <label>
-                        Choose a campaign crest...
-                        <input name="crest" type="file" value={this.state.location} onChange={this.handleChange}/>
-                        <input type="file"
-                        id="avatar" name="avatar"
-                        accept="image/png, image/jpeg">
-                        </input>
-                        </label>
-                        </div> */}
-
-                        <div className="form">
-                        <label>
-                        Playing Style:
-                        <br></br>
-                        <select name="style" value={this.state.exp} onChange={this.handleChange}>
-                        <option value=":">Choose...</option>
-                        <option value="Easy Peasy">Easy Peasy</option>
-                        <option value="We're serious.">We're serious.</option>
-                        <option value="Dungeon Wizard level play">Dungeon Wizard level play</option>
-                        </select>
-                        </label>
-                        </div>
-
-                <input className="Input" type="submit" value="Submit"/>
-
-            </form>
-
-        </div>
-
-    </div>
-
-</div>
+        <div className="registration">  
+            {this.renderRedirect()}
+               <div className="user-box"> 
+                   <div className="user-details">
+                       <form onSubmit={this.handleSubmit}>
+                       <div className="form">
+                       <h1>Edit User...</h1>
+                       <label>
+                         Username: 
+                         <br></br>
+                         <input name="name" type="text" defaultValue={this.state.userName} onChange={this.handleChange}/>
+                       </label>
+                       </div>
+                       <div className="form">
+                       <label>
+                         Email: 
+                         <br></br>
+                         <input name="email" type="email" defaultValue={this.state.userEmail} onChange={this.handleChange}/>
+                       </label>
+                       </div>
+                       <div className="form">
+                       <label>
+                         Play-style: 
+                         <br></br>
+                         <select name="play_style" defaultValue={this.state.userPlaying_style} onChange={this.handleChange}>
+                         <option value=":">Choose...</option>
+                         <option value="aggressive">Aggressive</option>
+                         <option value="rpg">RPG</option>
+                         <option value="easy-going">Easy-going</option>
+                         </select>
+                       </label>
+                       </div>
+                       <div className="form">
+                       <label>
+                         Experience level: 
+                         <br></br>
+                         <select name="exp" defaultValue={this.state.exp} onChange={this.handleChange}>
+                         <option value=":">Choose...</option>
+                         <option value="newbie">Newbie</option>
+                         <option value="moderate">Moderate</option>
+                         <option value="advanced">Advanced</option>
+                         <option value="wizard">Wizard</option>
+                         </select>
+                       </label>
+                       </div>
+                       <div className="form">
+                       <label>
+                         Password: 
+                         <br></br>
+                         <input name="password" type="password" defaultValue={this.state.userPassword} onChange={this.handleChange}/>
+                       </label>
+                       </div>
+                       
+                       <input className="input" type="submit" value="Submit" />
+                       </form>
+                   </div>
+               </div>       
+       </div>
         );
     }
 }
-export default CampaignEdit;
+export default UserEdit;
