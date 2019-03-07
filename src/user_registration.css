@@ -10,7 +10,7 @@
   padding: 20px;
   position: relative;
   margin: 0 auto;
-  top: 120px;
+  top: 50px;
   
 
   box-shadow: 3px 3px 10px;
@@ -46,7 +46,7 @@
     padding-bottom: 5px;
     padding-left: 10px;
 
-    border: black 1px;
+    border: solid black 1px;
     border-radius: 5px;
 
 
