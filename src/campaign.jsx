@@ -98,10 +98,7 @@ class Campaign extends Component {
         return this.getUserRequest();
       } 
     });
-    console.log(array)
     if (!array.some(existenceCheck)) {
-      console.log("2 - nothing matched 43")
-      console.log("true")
       return this.getJoinRequestObject();
     } else {
       console.log("false")
@@ -122,6 +119,19 @@ class Campaign extends Component {
       )
     })
     return join_request
+  }
+
+  getPlayerList = () => {
+    let array = this.state.join_requests.map((object) => {
+      if (object.request.dm_confirm === "approved") {
+        return object
+      }
+    })
+    const result = array.filter(array => array !== undefined)
+    const players = result.map((request) => {
+      return players
+    })
+    console.log("return check", players)
   }
 
   getJoinRequestObject() {
@@ -169,6 +179,11 @@ class Campaign extends Component {
           ) }
         </div>
         <div className="player-list">
+        { this.state.campaign ? (
+          this.getPlayerList()
+        ) : (
+          <p></p>
+        )}
         </div>
       </div>
       
