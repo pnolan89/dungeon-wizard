@@ -81,38 +81,50 @@ class UserRegistration extends Component {
                               <input name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
                             </label>
                             </div>
+                          
+
                             <div className="form">
                             <label>
-                              Play-style:
-                              <br></br>
-                              <select name="play_style" value={this.state.play_style} onChange={this.handleChange}>
-                              <option value=":">Choose...</option>
-                              <option value="aggressive">Aggressive</option>
-                              <option value="rpg">RPG</option>
-                              <option value="easy-going">Easy-going</option>
-                              </select>
+                            Password:
+                            <br></br>
+                            <input name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
                             </label>
                             </div>
+
                             <div className="form">
                             <label>
-                              Experience level:
-                              <br></br>
-                              <select name="exp" value={this.state.exp} onChange={this.handleChange}>
-                              <option value=":">Choose...</option>
-                              <option value="newbie">Newbie</option>
-                              <option value="moderate">Moderate</option>
-                              <option value="advanced">Advanced</option>
-                              <option value="wizard">Wizard</option>
-                              </select>
+                            Play-style:
+                            <br></br>
+                            <select name="play_style" value={this.state.play_style} onChange={this.handleChange}>
+                            <option value=":">Choose...</option>
+                            <option value="aggressive">Aggressive</option>
+                            <option value="rpg">RPG</option>
+                            <option value="easy-going">Easy-going</option>
+                            </select>
                             </label>
                             </div>
+
                             <div className="form">
                             <label>
-                              Password:
-                              <br></br>
-                              <input name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
+                            Experience level:
+                            <br></br>
+                            <select name="exp" value={this.state.exp} onChange={this.handleChange}>
+                            <option value=":">Choose...</option>
+                            <option value="newbie">Newbie</option>
+                            <option value="moderate">Moderate</option>
+                            <option value="advanced">Advanced</option>
+                            <option value="wizard">Wizard</option>
+                            </select>
                             </label>
                             </div>
+
+
+                            <div className="form">
+                            <label>
+                            Choose an Avatar:
+                            <input name="crest" type="file" accept="image/png, image/jpeg" value={this.state.location} onChange={this.handleChange}/>
+                            </label>
+                            </div> 
 
                             <input className="input" type="submit" value="Submit" />
                             </form>
