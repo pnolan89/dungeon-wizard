@@ -39,7 +39,7 @@
   .Campaign-Card {
     display: flex;
     flex-direction: row;
-    width: 32em;
+    width: 35em;
     color: white;
 
   }
@@ -60,12 +60,10 @@
   }
   .Campaign-Card-Details h1:hover {
 
-
   }
 
   .Campaign-Card-Details p {
-    width: 20em;
-    margin-right: 4em;
+    width: 25em;
 
 
   }
@@ -132,5 +130,14 @@
 
   .filter-container select {
     width: 200px;
+  }
+
+  .campaign-description {
+    font-style: italic;
+    font-size: 16px;
+  }
+
+  .campaign-detail {
+    font-size: 14px;
   }
 

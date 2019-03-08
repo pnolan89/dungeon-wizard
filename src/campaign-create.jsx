@@ -34,12 +34,11 @@ class CampaignRegistration extends Component {
 
 
       name: this.state.name,
-    //  dm: this.state.master,
       description: this.state.description,
       location: this.state.location,
       user_id: localStorage.user_id,
     //   avatar: this.state.avatar,
-    // style: this.state.style
+    synopsis: this.state.synopsis
     }
     console.log(formData);
     axios.post('http://localhost:3000/campaigns', formData)
@@ -86,13 +85,6 @@ class CampaignRegistration extends Component {
                         </label>
                         </div>
 
-                        {/* <div className="form">
-                        <label>
-                        Dungeon Master...
-                        <input name="dm" type="text" placeholder="Your leader..." value={this.state.dm} onChange={this.handleChange}/>
-                        </label>
-                        </div> */}
-
                         <div className="form">
                         <label>
                         Description:
@@ -109,19 +101,17 @@ class CampaignRegistration extends Component {
                         </label>
                         </div>
 
-                        {/*
+                       
+ 
                         <div className="form">
                         <label>
-                        Choose a campaign crest...
-                        <input name="crest" type="file" value={this.state.location} onChange={this.handleChange}/>
-                        <input type="file"
-                        id="avatar" name="avatar"
-                        accept="image/png, image/jpeg">
-                        </input>
+                        Synopsis:
+                        <br></br>
+                        <textarea name='synopsis' type="text"  value={this.state.synopsis} onChange={this.handleChange}/>
                         </label>
-                        </div> */}
+                        </div> 
 
-                        <div className="form">
+                        {/* <div className="form">
                         <label>
                         Playing Style:
                         <br></br>
@@ -132,7 +122,15 @@ class CampaignRegistration extends Component {
                         <option value="Dungeon Wizard level play">Dungeon Wizard level play</option>
                         </select>
                         </label>
-                        </div>
+                        </div> */}
+
+
+                        {/* <div className="form">
+                        <label>
+                        Choose a Crest:
+                        <input name="crest" type="file" accept="image/png, image/jpeg" value={this.state.location} onChange={this.handleChange}/>
+                        </label>
+                        </div>  */}
 
                 <input className="Input" type="submit" value="Submit"/>
 
