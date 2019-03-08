@@ -11,11 +11,7 @@ class JoinRequestDM extends Component {
     this.state = {
       
     };
-    this.checkStatus = this.checkStatus.bind(this);
-    this.handleDMForm = this.handleDMForm.bind(this);
   }
-
-  
 
   checkStatus() {
     let existenceCheck = function(element) {

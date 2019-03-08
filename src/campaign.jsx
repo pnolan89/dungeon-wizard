@@ -4,6 +4,7 @@ import axios from 'axios';
 import JoinRequestForm from "./join-request-form";
 import JoinStatusCampaign from "./join-status-campaign";
 import JoinRequestDM from "./join-request-dm";
+import PlayerCard from "./player-card";
 import { join } from "path";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -21,6 +22,7 @@ class Campaign extends Component {
     this.checkUserRequest = this.checkUserRequest.bind(this);
     this.getRequestData = this.getRequestData.bind(this);
     this.handleRequestForm = this.handleRequestForm.bind(this);
+    this.getPlayerList = this.getPlayerList.bind(this);
   }
   componentDidMount() {
     console.log("Storage!", typeof localStorage.user_id)
@@ -121,17 +123,18 @@ class Campaign extends Component {
     return join_request
   }
 
-  getPlayerList = () => {
+  getPlayerList() {
     let array = this.state.join_requests.map((object) => {
       if (object.request.dm_confirm === "approved") {
         return object
       }
     })
     const result = array.filter(array => array !== undefined)
-    const players = result.map((request) => {
-      return players
+    const player = result.map((request) => {
+      return (<PlayerCard key={request.user.id} playerInfo={request.user} />
+      )
     })
-    console.log("return check", players)
+    return player
   }
 
   getJoinRequestObject() {
