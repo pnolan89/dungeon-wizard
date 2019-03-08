@@ -45,10 +45,6 @@ class DMButton extends Component {
     }
 
 
-  componentDidMount() {
-  }
-
-
   render() {
     console.log("props", this.props.dm_confirm)
       return(

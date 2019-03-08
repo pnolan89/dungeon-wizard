@@ -24,6 +24,7 @@ class Campaign extends Component {
     this.handleRequestForm = this.handleRequestForm.bind(this);
     this.getPlayerList = this.getPlayerList.bind(this);
     this.checkUserIsPlayer = this.checkUserIsPlayer.bind(this);
+    this.getSynopsis = this.getSynopsis.bind(this);
   }
   componentDidMount() {
     let campaignID = this.state.campaignID;
@@ -35,6 +36,7 @@ class Campaign extends Component {
         join_requests: response.data.join_requests,
         players: response.data.players
       });
+      console.log('Campaign: ', this.state.campaign)
     })
   .catch(function (error) {
     // handle error
@@ -101,6 +103,18 @@ class Campaign extends Component {
             return (<p>Loading...</p>);
         }
     }
+
+  getSynopsis() {
+    if (this.state.campaign) {
+      return (
+        <p>{this.state.campaign.synopsis}</p>
+      )
+    } else {
+      return (
+        <p>Loading...</p>
+      )
+    }
+  }
 
 
   getRequestData() {
@@ -180,9 +194,8 @@ class Campaign extends Component {
         </div>
 
           <div className="Campaign-Description">
-          <h2>Our Noble Quest... </h2>
-          <p>The object is a pillar of resin, 10 feet in height, four feet in diameter. It is glossy enough that if the light is at your back, you can see your reflection, but also translucent enough that if someone’s standing on the opposite side, their shape may blur into sight. It has three ridges, which do not twist for long across its surface before fading back down into the curve. It is Feretory (1969), by Conroy Glasser, and it is on permanent display on the fourth floor of the Museum of Modern Art in New York, just across from some drawings from earlier in that decade by Agnes Martin. Shortly after midnight on Christmas morning, a night watchman discovered me standing by Feretory with a fire axe held over my head. I am, or was, a senior member of MoMA’s curatorial staff, with a special interest in the Light and Space movement of the 1960s, and so naturally I’ve been called upon to give an account of why I should wish to destroy such an important work. My only reply is that in fact I wanted nothing less than to destroy it. Even after all that’s happened, I still recognise Feretory as a masterpiece. Destroying it would have been no more than an unavoidable consequence of what I really hoped to achieve with the axe that night.
-          </p>
+          <h2>Synposis</h2>
+          <p>{this.getSynopsis()}</p>
       </div>
       </div>
 

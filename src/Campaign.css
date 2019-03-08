@@ -16,7 +16,6 @@
       position: relative;
       top: 120px;
       box-shadow: 3px 3px 10px;
-
   }
 
   .Campaign-Box  {
@@ -88,8 +87,16 @@
 
   .Campaign-Description {
       font-family: 'Montserrat', sans-serif;
-      border-style: solid;
+      background: rgba(13, 31, 45, 0.7);
+      color: white;
+      border-style: 1px solid black;
+      border-radius: 5px;
       flex-basis: 60%;
+      padding: 10px;
+  }
+
+  .Campaign-Description h2 {
+    margin-top: 10px;
   }
 
 
