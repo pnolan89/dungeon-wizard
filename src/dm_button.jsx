@@ -14,11 +14,10 @@ class DMButton extends Component {
   }
 
   approve() {
-    console.log("Approve function") 
       let update = {
-        dm_confirm: "approved"
+        dm_confirm: "accepted"
       }
-     
+
       let id = this.props.id
     axios.put(`http://localhost:3000/join_requests/${id}`, update)
       .then((response) => {
@@ -49,7 +48,7 @@ class DMButton extends Component {
   componentDidMount() {
   }
 
-  
+
   render() {
     console.log("props", this.props.dm_confirm)
       return(
@@ -62,8 +61,8 @@ class DMButton extends Component {
       Reject
     </button>
     </div>
-  ) : this.props.dm_confirm === "approved" ? (
-    <p>Approved</p>
+  ) : this.props.dm_confirm === "accepted" ? (
+    <p>Accepted</p>
   ) : this.props.dm_confirm === "rejected" ? (
     <p>Rejected</p>
   ): (

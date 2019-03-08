@@ -19,7 +19,7 @@ class JoinStatusCampaign extends Component {
           <h3>Pending</h3>
         </React.Fragment>
       )
-    } else if (this.props.request === "approved") {
+    } else if (this.props.request === "accepted") {
       return (
         <React.Fragment>
           <h3>Approved</h3>
@@ -44,10 +44,10 @@ class JoinStatusCampaign extends Component {
           <h2>Request status: {this.checkStatus()}</h2>
           </div>
           <div className="bottom">
-            
+
           </div>
         </div>
-               
+
       );
   }
 }
