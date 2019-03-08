@@ -56,9 +56,19 @@ class Campaign extends Component {
     })
   }
 
+    getEdit() {
+        let route = `/campaigns/edit/${this.state.campaignID}`;
+        if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
+            return(
+                <span className='edit'> <Link to={route}>EDIT</Link></span>
+            )}
+        }
+
+  
+
     getCampaignData() {
+        
         if (this.state.campaign) {
-            let route = `/campaigns/edit/${this.state.campaignID}`;
             return (
                 <React.Fragment>
                 <h1>{this.state.campaign.name}</h1>
@@ -68,7 +78,7 @@ class Campaign extends Component {
                 <p>Location: {this.state.campaign.location}</p>
                 <p>Description: {this.state.campaign.description}</p>
                 <p>Playing Style: super tough </p>
-                <span className='edit'> <Link to={route}>EDIT</Link></span>
+                <span>{this.getEdit()}</span>
                 </React.Fragment>
            );
         } else {
@@ -124,6 +134,7 @@ class Campaign extends Component {
     return join_request
   }
 
+             
   getJoinRequestObject() {
     if (this.state.campaign) {
       console.log("3 - State.campaign exists - non 43")
