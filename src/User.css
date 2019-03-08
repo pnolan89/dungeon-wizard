@@ -1,5 +1,10 @@
+.user-container {
+  display: flex;
+  flex-direction: column;
+}
 
-.user {
+
+.user-top {
   width: 50em;
   text-align: left;
   background: rgba(13, 31, 45, 0.7);
@@ -10,17 +15,14 @@
   position: relative;
   margin: 0 auto;
   top: 120px;
-  
-
   box-shadow: 3px 3px 10px;
+ 
 }
+
 
 .user-box  {
   display: flex;
   align-items: center;
-}
-
-.user-details {
 }
 
 .form {
@@ -58,3 +60,49 @@
   color: white;
 }
 
+.campaign-box {
+  display: flex;
+  flex-direction: row;
+  border: 3px;
+}
+
+.dm-list {
+  flex-basis: 50%;
+}
+
+.dm-list h1 {
+  font-size: 1.5em;
+  padding-left: 25px;
+}
+
+.campaign-list h1 {
+  font-size: 1.5em;
+  padding-left: 25px;
+}
+
+.campaign-list {
+  flex-basis: 50%;
+}
+
+.player {
+  display: flex;
+  flex-direction: row;
+  border: solid 1px;
+  border-radius: 3px;
+  margin: 10px;
+}
+
+.player-info {
+  margin-right: 0px;
+  padding-right: 0px;
+  flex-basis: 20%;  
+}
+
+.player-img {
+  padding-left: 0px;
+  margin-left: 0px;
+}
+.player-img img {
+  padding-left: 0px;
+  margin-right: 100px;
+}
