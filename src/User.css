@@ -3,10 +3,8 @@
   flex-direction: column;
 }
 
-
 .user-top {
   width: 50em;
-  height: 20em;
   text-align: left;
   background: rgba(13, 31, 45, 0.7);
   font-family: 'Montserrat', sans-serif;
@@ -16,10 +14,8 @@
   position: relative;
   margin: 0 auto;
   top: 120px;
-  box-shadow: 3px 3px 10px;
- 
+  box-shadow: 3px 3px 10px; 
 }
-
 
 .user-box  {
   display: flex;
@@ -62,6 +58,14 @@
   display: flex;
   flex-direction: row;
   border: 3px;
+  height: auto;
+
+  margin-bottom: -150px;
+
+  position: relative;
+  top:-150px;
+
+ 
 }
 
 .dm-list {
