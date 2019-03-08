@@ -60,6 +60,14 @@ export default class Nav extends Component {
     }
   }
 
+getCreate() {
+
+if (localStorage.user_id) {
+  return(
+ <span> | <Link to="/campaigns/new/">Create</Link></span>
+  )}
+}
+
   getDropdown() {
     if (localStorage.user_id) {
       let profilePath = `/users/${localStorage.user_id}/`;
@@ -89,7 +97,8 @@ export default class Nav extends Component {
       return (
         <nav className='navbar'>
           <span className='logo'><a href='/' className='navbar-brand'><h1>DuNgeOn WiZarD</h1></a> </span>
-          <span className='links'> <Link to="/users/">Users</Link> | <Link to="/campaigns/">Campaigns</Link> | <Link to="/users/new/">Register</Link> | <Link to="/campaigns/new/">Create</Link></span>
+          <span className='links'> <Link to="/users/">Users</Link> | <Link to="/campaigns/">Campaigns</Link> | <Link to="/users/new/">Register</Link>   {this.getCreate()} </span>
+       
           {this.getDropdown()}
         </nav>
         )

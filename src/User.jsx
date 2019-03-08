@@ -26,6 +26,14 @@ class User extends Component {
         });
     }
 
+    getEdit() {
+        let route = `/campaigns/edit/${this.state.campaignID}`;
+        if (localStorage.user_id) {
+            return(
+                <span className='edit'> <Link to={route}>EDIT</Link></span>
+            )}
+          }
+
     getUserData() {
         if (this.state.user) {
             let route = `/users/edit/${this.state.userID}`;
@@ -36,7 +44,8 @@ class User extends Component {
                     <p>Currently playing:</p>
                     <p>Playing Style: {this.state.user.user.playing_style} </p>
                     <p>Experience level: {this.state.user.user.exp_level}</p>
-                    <span className='edit'> <Link to={route}>EDIT</Link></span>
+                    <span>{this.getEdit()}</span>
+
                 </React.Fragment>
             );
         } else {
@@ -52,7 +61,11 @@ class User extends Component {
                         {this.getUserData()}
                         </div>
                         <div className="user-image">
-                            <img src="https://bit.ly/2C3tnvb" />
+                            <img src="https://bit.ly/2XGVwkU" />
+                            <img src="https://bit.ly/2tX8YU2" />
+                            <img src="https://bit.ly/2XJ3ha5" />
+                            <img src="https://bit.ly/2H7saHd" />
+                            <img src="https://bit.ly/2CaG1bT" />
                         </div>
 
                     </div>
