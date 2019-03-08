@@ -28,7 +28,7 @@ class User extends Component {
 
     getEdit() {
         let route = `/campaigns/edit/${this.state.campaignID}`;
-        if (localStorage.user_id) {
+        if (localStorage.user_id === this.state.userID) {
             return(
                 <span className='edit'> <Link to={route}>EDIT</Link></span>
             )}
@@ -62,10 +62,10 @@ class User extends Component {
                         </div>
                         <div className="user-image">
                             <img src="https://bit.ly/2XGVwkU" />
-                            <img src="https://bit.ly/2tX8YU2" />
+                            {/* <img src="https://bit.ly/2tX8YU2" />
                             <img src="https://bit.ly/2XJ3ha5" />
                             <img src="https://bit.ly/2H7saHd" />
-                            <img src="https://bit.ly/2CaG1bT" />
+                            <img src="https://bit.ly/2CaG1bT" /> */}
                         </div>
 
                     </div>

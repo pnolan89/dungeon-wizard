@@ -58,11 +58,11 @@ class Campaign extends Component {
 
     getEdit() {
         let route = `/campaigns/edit/${this.state.campaignID}`;
-        if (localStorage.user_id) {
+        if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
             return(
                 <span className='edit'> <Link to={route}>EDIT</Link></span>
             )}
-          }
+        }
 
   
 
@@ -79,7 +79,6 @@ class Campaign extends Component {
                 <p>Description: {this.state.campaign.description}</p>
                 <p>Playing Style: super tough </p>
                 <span>{this.getEdit()}</span>
-                
                 </React.Fragment>
            );
         } else {
