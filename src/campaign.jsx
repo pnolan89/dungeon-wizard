@@ -79,7 +79,7 @@ class Campaign extends Component {
 
   getRequestData() {
     if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
-      return <JoinRequestDM  requests={this.state.join_requests} />
+      return <JoinRequestDM requests={this.state.join_requests} />
       
     } else {
       return this.checkUserRequest()
@@ -168,7 +168,6 @@ class Campaign extends Component {
           ) }
         </div>
         <div className="player-list">
-        <h3>testing</h3>
         </div>
       </div>
       

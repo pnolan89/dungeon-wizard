@@ -33,5 +33,12 @@
 .user-info {
   display: flex;
   flex-direction: column; 
+}
 
+.user-info {
+  flex-basis: 50%;
+}
+
+.buttons {
+  line-height: 100px;
 }

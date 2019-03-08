@@ -22,6 +22,8 @@ class DMButton extends Component {
       let id = this.props.id
     axios.put(`http://localhost:3000/join_requests/${id}`, update)
       .then((response) => {
+        console.log(response)
+        console.log("button updat", update.dm_confirm)
         this.props.handleDMForm(update.dm_confirm)
       })
       .catch((response) => {
@@ -51,7 +53,7 @@ class DMButton extends Component {
   render() {
       return(
 
-  <div key={this.props.id}>
+  <div className="buttons" key={this.props.id}>
   { this.props.dm_confirm === "pending" ? (
     <div>
     <button onClick={this.approve}>Approve</button>

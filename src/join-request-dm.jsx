@@ -9,16 +9,14 @@ class JoinRequestDM extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      dm_confirm: "pending"
     };
     this.checkStatus = this.checkStatus.bind(this);
-    this.handleDMForm = this.handleDMForm
+    this.handleDMForm = this.handleDMForm.bind(this);
+    console.log("JoinRequestDM")
   }
 
-  handleDMForm(newDMResponse) {
-    this.setState({
-      dm: newDMResponse
-    })
-  }
+  
 
   checkStatus() {
     let existenceCheck = function(element) {
@@ -33,21 +31,16 @@ class JoinRequestDM extends Component {
       )
     } else {
       const join_requests = array.map((request) => {
+        console.log("request.request", request.request)
         return (
           <div className="join-requests" key={request.request.id}>
-          { request.request.dm_confirm === "approved" ? (
-            <p>Approved</p>
-          ) : request.request.dm_confirm === "rejected" ? (
-            <p>Rejected...</p>
-          ) : (
-            <p>Pending...</p>
-          )}
+          
           <div className="user-info">
           <p>{request.user.name}</p>
             <p>{request.request.message}</p>
           </div>
           <div className="operations">
-          <DMButton handleDMForm={this.handleDMForm} id={request.request.id} />
+          <DMButton handleDMForm={this.handleDMForm} dm_confirm={this.state.dm_confirm} id={request.request.id} />
           </div>
           </div>
         )
@@ -56,14 +49,11 @@ class JoinRequestDM extends Component {
     }
   }
 
-  
- 
-
-  renderRedirect = () => {
-      if (this.state.redirect) {
-        let route = `/campaigns/${this.props.requests.request.campaign_id}`
-        return <Redirect to={route} />
-      }
+  handleDMForm(newDMResponse) {
+    let DMResponse = newDMResponse
+    this.setState({
+      dm_confirm: DMResponse
+    })
   }
 
   componentDidUpdate(prevProps, prevStates) {
