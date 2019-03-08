@@ -18,7 +18,7 @@
 
 .join-requests {
   border: 1px solid;
-  border-radius: 2px;
+  border-radius: 5px;
   margin-bottom: 2px;
   color: white;
   display: flex;
@@ -32,7 +32,7 @@
 
 .user-info {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .user-info {
@@ -44,21 +44,37 @@
 }
 
 .player-list {
- margin-top: 25px; 
+ margin-top: 25px;
  display: flex;
- border: 2px solid;
- border-radius: 2px;
+ border-radius: 5px;
+ flex-direction: column;
 }
 
 .player {
   display: flex;
   flex-direction: row;
- 
+  background: rgba(13, 31, 45, 0.7);
+  width: 450px;
+  color: white;
+  border: none;
+}
+
+.player h3 {
+  color: #D4A446;
+}
+
+.player img {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  right: 40px;
+  top: 18px;
 }
 
 .player-info {
   padding-left: 15px;
   flex-basis: 80%;
+
 }
 
 .player-img {
