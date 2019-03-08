@@ -51,9 +51,9 @@ getCampaignData() {
                 <div className="Campaign-Card">
                     <div className="Campaign-Card-Details">
                         <h1>{campaign.campaign.name}</h1>
-                        <p>Dungeon Master: {campaign.dm.name}</p>
-                        <p>Description: {campaign.campaign.description}</p>
-                        <p>Location: {campaign.campaign.location}</p>
+                        <p className="campaign-description">{campaign.campaign.description}</p>
+                        <p className="campaign-detail">Dungeon Master: {campaign.dm.name}</p>
+                        <p className="campaign-detail">Location: {campaign.campaign.location}</p>
                     </div>
                     <div className="Campaign-Index-Image">
                         <img src="https://bit.ly/2XE42RH" />
