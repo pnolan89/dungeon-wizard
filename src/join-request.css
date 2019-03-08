@@ -42,3 +42,30 @@
 .buttons {
   line-height: 100px;
 }
+
+.player-list {
+ margin-top: 25px; 
+ display: flex;
+}
+
+.player {
+  display: flex;
+  flex-direction: row;
+}
+
+.player-info {
+  padding-left: 15px;
+  flex-basis: 80%;
+}
+
+.player-img {
+  flex-basis: 20%;
+}
+
+.player-img img {
+  display: flex;
+  position: relative;
+  left: 5em; top: 1.7em;
+  width: 5em;
+  height: 5em;
+}
