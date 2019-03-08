@@ -6,13 +6,13 @@ class PlayerCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+
     };
   }
 
 
   componentDidMount() {
-    console.log(this.props.playerInfo)
+    console.log('PLAYER CARD REACHED: ', this.props.playerInfo)
   }
 
   render() {
@@ -30,7 +30,7 @@ class PlayerCard extends Component {
       </div>
       </div>
       </Link>
-    )       
+    )
   }
 }
 export default PlayerCard;

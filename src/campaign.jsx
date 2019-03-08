@@ -23,14 +23,12 @@ class Campaign extends Component {
     this.getRequestData = this.getRequestData.bind(this);
     this.handleRequestForm = this.handleRequestForm.bind(this);
     this.getPlayerList = this.getPlayerList.bind(this);
+    this.checkUserIsPlayer = this.checkUserIsPlayer.bind(this);
   }
   componentDidMount() {
-    console.log("Storage!", typeof localStorage.user_id)
-
     let campaignID = this.state.campaignID;
     axios.get(`http://localhost:3000/campaigns/${campaignID}`)
     .then((response) => {
-      console.log('RESPONSE DATA: ', response);
       this.setState({
         campaign: response.data.campaign,
         dm: response.data.dm,
@@ -53,7 +51,6 @@ class Campaign extends Component {
       user: {id: newPostData.user_id }
     }
     joinRequests.push(campaignObject)
-    console.log("campaignObject", campaignObject)
     this.setState({
       join_requests: joinRequests
     })
@@ -67,23 +64,39 @@ class Campaign extends Component {
             )}
         }
 
-  
+    checkUserIsPlayer() {
+      let result = false;
+      this.state.players.forEach((player) => {
+        if (player.id === parseInt(localStorage.user_id)) {
+          result = true;
+        }
+      })
+      return result;
+    }
+
+    showLocation() {
+      if (this.checkUserIsPlayer() === true) {
+        return (
+          <p>Location: {this.state.campaign.location}</p>
+        )
+      }
+    }
+
 
     getCampaignData() {
-        
+
         if (this.state.campaign) {
-            return (
-                <React.Fragment>
-                <h1>{this.state.campaign.name}</h1>
-                <p className="Join">JOIN CAMPAIGN</p>
-                <p>{this.state.players.length}/{this.state.campaign.player_limit} Spots Filled</p>
-                <p>Dungeon Master: {this.state.dm.name}</p>
-                <p>Location: {this.state.campaign.location}</p>
-                <p>Description: {this.state.campaign.description}</p>
-                <p>Playing Style: super tough </p>
-                <span>{this.getEdit()}</span>
-                </React.Fragment>
-           );
+          return (
+            <React.Fragment>
+            <h1>{this.state.campaign.name}</h1>
+            <p>{this.state.players.length}/{this.state.campaign.player_limit} Spots Filled</p>
+            <p>Dungeon Master: {this.state.dm.name}</p>
+            {this.showLocation()}
+            <p>Description: {this.state.campaign.description}</p>
+            <p>Playing Style: super tough </p>
+            <span>{this.getEdit()}</span>
+            </React.Fragment>
+         );
         } else {
             return (<p>Loading...</p>);
         }
@@ -104,18 +117,14 @@ class Campaign extends Component {
       return element !== undefined
     }
     let array = this.state.join_requests.map((object) => {
-      console.log("obj.user_id", object.request.user_id)
       if (object.request.user_id === parseInt(localStorage.user_id)) {
-        console.log("2 - objec.userid matches 43")
-        console.log("check",object)
         return this.getUserRequest();
       }
     });
     if (!array.some(existenceCheck)) {
       return this.getJoinRequestObject();
     } else {
-      console.log("false")
-    return array;
+      return array;
     }
   }
 
@@ -135,25 +144,22 @@ class Campaign extends Component {
   }
 
   getPlayerList() {
-    console.log("here", this.state.players)
     let player = this.state.players.map((object) => {
       return (<PlayerCard key={object.id} playerInfo={object} />
         )
     })
-   
+
     return player
   }
 
   getJoinRequestObject() {
     if (this.state.campaign) {
-      console.log("3 - State.campaign exists - non 43")
       let campaign = {
         name: this.state.campaign.name,
         id: this.state.campaign.id
       }
       return <JoinRequestForm handleRequestForm={this.handleRequestForm} campaign={campaign} />
     } else {
-      console.log("3 - state doesn't exist - non 43")
       return (<p>Loading...</p>);
     }
   }
