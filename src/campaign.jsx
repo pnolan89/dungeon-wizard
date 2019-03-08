@@ -145,16 +145,12 @@ class Campaign extends Component {
   }
 
   getPlayerList() {
-    let array = this.state.join_requests.map((object) => {
-      if (object.request.dm_confirm === "approved") {
-        return object
-      }
+    console.log("here", this.state.players)
+    let player = this.state.players.map((object) => {
+      return (<PlayerCard key={object.id} playerInfo={object} />
+        )
     })
-    const result = array.filter(array => array !== undefined)
-    const player = result.map((request) => {
-      return (<PlayerCard key={request.user.id} playerInfo={request.user} />
-      )
-    })
+   
     return player
   }
 
