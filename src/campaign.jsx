@@ -65,15 +65,14 @@ class Campaign extends Component {
             )}
         }
 
-  
+
 
     getCampaignData() {
-        
+
         if (this.state.campaign) {
             return (
                 <React.Fragment>
                 <h1>{this.state.campaign.name}</h1>
-                <p className="Join">JOIN CAMPAIGN</p>
                 <p>{this.state.players.length}/{this.state.campaign.player_limit} Spots Filled</p>
                 <p>Dungeon Master: {this.state.dm.name}</p>
                 <p>Location: {this.state.campaign.location}</p>
@@ -135,7 +134,7 @@ class Campaign extends Component {
     return join_request
   }
 
-             
+
   getJoinRequestObject() {
     if (this.state.campaign) {
       console.log("3 - State.campaign exists - non 43")
