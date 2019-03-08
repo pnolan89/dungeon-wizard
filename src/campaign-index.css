@@ -1,11 +1,11 @@
  .Campaign-Index {
-   
+
       text-align: left;
 
-      
+
       background: rgba(58, 9, 13, 0.7);
       font-family: 'Montserrat', sans-serif;
-      border-style:  solid;  
+      border-style:  solid;
       border-width: 1px;
 
       width: 600px;
@@ -14,7 +14,7 @@
       border-radius: 5px;
       margin:0 auto;
       margin-bottom: 20px;
-     
+
       padding-top: 20px;
       padding-right: 20px;
       padding-bottom: 20px;
@@ -23,7 +23,7 @@
       position: relative;
       top: 140px;
 
-     
+
       box-shadow: 3px 3px 10px;
 
       transition: all .2s ease-in-out;
@@ -47,7 +47,7 @@
   .Campaign-Card-Details h1 {
 
     font-family: 'Cinzel', serif;
-    
+
     margin-right: 1em;;
 
     padding-top: 2px;
@@ -59,7 +59,7 @@
 
   }
   .Campaign-Card-Details h1:hover {
- 
+
 
   }
 
@@ -70,39 +70,67 @@
 
   }
 
- 
+
 
   .Campaign-Card-Details h3 {
-    border-style: solid;  
-    border-width: 1px;
+    border: solid 1px;
     border-radius: 5px;
     width: 50px;
-    
     padding-top: 5px;
     padding-right: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
   }
 
-
-
-
   .Campaign-Index-Image img {
     display: flex;
     width: 10em;
     height: 10em;
-    border-style: solid;  
+    border-style: solid;
     border-width: 1px;
     border-radius: 5px;
     margin: 0 auto;
     box-shadow: 3px 3px 10px;
     color: black;
-
     position: relative;
     top: 20px; left: 1em;
-
-   
-   
   }
 
-  
+  .filter-container {
+    background: rgba(58, 9, 13, 0.7);
+    box-shadow: 3px 3px 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    margin-top: 140px;
+    margin-left: 50px;
+    position: fixed;
+    width: 25em;
+    color: black;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filter-container td {
+    padding: 10px;
+  }
+
+  .filter-container h2 {
+    color: #D4A446;
+    padding-top: 10px;
+  }
+
+  .filter-container label {
+    color: white;
+  }
+
+  .filter-list {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .filter-container select {
+    width: 200px;
+  }
+

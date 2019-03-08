@@ -8,21 +8,15 @@ import UserEdit from './user-edit.jsx';
 import Campaign from './campaign.jsx';
 import CampaignIndex from './campaign-index.jsx';
 import CampaignRegistration from './campaign-create.jsx';
-import CampaignEdit from './campaign-edit.jsx';
+import CampaignEdit from './campaign-edit.jsx'
 import Login from './login.jsx';
-import axios from 'axios';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-
-  }
 
   render() {
     return (
       <Router>
-
         <div className="App">
         <Nav />
         <Switch>

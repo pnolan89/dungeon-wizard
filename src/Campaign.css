@@ -6,25 +6,44 @@
       border: 1px solid;  
       border-radius: 5px;
       margin: 0 auto;
-      width: 50em;
+      width: 70em;
       padding-top: 20px;
       padding-right: 20px;
       padding-bottom: 20px;
       padding-left: 20px;
-
+      display: flex;
+      flex-direction: row;
       position: relative;
       top: 120px;
-
       box-shadow: 3px 3px 10px;
+
   }
 
-  .Campaign-Box  {   
+  .Campaign-Box  {
       display: flex;
-      align-items: center;
-    
+      flex-direction: column;
+      flex-basis: 60%;
   }
 
- 
+  
+
+  .campaign-top {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+
+  .Campaign-Details {
+    flex-basis: 60%;
+  }
+
+  .player-box {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    height: 100%;
+  }
 
   .Campaign-Details h1{
       font-family: 'Cinzel', serif;
@@ -32,57 +51,49 @@
       color: white;
       margin: auto;
   }
+
   .Campaign-Details p {
       font-family: 'Montserrat', sans-serif;
       display: flex;
       /* color: #285D82; */
       color: white;
+  }
 
-      
+  .Campaign-Image {
+    flex-basis: 40%;
+    
   }
 
   .Campaign-Image img {
       width: 200px;
       height: 200px;
       border: 1px solid;
-      display: flex;
-      margin-left: 12em;
       border-radius: 5px;
       box-shadow: 3px 3px 10px;
+  }
 
-    
+  .bottom-half {
+    display: flex;
+  }
+
+  .join-request {
+    border-style: solid;
+    flex-basis: 40%;
+    padding: 10px;
+  }
+
+  .player-list {
+    flex-basis: 60%;
+    border: 1px solid;
   }
 
   .Campaign-Description {
       font-family: 'Montserrat', sans-serif;
       border-style: solid; 
+      flex-basis: 60%;
   }
 
-  .Join {
-    border: 1px solid;
-    border-radius: 5px;
-    width: 9em;
 
-    box-shadow: 3px 3px 10px black;
-
-    padding-top: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-
-    text-align: center;
-
-    transition: all .2s ease-in-out;
-
-  }
-
-  .Join:hover {
-      color: #D4A446;
-      /* transition: all .2s ease; */
-      transition: all .2s ease-out;
-      transform: scale(1.1);
-
-  }
 
 
 

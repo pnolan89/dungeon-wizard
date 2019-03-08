@@ -25,6 +25,14 @@ componentDidMount() {
   });
 }
 
+pluralizer(array) {
+  if (array.length === 1) {
+    return "campaign";
+  } else {
+    return "campaigns";
+  }
+}
+
 
 getUserData() {
   if (this.state.users) {
@@ -35,9 +43,10 @@ getUserData() {
           <div className="User-Card">
             <div className="User-Card-Details">
                 <h1>{user.user.name}</h1>
+                <p>Playing in {user.campaigns.length} {this.pluralizer(user.campaigns)}</p>
+                <p>DMing {user.owned_campaigns.length} {this.pluralizer(user.owned_campaigns)}</p>
                 <p>Play-style: {user.user.playing_style}</p>
                 <p>Experience level: {user.user.exp_level}</p>
-                <p>Campaigns: {user.campaigns.length}</p>
             </div>
             <div className="User-Index-Image">
                 <img src="https://bit.ly/2C3tnvb" />
@@ -45,7 +54,7 @@ getUserData() {
           </div>
           </Link>
           </div>
-          
+
         )
       })
       return users;
