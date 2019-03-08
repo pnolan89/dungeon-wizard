@@ -49,7 +49,7 @@ class User extends Component {
     }
 
     getEdit() {
-        let route = `/campaigns/edit/${this.state.campaignID}`;
+        let route = `/users/edit/${this.state.userID}`;
         if (localStorage.user_id === this.state.userID) {
             return(
                 <span className='edit'> <Link to={route}>EDIT</Link></span>
@@ -65,15 +65,23 @@ class User extends Component {
                     <p>Member since: {this.state.user.user.created_at}</p>
                     <p>Currently playing:</p>
                     <p>Playing Style: {this.state.user.user.playing_style} </p>
-                    <p>Experience level: {this.state.user.user.exp_level}</p>
-                    <span>{this.getEdit()}</span>
-
+                    <p>Experience level: {this.state.user.user.exp_level}</p>            
+                    <span>{this.getEdit()}</span> <span>{this.getAvatar()}</span>
                 </React.Fragment>
             );
         } else {
             return (<p>Loading...</p>);
         }
     }
+
+    getAvatar() {
+        return(           
+            <div className="user-image">
+                <img src={this.state.user.user.avatar} />
+            </div>
+        );
+    }
+    
 
     render() {
         return(
@@ -83,9 +91,7 @@ class User extends Component {
                       <div className="user-details">
                         {this.getUserData()}
                       </div>
-                      <div className="user-image">
-                        <img src="https://bit.ly/2XGVwkU" />
-                      </div>
+                    
                     </div>
                   <div className="campaign-box">
                      <React.Fragment>
@@ -111,7 +117,7 @@ class User extends Component {
                  </div>
                  </div>
                 </div>
-        );
-    }
+         
+        );}
 }
 export default User;

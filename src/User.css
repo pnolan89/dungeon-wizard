@@ -6,6 +6,7 @@
 
 .user-top {
   width: 50em;
+  height: 20em;
   text-align: left;
   background: rgba(13, 31, 45, 0.7);
   font-family: 'Montserrat', sans-serif;
@@ -31,32 +32,29 @@
 
 .user-details h1{
   font-family: 'Cinzel', serif;
-  /* color: #285D82; */
   color: white;
   margin: auto;
 }
 .user-details p {
   font-family: 'Montserrat', sans-serif;
   display: flex;
-  /* color: #285D82; */
   color: white;
 }
 
 .user-image img {
   width: 200px;
   height: 200px;
-  border: 1px solid;
+  border: 1px solid black;
   display: flex;
   margin-left: 10em;
-  border-radius: 5px;
-
-  box-shadow: 3px 3px 10px;
- 
+  border-radius: 100px;
+  position: relative;
+  right: -20em; top: -12em;
+  box-shadow: 3px 3px 10px black;
 }
 
 .user-campaign p {
   font-family: 'Montserrat', sans-serif;
-  /* border-style: solid;  */
   color: white;
 }
 
