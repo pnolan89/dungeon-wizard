@@ -25,9 +25,7 @@ class PlayerCard extends Component {
       <h4>Experience level: {this.props.playerInfo.exp_level}</h4>
       <h4>Play style: {this.props.playerInfo.playing_style}</h4>
       </div>
-      <div className="player-img">
       <img src="https://bit.ly/2C3tnvb" />
-      </div>
       </div>
       </Link>
     )

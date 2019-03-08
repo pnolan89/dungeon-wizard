@@ -206,7 +206,7 @@ class Campaign extends Component {
       </div>
 
       <div className="player-box">
-        <div className="join-request">
+        <div className="join-requests">
           { this.state.campaign ? (
             this.getRequestData()
           ) : (
