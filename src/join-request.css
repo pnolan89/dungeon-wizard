@@ -46,11 +46,14 @@
 .player-list {
  margin-top: 25px; 
  display: flex;
+ border: 2px solid;
+ border-radius: 2px;
 }
 
 .player {
   display: flex;
   flex-direction: row;
+ 
 }
 
 .player-info {
