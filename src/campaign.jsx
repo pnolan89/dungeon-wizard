@@ -25,6 +25,7 @@ class Campaign extends Component {
     this.getPlayerList = this.getPlayerList.bind(this);
     this.checkUserIsPlayer = this.checkUserIsPlayer.bind(this);
     this.getSynopsis = this.getSynopsis.bind(this);
+    this.getPlayingStyle = this.getPlayingStyle.bind(this);
   }
   componentDidMount() {
     let campaignID = this.state.campaignID;
@@ -95,7 +96,7 @@ class Campaign extends Component {
             <p>Dungeon Master: {this.state.dm.name}</p>
             {this.showLocation()}
             <p>Description: {this.state.campaign.description}</p>
-            <p>Playing Style: super tough </p>
+            <p>Playing Style: {this.getPlayingStyle()}</p>
             <span>{this.getEdit()}</span>
             </React.Fragment>
          );
@@ -178,6 +179,11 @@ class Campaign extends Component {
     }
   }
 
+  getPlayingStyle() {
+    let string = this.state.campaign.playing_style
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
 
   render() {
     let dm = this.state.dm;
@@ -194,7 +200,7 @@ class Campaign extends Component {
         </div>
 
           <div className="Campaign-Description">
-          <h2>Synposis</h2>
+          <h2>Synopsis</h2>
           <p>{this.getSynopsis()}</p>
       </div>
       </div>

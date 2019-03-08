@@ -92,11 +92,16 @@
       border-style: 1px solid black;
       border-radius: 5px;
       flex-basis: 60%;
-      padding: 10px;
+      padding: 20px;
+      margin-top: 30px;
+      font-size: 15px;
   }
 
   .Campaign-Description h2 {
+    font-family: 'Cinzel', serif;
+    color:  #D4A446;
     margin-top: 10px;
+    font-size: 25px;
   }
 
 
