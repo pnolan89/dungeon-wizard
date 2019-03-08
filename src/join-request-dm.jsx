@@ -9,11 +9,10 @@ class JoinRequestDM extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dm_confirm: "pending"
+      
     };
     this.checkStatus = this.checkStatus.bind(this);
     this.handleDMForm = this.handleDMForm.bind(this);
-    console.log("JoinRequestDM")
   }
 
   
@@ -24,12 +23,14 @@ class JoinRequestDM extends Component {
     }
     let array = this.props.requests
     if (!array.some(existenceCheck)) {
+
       return (
         <React.Fragment>
           <h3>No pending requests.</h3>
         </React.Fragment>
       )
     } else {
+
       const join_requests = array.map((request) => {
         console.log("request.request", request.request)
         return (
@@ -40,7 +41,7 @@ class JoinRequestDM extends Component {
             <p>{request.request.message}</p>
           </div>
           <div className="operations">
-          <DMButton handleDMForm={this.handleDMForm} dm_confirm={this.state.dm_confirm} id={request.request.id} />
+          <DMButton handleDMForm={this.handleDMForm} dm_confirm={request.request.dm_confirm} id={request.request.id} />
           </div>
           </div>
         )
@@ -56,17 +57,11 @@ class JoinRequestDM extends Component {
     })
   }
 
-  componentDidUpdate(prevProps, prevStates) {
-    console.log("props", prevProps)
-    console.log("props", prevStates)
-    console.log("inside CDU", this.state)
-  }
-
   componentDidMount() {
-    console.log("Parent CDM")
   }
 
   render() {
+
     return(
       <div className="join-box">
       <h3>Requests:</h3>

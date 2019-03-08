@@ -51,6 +51,7 @@ class DMButton extends Component {
 
   
   render() {
+    console.log("props", this.props.dm_confirm)
       return(
 
   <div className="buttons" key={this.props.id}>

@@ -85,6 +85,7 @@ class Campaign extends Component {
       return this.checkUserRequest()
   }
   }
+
   checkUserRequest() {
     let existenceCheck = function(element) {
       return element !== undefined
