@@ -31,14 +31,12 @@ class CampaignRegistration extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const formData = {
-
-
       name: this.state.name,
       description: this.state.description,
       location: this.state.location,
       user_id: localStorage.user_id,
-    //   avatar: this.state.avatar,
-    synopsis: this.state.synopsis
+      next_session: this.state.next_session,
+      synopsis: this.state.synopsis
     }
     console.log(formData);
     axios.post('http://localhost:3000/campaigns', formData)
@@ -95,21 +93,32 @@ class CampaignRegistration extends Component {
 
                         <div className="form">
                         <label>
+                        Synopsis:
+                        <br></br>
+                        <textarea name='synopsis' type="text"  value={this.state.synopsis} onChange={this.handleChange}/>
+                        </label>
+                        </div> 
+
+                        <div className="form-tiny">
+                        <tiny>Location and session time will be visible only to approved players.</tiny>
+                        </div>
+                        <div className="form">
+                        <label>
                         Location:
                         <br></br>
                         <input name="location" type="text"  value={this.state.location} onChange={this.handleChange}/>
                         </label>
                         </div>
 
-                       
- 
                         <div className="form">
                         <label>
-                        Synopsis:
-                        <br></br>
-                        <textarea name='synopsis' type="text"  value={this.state.synopsis} onChange={this.handleChange}/>
+                        First session:
+                        <br/>
+                        <input name="next_session" type="datetime-local" value={this.state.next_session} onChange={this.handleChange} />
                         </label>
-                        </div> 
+                        </div>
+ 
+                        
 
                         {/* <div className="form">
                         <label>
