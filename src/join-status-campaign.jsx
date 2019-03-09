@@ -16,19 +16,19 @@ class JoinStatusCampaign extends Component {
     if (this.props.request === "pending") {
       return (
         <React.Fragment>
-          <h3>Pending</h3>
+          <h4 className="join-status-pending">Pending</h4>
         </React.Fragment>
       )
     } else if (this.props.request === "accepted") {
       return (
         <React.Fragment>
-          <h3>Approved</h3>
+          <h4 className="join-status-accepted">Accepted</h4>
         </React.Fragment>
       )
     } else if (this.props.request === "rejected") {
       return (
         <React.Fragment>
-          <h3>Rejected</h3>
+          <h4 className="join-status-rejected">Rejected</h4>
         </React.Fragment>
       )
     }
@@ -41,7 +41,7 @@ class JoinStatusCampaign extends Component {
       return(
         <div className="join-box">
           <div className="top">
-          <h2>Request status: {this.checkStatus()}</h2>
+          <h2 className="join-status-heading">Request status: {this.checkStatus()}</h2>
           </div>
           <div className="bottom">
 

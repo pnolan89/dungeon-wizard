@@ -49,9 +49,6 @@ class JoinRequestForm extends Component {
         });
     }
 
-    componentDidMount() {
-    }
-
     componentWillUpdate(nextProps, nextState) {
       console.log("this", this.props)
       console.log("next", nextProps)
@@ -61,7 +58,7 @@ class JoinRequestForm extends Component {
         return(
           <div className="join-box">
           <div className="top">
-          <h3>Request to join this campaign!</h3>
+          <h4 className="join-form-heading">Request to join this campaign!</h4>
           </div>
           <div className="bottom">
             <div>Username: {localStorage.username}</div>

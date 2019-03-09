@@ -27,6 +27,7 @@ class Campaign extends Component {
     this.getPlayingStyle = this.getPlayingStyle.bind(this);
     this.dateToString = this.dateToString.bind(this);
     this.showLocation = this.showLocation.bind(this);
+    this.getPlayerSpots = this.getPlayerSpots.bind(this);
   }
 
   componentDidMount() {
@@ -64,7 +65,7 @@ class Campaign extends Component {
         let route = `/campaigns/edit/${this.state.campaignID}`;
         if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
             return(
-                <span className='edit'> <Link to={route}>EDIT</Link></span>
+                <Link to={route} className='edit'>Edit This Campaign</Link>
             )}
         }
 
@@ -94,15 +95,15 @@ class Campaign extends Component {
         "November",
         "December"
       ];
-    
+
       let month = months[date.getMonth()];
       let day = date.getDate();
       let year = date.getFullYear();
-    
+
       let hours = (date.getHours()) + 6;
       let minutes = date.getMinutes();
       let time = (hours > 11 ? (hours - 11) : (hours + 1)) + ":" + minutes + (hours > 11 ? "PM" : "AM");
-    
+
       return month + " " + day + ", " + year + " - " + time + " ";
     }
 
@@ -119,18 +120,26 @@ class Campaign extends Component {
       let date = this.state.campaign.next_session
       if (this.checkUserIsPlayer() === true || this.state.campaign.user_id === parseInt(localStorage.user_id)) {
         return (
-          <p>Next session: {this.dateToString(date)}</p> 
+          <p>Next session: {this.dateToString(date)}</p>
         )
       }
     }
 
-    getCampaignData() {
+    getPlayerSpots() {
+      if (this.state.campaign) {
+        return (
+          <p className="subtext">({this.state.players.length}/{this.state.campaign.player_limit} Spots Filled)</p>
+        )
+      } else {
+        return (<p>Loading...</p>)
+      }
+    }
 
+    getCampaignData() {
         if (this.state.campaign) {
           return (
             <React.Fragment>
             <h1>{this.state.campaign.name}</h1>
-            <p>{this.state.players.length}/{this.state.campaign.player_limit} Spots Filled</p>
             <p>Dungeon Master: {this.state.dm.name}</p>
             {this.showLocation()}
             {this.showSession()}
@@ -247,7 +256,8 @@ class Campaign extends Component {
       </div>
 
       <div className="player-box">
-        <div className="join-requests">
+        <div id="campaign-join-requests">
+          <h3>Requests</h3>
           { this.state.campaign ? (
             this.getRequestData()
           ) : (
@@ -256,6 +266,7 @@ class Campaign extends Component {
         </div>
         <div className="player-list">
           <h2>Players</h2>
+          {this.getPlayerSpots()}
           { this.state.campaign ? (
             this.getPlayerList()
           ) : (

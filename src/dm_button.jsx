@@ -44,22 +44,23 @@ class DMButton extends Component {
 
   render() {
       return(
-        <div className="buttons" key={this.props.id}>
-          { this.props.dm_confirm === "pending" ? (
-            <div>
-            <button onClick={this.approve}>Approve</button>
-            <button onClick={this.reject}>
-              Reject
-            </button>
-            </div>
-          ) : this.props.dm_confirm === "accepted" ? (
-            <p>Accepted</p>
-          ) : this.props.dm_confirm === "rejected" ? (
-            <p>Rejected</p>
-          ): (
-            <p>Pending</p>
-          )}
-        </div>
+  <div className="buttons" key={this.props.id}>
+  { this.props.dm_confirm === "pending" ? (
+    <div>
+    <button className="approve-btn" onClick={this.approve}>Approve</button>
+    <button className="reject-btn" onClick={this.reject}>
+      Reject
+    </button>
+    </div>
+  ) : this.props.dm_confirm === "accepted" ? (
+    <p>Accepted</p>
+  ) : this.props.dm_confirm === "rejected" ? (
+    <p>Rejected</p>
+  ): (
+    <p>Pending</p>
+  )}
+
+</div>
       );
   }
 }
