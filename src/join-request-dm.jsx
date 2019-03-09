@@ -9,7 +9,7 @@ class JoinRequestDM extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+
     };
   }
 
@@ -30,8 +30,8 @@ class JoinRequestDM extends Component {
       const join_requests = array.map((request) => {
         console.log("request.request", request.request)
         return (
-          <div className="join-requests" key={request.request.id}>
-          
+          <div className="join-request-box" key={request.request.id}>
+
           <div className="user-info">
           <p>{request.user.name}</p>
             <p>{request.request.message}</p>
@@ -59,11 +59,11 @@ class JoinRequestDM extends Component {
   render() {
 
     return(
-      <div className="join-box">
+      <div className="join-request-box">
       <h3>Requests:</h3>
        {this.checkStatus()}
       </div>
-               
+
     );
   }
 }
