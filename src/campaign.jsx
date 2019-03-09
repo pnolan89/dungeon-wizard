@@ -26,6 +26,8 @@ class Campaign extends Component {
     this.checkUserIsPlayer = this.checkUserIsPlayer.bind(this);
     this.getSynopsis = this.getSynopsis.bind(this);
     this.getPlayingStyle = this.getPlayingStyle.bind(this);
+    this.getImage = this.getImage.bind(this);
+
   }
   componentDidMount() {
     let campaignID = this.state.campaignID;
@@ -35,7 +37,8 @@ class Campaign extends Component {
         campaign: response.data.campaign,
         dm: response.data.dm,
         join_requests: response.data.join_requests,
-        players: response.data.players
+        players: response.data.players,
+        image: response.data.campaign.image,
       });
       console.log('Campaign: ', this.state.campaign)
     })
@@ -44,8 +47,6 @@ class Campaign extends Component {
     console.log(error);
     });
   }
-
-
 
   handleRequestForm(newPostData) {
     let joinRequests = this.state.join_requests.slice(0)
@@ -186,6 +187,11 @@ class Campaign extends Component {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
+  getImage() {
+    let campaignImage = this.state.image
+    return campaignImage
+  }
+
 
   render() {
     let dm = this.state.dm;
@@ -197,7 +203,7 @@ class Campaign extends Component {
           {this.getCampaignData()}
         </div>
           <div className="Campaign-Image">
-            <img src="https://bit.ly/2C3tnvb" />
+          <img src={this.getImage()} />
           </div>
         </div>
 

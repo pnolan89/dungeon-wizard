@@ -4,7 +4,7 @@
 }
 
 .user-top {
-  width: 50em;
+  width: 59em;
   text-align: left;
   background: rgba(13, 31, 45, 0.7);
   font-family: 'Montserrat', sans-serif;
@@ -45,7 +45,7 @@
   margin-left: 10em;
   border-radius: 100px;
   position: relative;
-  right: -20em; top: -12em;
+  right: -29em; top: -12em;
   box-shadow: 3px 3px 10px black;
 }
 
@@ -75,11 +75,13 @@
 .dm-list h1 {
   font-size: 1.5em;
   padding-left: 25px;
+  font-family: 'Cinzel', serif;
 }
 
 .campaign-list h1 {
   font-size: 1.5em;
   padding-left: 25px;
+  font-family: 'Cinzel', serif;
 }
 
 .campaign-list {
