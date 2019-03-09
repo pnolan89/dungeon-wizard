@@ -16,6 +16,10 @@
   margin-top: 20px;
 }
 
+.submit {
+  background-color: none;
+}
+
 .join-requests {
   border: none;
   border-radius: 5px;
