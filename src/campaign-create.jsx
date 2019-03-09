@@ -36,7 +36,10 @@ class CampaignRegistration extends Component {
       location: this.state.location,
       user_id: localStorage.user_id,
       next_session: this.state.next_session,
-      synopsis: this.state.synopsis
+      synopsis: this.state.synopsis,
+      playing_style: this.state.playing_style,
+      exp_level: this.state.exp,
+      player_limit: this.state.player_limit
     }
     console.log(formData);
     axios.post('http://localhost:3000/campaigns', formData)
@@ -99,6 +102,52 @@ class CampaignRegistration extends Component {
                         </label>
                         </div> 
 
+                        <div className="form">
+                        <label>
+                        Player limit:
+                        <br></br>
+                        <select name="player_limit" value={this.state.player_limit} onChange={this.handleChange}>
+                        <option value=":">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9  ">9</option>
+                        </select>
+                        </label>
+                        </div>
+
+                        <div className="form">
+                        <label>
+                        Play-style:
+                        <br></br>
+                        <select name="playing_style" value={this.state.playing_style} onChange={this.handleChange}>
+                        <option value=":">Choose...</option>
+                        <option value="aggressive">Aggressive</option>
+                        <option value="rpg">RPG</option>
+                        <option value="easy-going">Easy-going</option>
+                        </select>
+                        </label>
+                        </div>
+
+                        <div className="form">
+                        <label>
+                        Experience level:
+                        <br></br>
+                        <select name="exp" value={this.state.exp} onChange={this.handleChange}>
+                        <option value=":">Choose...</option>
+                        <option value="newbie">Newbie</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="advanced">Advanced</option>
+                        <option value="wizard">Wizard</option>
+                        </select>
+                        </label>
+                        </div>
+
                         <div className="form-tiny">
                         <tiny>Location and session time will be visible only to approved players.</tiny>
                         </div>
@@ -113,7 +162,8 @@ class CampaignRegistration extends Component {
                         <div className="form">
                         <label>
                         First session:
-                        <br/>
+                        <br></br>
+
                         <input name="next_session" type="datetime-local" value={this.state.next_session} onChange={this.handleChange} />
                         </label>
                         </div>
