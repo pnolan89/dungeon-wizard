@@ -9,6 +9,7 @@ class JoinRequestDM extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      requests: this.props.requests
     };
     this.handleDMForm = this.handleDMForm.bind(this);
   }
@@ -34,7 +35,7 @@ class JoinRequestDM extends Component {
               <p>{request.request.message}</p>
             </div>
             <div className="operations">
-              <DMButton handleDMForm={this.handleDMForm} dm_confirm={request.request.dm_confirm} id={request.request.id} />
+              <DMButton handleDMForm={this.handleDMForm} request={request.request} dm_confirm={request.request.dm_confirm} id={request.request.id} />
             </div>
           </div>
         )
@@ -43,10 +44,16 @@ class JoinRequestDM extends Component {
     }
   }
 
+
   handleDMForm(newDMResponse) {
-    let DMResponse = newDMResponse
+    let requestNew = this.state.requests.slice(0)
+    let requestObject = {
+        request: newDMResponse,
+        user: {id: this.state.requests.user.id}
+      }
+    requests.push(requestObject)
     this.setState({
-      dm_confirm: DMResponse
+      requests: requestNew
     })
   }
 
