@@ -8,7 +8,7 @@
       border-style:  solid;
       border-width: 1px;
 
-      width: 600px;
+      width: 630px;
       height: 15em;
 
       border-radius: 5px;
@@ -30,45 +30,31 @@
   }
 
   .Campaign-Index:hover {
-
-  transition: all .2s ease-in-out;
-  transform: scale(1.005);
-
+    transition: all .2s ease-in-out;
+    transform: scale(1.005);
   }
 
   .Campaign-Card {
     display: flex;
     flex-direction: row;
-    width: 35em;
+    width: 45em;
     color: white;
 
   }
 
   .Campaign-Card-Details h1 {
-
     font-family: 'Cinzel', serif;
-
     margin-right: 1em;;
-
     padding-top: 2px;
     padding-right: 2px;
     padding-bottom: 2px;
     padding-left: 2px;
-
     color: #D4A446;
-
-  }
-  .Campaign-Card-Details h1:hover {
-
   }
 
   .Campaign-Card-Details p {
-    width: 25em;
-
-
+    width: 23em;
   }
-
-
 
   .Campaign-Card-Details h3 {
     border: solid 1px;
@@ -82,16 +68,16 @@
 
   .Campaign-Index-Image img {
     display: flex;
-    width: 10em;
+    width: 15em;
     height: 10em;
     border-style: solid;
     border-width: 1px;
     border-radius: 5px;
-    margin: 0 auto;
+    margin-left: 15px;
     box-shadow: 3px 3px 10px;
     color: black;
     position: relative;
-    top: 20px; left: 1em;
+    top: 20px;
   }
 
   .filter-container {
