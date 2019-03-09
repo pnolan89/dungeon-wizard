@@ -31,9 +31,6 @@
     flex-direction: row;
     width: 32em;
     color: white;
-
-
-
   }
 
   .User-Index:hover {
@@ -42,52 +39,29 @@
   }
 
   .User-Card-Details h1 {
-
     margin-right: 1em;;
-
     padding-top: 2px;
     padding-right: 2px;
     padding-bottom: 2px;
     padding-left: 2px;
-
     color: #D4A446;
-
     font-family: 'Cinzel', serif;
-
-
   }
-
-  .User-Card-Details h1:hover {
-
-  
-    }
-
-
 
   .User-Card-Details {
     width: 30em;
   }
-
- 
 
   .User-Card-Details h3 {
     border-style: solid;  
     border-width: 1px;
     border-radius: 5px;
     width: 50px;
-
     padding-top: 5px;
     padding-right: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
-
-   
   }
-
-
- 
-
-
 
   .User-Index-Image img {
     display: flex;
@@ -95,20 +69,13 @@
     height: 10em;
     border-style: solid;  
     border-width: 1px;
-    border-radius: 5px;
+    border-radius: 100px;
     margin-left: 5em;
     margin: 0 auto;
-   
     box-shadow: 3px 3px 10px;
     color: black;
-
     position: relative;
     top: 20px; left: 3em;
-
-    
-
-  
-   
   }
 
 

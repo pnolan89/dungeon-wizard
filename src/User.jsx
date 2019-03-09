@@ -81,6 +81,26 @@ class User extends Component {
             </div>
         );
     }
+
+    getDmof() {
+        if(this.state.dmCampaigns){
+            if(this.state.dmCampaigns.length) {
+                return(
+                    <h1>DM of:</h1>
+                )
+            }
+        }   
+    }
+
+    getPlaying() {
+        if(this.state.playCampaigns) {
+            if(this.state.playCampaigns.length) {
+                return(
+                    <h1>Playing:</h1>
+                )
+            }
+        }
+    }
     
 
     render() {
@@ -96,15 +116,16 @@ class User extends Component {
                   <div className="campaign-box">
                      <React.Fragment>
                      <div className="dm-list">
-                     <h1>DM of</h1>
-                  { this.state.playCampaigns ? (
+                        {this.getDmof()}
+                     { this.state.playCampaigns ? (
                        this.renderCampaignDMCard()
-                  ): (
-                    <p>loading</p>
-                  )}
+                         ): (
+                        <p>loading</p>
+                        )}
+
                      </div>
                      <div className="campaign-list">
-                     <h1>Playing</h1>
+                        {this.getPlaying()}
                      { this.state.playCampaigns ? (
                        this.renderCampaignPlayCard()
                      ): (
