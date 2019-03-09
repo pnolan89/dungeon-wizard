@@ -219,11 +219,12 @@ class Campaign extends Component {
           ) }
         </div>
         <div className="player-list">
-        { this.state.campaign ? (
-          this.getPlayerList()
-        ) : (
-          <p></p>
-        )}
+          <h2>Players</h2>
+          { this.state.campaign ? (
+            this.getPlayerList()
+          ) : (
+            <p>Loading...</p>
+          )}
         </div>
       </div>
 

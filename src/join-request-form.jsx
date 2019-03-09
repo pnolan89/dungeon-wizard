@@ -16,7 +16,7 @@ class JoinRequestForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) { 
+    handleChange(event) {
       this.setState({
         message: event.target.value
       });
@@ -56,7 +56,7 @@ class JoinRequestForm extends Component {
       console.log("this", this.props)
       console.log("next", nextProps)
     }
-    
+
     render() {
         return(
           <div className="join-box">
@@ -64,20 +64,21 @@ class JoinRequestForm extends Component {
           <h3>Request to join this campaign!</h3>
           </div>
           <div className="bottom">
-            <div>Username:</div>
+            <div>Username: {localStorage.username}</div>
             <div>Campaign Name: {this.props.campaign.name}</div>
             <div className="form">
             <form onSubmit={this.handleSubmit}>
             <div>
-              <label for="message">Why should the DM let you join?</label></div>
-                <textarea id="message" name="message"  value={this.state.message} onChange={this.handleChange}/>
+              <label for="message" className="message">Message</label></div>
+                <p className="message-subtext"></p>
+                <textarea id="message" name="message"  placeholder="Tell the DM why you'd like to join!" value={this.state.message} onChange={this.handleChange}/>
               <div>
                 <input type="submit" value="Submit" /></div>
             </form>
             </div>
           </div>
           </div>
-                 
+
         );
     }
 }

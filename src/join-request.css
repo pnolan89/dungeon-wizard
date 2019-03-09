@@ -17,7 +17,7 @@
 }
 
 .join-requests {
-  border: 1px solid;
+  border: none;
   border-radius: 5px;
   margin-bottom: 2px;
   color: white;
@@ -48,15 +48,16 @@
  display: flex;
  border-radius: 5px;
  flex-direction: column;
+ background: rgba(13, 31, 45, 0.7);
 }
 
 .player {
   display: flex;
   flex-direction: row;
-  background: rgba(13, 31, 45, 0.7);
+  border: 1px solid #D4A446;
+  border-radius: 5px;
   width: 450px;
   color: white;
-  border: none;
 }
 
 .player h3 {
