@@ -27,6 +27,7 @@ class Campaign extends Component {
     this.getSynopsis = this.getSynopsis.bind(this);
     this.getPlayingStyle = this.getPlayingStyle.bind(this);
     this.showLocation = this.showLocation.bind(this);
+    this.getPlayerSpots = this.getPlayerSpots.bind(this);
   }
 
   componentDidMount() {
@@ -88,14 +89,21 @@ class Campaign extends Component {
       }
     }
 
+    getPlayerSpots() {
+      if (this.state.campaign) {
+        return (
+          <p className="subtext">({this.state.players.length}/{this.state.campaign.player_limit} Spots Filled)</p>
+        )
+      } else {
+        return (<p>Loading...</p>)
+      }
+    }
 
     getCampaignData() {
-
         if (this.state.campaign) {
           return (
             <React.Fragment>
             <h1>{this.state.campaign.name}</h1>
-            <p>{this.state.players.length}/{this.state.campaign.player_limit} Spots Filled</p>
             <p>Dungeon Master: {this.state.dm.name}</p>
             {this.showLocation()}
             <p>Description: {this.state.campaign.description}</p>
@@ -220,6 +228,7 @@ class Campaign extends Component {
         </div>
         <div className="player-list">
           <h2>Players</h2>
+          {this.getPlayerSpots()}
           { this.state.campaign ? (
             this.getPlayerList()
           ) : (

@@ -52,8 +52,8 @@ class DMButton extends Component {
   <div className="buttons" key={this.props.id}>
   { this.props.dm_confirm === "pending" ? (
     <div>
-    <button onClick={this.approve}>Approve</button>
-    <button onClick={this.reject}>
+    <button className="approve-btn" onClick={this.approve}>Approve</button>
+    <button className="reject-btn" onClick={this.reject}>
       Reject
     </button>
     </div>

@@ -87,6 +87,54 @@
     width: 430px;
   }
 
+  .join-status-heading {
+    font-family: 'Cinzel', serif;
+    color:  #D4A446;
+  }
+
+  .join-status-pending {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: white;
+  }
+
+  .join-status-accepted {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: green;
+  }
+
+  .join-status-rejected {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: red;
+  }
+
+  .approve-btn {
+    width: 130px;
+    height: 30px;
+    margin-right: 20px;
+    background-color: green;
+    border-radius: 5px;
+  }
+
+  .approve-btn:hover {
+    color: white;
+    border: 1px solid white;
+  }
+
+  .reject-btn {
+    width: 130px;
+    height: 30px;
+    background-color: red;
+    border-radius: 5px;
+  }
+
+  .reject-btn:hover {
+    color: white;
+    border: 1px solid white;
+  }
+
   .Campaign-Details h1{
     font-family: 'Cinzel', serif;
     color:  #D4A446;
@@ -133,6 +181,11 @@
     color:  #D4A446;
     margin: 15px 0px 0px 15px;
     font-size: 25px;
+  }
+
+  .player-list .subtext {
+    color:  #D4A446;
+    margin: 5px 0 10px 15px;
   }
 
   .Campaign-Description {

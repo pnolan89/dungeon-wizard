@@ -28,7 +28,6 @@ class JoinRequestDM extends Component {
     } else {
 
       const join_requests = array.map((request) => {
-        console.log("request.request", request.request)
         return (
           <div className="join-request-box" key={request.request.id}>
 
