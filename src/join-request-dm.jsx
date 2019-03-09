@@ -22,7 +22,7 @@ class JoinRequestDM extends Component {
 
       return (
         <React.Fragment>
-          <h3>No pending requests.</h3>
+          <h4>No pending requests.</h4>
         </React.Fragment>
       )
     } else {
@@ -31,8 +31,8 @@ class JoinRequestDM extends Component {
         return (
           <div className="join-request-box" key={request.request.id}>
             <div className="user-info">
-              <p>{request.user.name}</p>
-              <p>{request.request.message}</p>
+              <p className="username">{request.user.name}</p>
+              <p className="message">{request.request.message}</p>
             </div>
             <div className="operations">
             <DMButton handleDMForm={this.handleDMForm} dm_confirm={request.request.dm_confirm} id={request.request.id} />

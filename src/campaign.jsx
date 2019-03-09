@@ -66,7 +66,7 @@ class Campaign extends Component {
         let route = `/campaigns/edit/${this.state.campaignID}`;
         if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
             return(
-                <span className='edit'> <Link to={route}>EDIT</Link></span>
+                <Link to={route} className='edit'>Edit This Campaign</Link>
             )}
         }
 
@@ -220,7 +220,7 @@ class Campaign extends Component {
 
       <div className="player-box">
         <div id="campaign-join-requests">
-          <h3>Requests:</h3>
+          <h3>Requests</h3>
           { this.state.campaign ? (
             this.getRequestData()
           ) : (

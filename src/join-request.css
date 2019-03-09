@@ -43,10 +43,6 @@
   flex-basis: 50%;
 }
 
-.buttons {
-  line-height: 100px;
-}
-
 .player-list {
  margin-top: 25px;
  display: flex;
