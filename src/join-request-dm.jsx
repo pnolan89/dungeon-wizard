@@ -9,15 +9,28 @@ class JoinRequestDM extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      request: this.props.request
     };
     this.handleDMForm = this.handleDMForm.bind(this);
+    this.checkDMConfirm = this.checkDMConfirm.bind(this);
+  }
+
+  checkDMConfirm() {
+      let array = this.props.requests
+    console.log("array", array)
+    let newArray = array.map((request) => {
+      if (request.request.dm_confirm === "pending") {
+        return request
+      }
+    })
+    return newArray
   }
 
   checkStatus() {
     let existenceCheck = function(element) {
       return element !== undefined
     }
-    let array = this.props.requests
+    let array = this.checkDMConfirm()
     if (!array.some(existenceCheck)) {
       return (
         <React.Fragment>
@@ -25,8 +38,8 @@ class JoinRequestDM extends Component {
         </React.Fragment>
       )
     } else {
-      const join_requests = array.map((request) => {
-        console.log("request.request", request.request)
+      const result = array.filter(array => array !== undefined);
+      const join_requests = result.map((request) => {
         return (
           <div className="join-request-box" key={request.request.id}>
             <div className="user-info">
@@ -44,13 +57,15 @@ class JoinRequestDM extends Component {
   }
 
   handleDMForm(newDMResponse) {
-    let DMResponse = newDMResponse
+    console.log("parent response", newDMResponse)
     this.setState({
-      dm_confirm: DMResponse
+      request: newDMResponse
     })
   }
 
   componentDidMount() {
+    this.checkDMConfirm()
+
   }
 
   render() {
