@@ -25,7 +25,7 @@ class CampaignCard extends Component {
       <h4>Play style: {this.props.campaign.playing_style}</h4>
       </div>
       <div className="player-img">
-      <img src="https://bit.ly/2C3tnvb" />
+      <img src={this.props.campaign.image} />
       </div>
       </div>
       </Link>

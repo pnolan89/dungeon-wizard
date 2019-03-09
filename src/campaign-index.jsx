@@ -56,7 +56,7 @@ getCampaignData() {
                         <p className="campaign-detail">Location: {campaign.campaign.location}</p>
                     </div>
                     <div className="Campaign-Index-Image">
-                        <img src="https://bit.ly/2XE42RH" />
+                        <img src={campaign.campaign.image} />
                     </div>
                 </div>
             </Link>

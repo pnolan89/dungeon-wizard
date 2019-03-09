@@ -39,7 +39,9 @@ class CampaignRegistration extends Component {
       synopsis: this.state.synopsis,
       playing_style: this.state.playing_style,
       exp_level: this.state.exp,
-      player_limit: this.state.player_limit
+      player_limit: this.state.player_limit,
+      image: this.state.image,
+     
     }
     console.log(formData);
     axios.post('http://localhost:3000/campaigns', formData)
@@ -170,26 +172,38 @@ class CampaignRegistration extends Component {
  
                         
 
-                        {/* <div className="form">
+                        <div className="form">
                         <label>
                         Playing Style:
                         <br></br>
-                        <select name="style" value={this.state.exp} onChange={this.handleChange}>
+                        <select name="playing_style" value={this.state.playing_style} onChange={this.handleChange}>
                         <option value=":">Choose...</option>
                         <option value="Easy Peasy">Easy Peasy</option>
                         <option value="We're serious.">We're serious.</option>
                         <option value="Dungeon Wizard level play">Dungeon Wizard level play</option>
                         </select>
                         </label>
-                        </div> */}
+                        </div>
 
-
-                        {/* <div className="form">
+                        <div className="form">
                         <label>
-                        Choose a Crest:
-                        <input name="crest" type="file" accept="image/png, image/jpeg" value={this.state.location} onChange={this.handleChange}/>
+                        Campaign Image:
+                        <br></br>
+                        <select name="image" value={this.state.image} onChange={this.handleChange}>
+                        <option value=":">Choose...</option>
+                        <option value="https://bit.ly/2SSsawu">Snowy</option>
+                        <option value="https://bit.ly/2VOZZ3s">Mountain Meadow</option>
+                        <option value="https://bit.ly/2NP1X0V">Cloudy</option>
+                        <option value="https://bit.ly/2SSo6w7">Castle</option>
+                        <option value="https://bit.ly/2IZdgVj">Magick Sunset</option>
+                        <option value="https://bit.ly/2EWHQtJ">Apua'a</option>
+                        <option value="https://bit.ly/2EZ35fx">Icy</option>
+                        <option value="https://bit.ly/2H9qb5u">Misty</option>
+                        <option value="https://bit.ly/2VLXpee">Pretty</option>
+                        <option value="https://bit.ly/2UtBpEG">Spooky</option>
+                        </select>
                         </label>
-                        </div>  */}
+                        </div>
 
                 <input className="Input" type="submit" value="Submit"/>
 

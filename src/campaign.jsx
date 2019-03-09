@@ -28,6 +28,8 @@ class Campaign extends Component {
     this.dateToString = this.dateToString.bind(this);
     this.showLocation = this.showLocation.bind(this);
     this.getPlayerSpots = this.getPlayerSpots.bind(this);
+    this.getImage = this.getImage.bind(this);
+
   }
 
   componentDidMount() {
@@ -38,7 +40,8 @@ class Campaign extends Component {
         campaign: response.data.campaign,
         dm: response.data.dm,
         join_requests: response.data.join_requests,
-        players: response.data.players
+        players: response.data.players,
+        image: response.data.campaign.image,
       });
       console.log('Campaign: ', this.state.campaign)
     })
@@ -234,6 +237,11 @@ class Campaign extends Component {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
+  getImage() {
+    let campaignImage = this.state.image
+    return campaignImage
+  }
+
 
   render() {
     let dm = this.state.dm;
@@ -245,7 +253,7 @@ class Campaign extends Component {
           {this.getCampaignData()}
         </div>
           <div className="Campaign-Image">
-            <img src="https://bit.ly/2C3tnvb" />
+          <img src={this.getImage()} />
           </div>
         </div>
 
