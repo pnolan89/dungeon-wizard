@@ -173,6 +173,7 @@ class Campaign extends Component {
     if (!localStorage.user_id) {
       return <p>You must log in or register to join a campaign!</p>
     } else if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
+      console.log(this.state.join_requests)
       return <JoinRequestDM requests={this.state.join_requests} />
 
     } else {

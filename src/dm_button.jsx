@@ -21,7 +21,8 @@ class DMButton extends Component {
 
     axios.put(`http://localhost:3000/join_requests/${id}`, update)
       .then((response) => {
-        this.props.handleDMForm(update.dm_confirm)
+        console.log("child", update.dm_confirm)
+        this.props.handleDMForm(update.dm_confirm, id)
       })
       .catch((response) => {
         console.log("Failure", response)
@@ -35,7 +36,7 @@ class DMButton extends Component {
 
     axios.put(`http://localhost:3000/join_requests/${id}`, update)
       .then((response) => {
-        this.props.handleDMForm(update.dm_confirm)
+        this.props.handleDMForm(update.dm_confirm, id)
       })
       .catch((response) => {
         console.log("Failure", response)
