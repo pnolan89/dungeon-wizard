@@ -1,5 +1,4 @@
  .Campaign-Index {
-
       text-align: left;
 
 
@@ -9,16 +8,13 @@
       border-width: 1px;
 
       width: 630px;
-      height: 15em;
+      height: 13em;
 
       border-radius: 5px;
       margin:0 auto;
       margin-bottom: 20px;
 
-      padding-top: 20px;
-      padding-right: 20px;
-      padding-bottom: 20px;
-      padding-left: 20px;
+      padding: 20px;
 
       position: relative;
       top: 140px;
@@ -45,10 +41,7 @@
   .Campaign-Card-Details h1 {
     font-family: 'Cinzel', serif;
     margin-right: 1em;;
-    padding-top: 2px;
-    padding-right: 2px;
-    padding-bottom: 2px;
-    padding-left: 2px;
+    padding: 2px;
     color: #D4A446;
   }
 
@@ -60,10 +53,7 @@
     border: solid 1px;
     border-radius: 5px;
     width: 50px;
-    padding-top: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
+    padding: 5px;
   }
 
   .Campaign-Index-Image img {
