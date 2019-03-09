@@ -58,15 +58,33 @@
   }
 
   .join-requests {
-    border: 1px solid grey;
+    border: 1px solid #D4A446;
     border-radius: 20px;
+    background: rgba(13, 31, 45, 0.7);
   }
 
   .join-requests h3 {
     font-family: 'Cinzel', serif;
-    font-size: 20px;
+    font-size: 22px;
     color:  #D4A446;
-    margin-top: 5px;
+    margin: 5px 0 0 0
+  }
+
+  .join-requests .bottom {
+    margin-top: 10px;
+  }
+
+  .join-requests .form {
+    padding-left: 0;
+    margin-top: 10px;
+  }
+
+  .join-requests .message {
+    font-size: 18px;
+  }
+
+  .join-requests textarea {
+    width: 430px;
   }
 
   .Campaign-Details h1{
@@ -107,7 +125,14 @@
 
   .player-list {
     flex-basis: 60%;
-    border: 1px solid;
+    border: none;
+  }
+
+  .player-list h2 {
+    font-family: 'Cinzel', serif;
+    color:  #D4A446;
+    margin: 15px 0px 0px 15px;
+    font-size: 25px;
   }
 
   .Campaign-Description {

@@ -26,7 +26,9 @@ class Campaign extends Component {
     this.checkUserIsPlayer = this.checkUserIsPlayer.bind(this);
     this.getSynopsis = this.getSynopsis.bind(this);
     this.getPlayingStyle = this.getPlayingStyle.bind(this);
+    this.showLocation = this.showLocation.bind(this);
   }
+
   componentDidMount() {
     let campaignID = this.state.campaignID;
     axios.get(`http://localhost:3000/campaigns/${campaignID}`)
@@ -78,7 +80,8 @@ class Campaign extends Component {
     }
 
     showLocation() {
-      if (this.checkUserIsPlayer() === true) {
+      console.log("LOCALSTORAGE: ", this.state.campaign.user_id)
+      if (this.checkUserIsPlayer() === true || this.state.campaign.user_id === parseInt(localStorage.user_id)) {
         return (
           <p>Location: {this.state.campaign.location}</p>
         )
@@ -216,11 +219,12 @@ class Campaign extends Component {
           ) }
         </div>
         <div className="player-list">
-        { this.state.campaign ? (
-          this.getPlayerList()
-        ) : (
-          <p></p>
-        )}
+          <h2>Players</h2>
+          { this.state.campaign ? (
+            this.getPlayerList()
+          ) : (
+            <p>Loading...</p>
+          )}
         </div>
       </div>
 
