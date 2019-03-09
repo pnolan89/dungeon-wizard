@@ -15,7 +15,6 @@ class Campaign extends Component {
     super(props);
     this.state = {
       campaignID: this.props.match.params.campaignID,
-
     };
     this.getJoinRequestObject = this.getJoinRequestObject.bind(this);
     this.getUserRequest = this.getUserRequest.bind(this);
@@ -24,6 +23,7 @@ class Campaign extends Component {
     this.handleRequestForm = this.handleRequestForm.bind(this);
     this.getPlayerList = this.getPlayerList.bind(this);
     this.checkUserIsPlayer = this.checkUserIsPlayer.bind(this);
+    this.dateToString = this.dateToString.bind(this);
   }
   componentDidMount() {
     let campaignID = this.state.campaignID;
@@ -74,6 +74,34 @@ class Campaign extends Component {
       return result;
     }
 
+    dateToString(date) {
+      let months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ];
+    
+      let month = months[date.getMonth()];
+      let day = date.getDate();
+      let year = date.getFullYear();
+    
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+      let time = (hours > 11 ? (hours - 11) : (hours + 1)) + ":" + minutes + (hours > 11 ? "PM" : "AM");
+      let timezone = timeZones[date.getTimezoneOffset()];
+    
+      return month + " " + day + ", " + year + " - " + time + " " + timezone;
+    }
+
     showLocation() {
       if (this.checkUserIsPlayer() === true) {
         return (
@@ -82,6 +110,14 @@ class Campaign extends Component {
       }
     }
 
+    showSession() {
+      let date = {this.state.campaign.next_session}
+      if (this.checkUserIsPlayer()) {
+        return (
+          <p>Next session: {this.dateToString(date)}</p> 
+        )
+      }
+    }
 
     getCampaignData() {
 
@@ -92,6 +128,7 @@ class Campaign extends Component {
             <p>{this.state.players.length}/{this.state.campaign.player_limit} Spots Filled</p>
             <p>Dungeon Master: {this.state.dm.name}</p>
             {this.showLocation()}
+            {this.showSession()}
             <p>Description: {this.state.campaign.description}</p>
             <p>Playing Style: super tough </p>
             <span>{this.getEdit()}</span>
