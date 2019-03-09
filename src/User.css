@@ -60,12 +60,12 @@
   border: 3px;
   height: auto;
 
+  color: white;
+
   margin-bottom: -150px;
 
   position: relative;
   top:-150px;
-
- 
 }
 
 .dm-list {
@@ -94,6 +94,11 @@
   margin: 10px;
 }
 
+.player:hover {
+  transition: all .2s ease-in-out;
+  transform: scale(1.005);
+}
+
 .player-info {
   margin-right: 0px;
   padding-right: 0px;
@@ -107,4 +112,6 @@
 .player-img img {
   padding-left: 0px;
   margin-right: 100px;
+  border: 1px solid;  
+
 }

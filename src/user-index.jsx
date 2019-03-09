@@ -49,7 +49,7 @@ getUserData() {
                 <p>Experience level: {user.user.exp_level}</p>
             </div>
             <div className="User-Index-Image">
-                <img src="https://bit.ly/2C3tnvb" />
+                <img src={user.user.avatar} />
             </div>
           </div>
           </Link>
