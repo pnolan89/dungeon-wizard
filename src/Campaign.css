@@ -52,38 +52,43 @@
     height: 100%;
   }
 
-  .join-request-box {
+  #campaign-join-requests {
+    border: none;
+    border-radius: 5px;
+    background: rgba(13, 31, 45, 0.7);
     display: flex;
     flex-direction: column;
+    padding: 15px;
   }
 
-  .join-requests {
-    border: 1px solid #D4A446;
-    border-radius: 20px;
-    background: rgba(13, 31, 45, 0.7);
-  }
-
-  .join-requests h3 {
+  #campaign-join-requests h3 {
     font-family: 'Cinzel', serif;
     font-size: 22px;
     color:  #D4A446;
-    margin: 5px 0 0 0
+    position: relative;
+    margin: 0;
   }
 
-  .join-requests .bottom {
+  #campaign-join-requests .join-request-box {
+    color: white;
+    border: 1px solid grey;
+    padding: 0 15px 0 15px;
+  }
+
+  #campaign-join-requests .bottom {
     margin-top: 10px;
   }
 
-  .join-requests .form {
+  #campaign-join-requests .form {
     padding-left: 0;
     margin-top: 10px;
   }
 
-  .join-requests .message {
+  #campaign-join-requests .message {
     font-size: 18px;
   }
 
-  .join-requests textarea {
+  #campaign-join-requests textarea {
     width: 430px;
   }
 

@@ -30,14 +30,13 @@ class JoinRequestDM extends Component {
       const join_requests = array.map((request) => {
         return (
           <div className="join-request-box" key={request.request.id}>
-
-          <div className="user-info">
-          <p>{request.user.name}</p>
-            <p>{request.request.message}</p>
-          </div>
-          <div className="operations">
-          <DMButton handleDMForm={this.handleDMForm} dm_confirm={request.request.dm_confirm} id={request.request.id} />
-          </div>
+            <div className="user-info">
+              <p>{request.user.name}</p>
+              <p>{request.request.message}</p>
+            </div>
+            <div className="operations">
+            <DMButton handleDMForm={this.handleDMForm} dm_confirm={request.request.dm_confirm} id={request.request.id} />
+            </div>
           </div>
         )
       })
@@ -58,10 +57,9 @@ class JoinRequestDM extends Component {
   render() {
 
     return(
-      <div className="join-request-box">
-      <h3>Requests:</h3>
+      <React.Fragment>
        {this.checkStatus()}
-      </div>
+      </React.Fragment>
 
     );
   }

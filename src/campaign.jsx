@@ -219,7 +219,8 @@ class Campaign extends Component {
       </div>
 
       <div className="player-box">
-        <div className="join-requests">
+        <div id="campaign-join-requests">
+          <h3>Requests:</h3>
           { this.state.campaign ? (
             this.getRequestData()
           ) : (
