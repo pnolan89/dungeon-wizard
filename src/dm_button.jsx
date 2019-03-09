@@ -17,12 +17,10 @@ class DMButton extends Component {
       let update = {
         dm_confirm: "accepted"
       }
-
       let id = this.props.id
+
     axios.put(`http://localhost:3000/join_requests/${id}`, update)
       .then((response) => {
-        console.log(response)
-        console.log("button updat", update.dm_confirm)
         this.props.handleDMForm(update.dm_confirm)
       })
       .catch((response) => {
@@ -44,29 +42,24 @@ class DMButton extends Component {
       })
     }
 
-
   render() {
-    console.log("props", this.props.dm_confirm)
       return(
-
-  <div className="buttons" key={this.props.id}>
-  { this.props.dm_confirm === "pending" ? (
-    <div>
-    <button onClick={this.approve}>Approve</button>
-    <button onClick={this.reject}>
-      Reject
-    </button>
-    </div>
-  ) : this.props.dm_confirm === "accepted" ? (
-    <p>Accepted</p>
-  ) : this.props.dm_confirm === "rejected" ? (
-    <p>Rejected</p>
-  ): (
-    <p>Pending</p>
-  )}
-
-</div>
-
+        <div className="buttons" key={this.props.id}>
+          { this.props.dm_confirm === "pending" ? (
+            <div>
+            <button onClick={this.approve}>Approve</button>
+            <button onClick={this.reject}>
+              Reject
+            </button>
+            </div>
+          ) : this.props.dm_confirm === "accepted" ? (
+            <p>Accepted</p>
+          ) : this.props.dm_confirm === "rejected" ? (
+            <p>Rejected</p>
+          ): (
+            <p>Pending</p>
+          )}
+        </div>
       );
   }
 }

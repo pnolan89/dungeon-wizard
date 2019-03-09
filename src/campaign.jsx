@@ -45,8 +45,6 @@ class Campaign extends Component {
     });
   }
 
-
-
   handleRequestForm(newPostData) {
     let joinRequests = this.state.join_requests.slice(0)
     let campaignObject = {
@@ -58,6 +56,7 @@ class Campaign extends Component {
       join_requests: joinRequests
     })
   }
+
 
     getEdit() {
         let route = `/campaigns/edit/${this.state.campaignID}`;
