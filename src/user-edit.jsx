@@ -62,6 +62,7 @@ class UserEdit extends Component {
         playing_style: this.state.playing_style,
         exp_level: this.state.exp_level,
         password: this.state.password,
+        avatar: this.state.avatar
     }
 
     console.log(formData);
@@ -145,6 +146,25 @@ class UserEdit extends Component {
                          <input name="password" type="password" defaultValue={this.state.userPassword} onChange={this.handleChange}/>
                        </label>
                        </div>
+
+                       <div className="form">
+                            <label>
+                            Avatar:
+                            <br></br>
+                            <select name="avatar" value={this.state.avatar} onChange={this.handleChange}>
+                            <option value=":">Choose...</option>
+                            <option value="https://bit.ly/2XGVwkU">Mage </option>
+                            <option value="https://bit.ly/2tX8YU2">Wizard</option>
+                            <option value="https://bit.ly/2H7saHd">Soldier</option>
+                            <option value="https://bit.ly/2CaG1bT">Elf</option>
+                            <option value="https://bit.ly/2H4WFxy">Orc Shaman</option>
+                            <option value="https://bit.ly/2TIELH6">Hell Knight</option>
+                            <option value="https://bit.ly/2VG0jRM">Assassin</option>
+                            <option value="https://bit.ly/2EWW1ji">Orc</option>
+                            <option value="https://bit.ly/2tUndsO">Skeleton</option>
+                            </select>
+                            </label>
+                            </div>
                        
                        <input className="input" type="submit" value="Submit" />
                        </form>
