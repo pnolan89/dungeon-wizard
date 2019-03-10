@@ -185,15 +185,18 @@ class Campaign extends Component {
     }
   }
 
-  handleDMForm(newStatus, id, requests) {
+  handleDMForm(newStatus, id, requests, players) {
+    let updatePlayers = players;
     let updateRequests = requests.map((request) => {
       if (request.request.id === id) {
         request.request.dm_confirm = newStatus;
+        updatePlayers.push(request.user)
       }
       return request;
     })
     this.setState({
-      join_requests: updateRequests
+      join_requests: updateRequests,
+      players: updatePlayers
     })
   }
 

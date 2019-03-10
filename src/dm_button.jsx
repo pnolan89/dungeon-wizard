@@ -16,33 +16,35 @@ class DMButton extends Component {
   approve() {
       let update = {
         dm_confirm: "accepted"
-      }
-      let id = this.props.id
-      let requests = this.props.requests
+      };
+      let id = this.props.id;
+      let requests = this.props.requests;
+      let players = this.props.players;
 
     axios.put(`http://localhost:3000/join_requests/${id}`, update)
       .then((response) => {
-        console.log("child", update.dm_confirm)
-        this.props.handleDMForm(update.dm_confirm, id, requests)
+        console.log("child", update.dm_confirm);
+        this.props.handleDMForm(update.dm_confirm, id, requests, players);
       })
       .catch((response) => {
-        console.log("Failure", response)
-      })
+        console.log("Failure", response);
+      });
   }
   reject() {
       let update = {
         dm_confirm: "rejected"
-      }
-      let id = this.props.id
-      let requests = this.props.requests
+      };
+      let id = this.props.id;
+      let requests = this.props.requests;
+      let players = this.props.players;
 
     axios.put(`http://localhost:3000/join_requests/${id}`, update)
       .then((response) => {
-        this.props.handleDMForm(update.dm_confirm, id, requests)
+        this.props.handleDMForm(update.dm_confirm, id, requests, players);
       })
       .catch((response) => {
-        console.log("Failure", response)
-      })
+        console.log("Failure", response);
+      });
     }
 
   render() {

@@ -47,7 +47,7 @@ class JoinRequestDM extends Component {
               <p className="message">{request.request.message}</p>
             </div>
             <div className="operations">
-            <DMButton handleDMForm={this.props.handleDMForm} requests={this.state.requests} dm_confirm={request.request.dm_confirm} id={request.request.id} />
+            <DMButton handleDMForm={this.props.handleDMForm} requests={this.state.requests} players={this.state.players} dm_confirm={request.request.dm_confirm} id={request.request.id} />
             </div>
           </div>
         )
