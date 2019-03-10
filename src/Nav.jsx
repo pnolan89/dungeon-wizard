@@ -10,7 +10,6 @@ export default class Nav extends Component {
     this.state = {
       dropClass: "dropdown-content",
       logout: false,
-      redirect: false
     };
     this.dropdownClick = this.dropdownClick.bind(this);
     this.logoutClick = this.logoutClick.bind(this);
@@ -29,7 +28,7 @@ export default class Nav extends Component {
   }
 
   renderRedirect = () => {
-    if (this.state.redirect) {
+    if (localStorage.login_status === "false") {
       let route = `/`
       return <Redirect to={route} />
     }
@@ -53,9 +52,9 @@ export default class Nav extends Component {
     return () => {
       localStorage.removeItem('user_id');
       localStorage.removeItem('username');
+      localStorage.setItem('login_status', "false")
       this.setState({
         logout: true,
-        redirect: true
       });
     };
   }

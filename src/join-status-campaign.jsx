@@ -4,12 +4,11 @@ import './join-request.css';
 
 class JoinStatusCampaign extends Component {
   constructor(props) {
-      super(props);
-      this.state = {
-      };
-      console.log("Getting to join status")
-      console.log("props", this.props)
-
+    super(props);
+    this.state = {
+    };
+    console.log("Getting to join status")
+    console.log("props", this.props)
   }
 
   checkStatus() {
@@ -34,21 +33,16 @@ class JoinStatusCampaign extends Component {
     }
   }
 
-  componentDidMount() {
-  }
-
   render() {
-      return(
-        <div className="join-box">
-          <div className="top">
+    return(
+      <div className="join-box">
+        <div className="top">
           <h2 className="join-status-heading">Request status: {this.checkStatus()}</h2>
-          </div>
-          <div className="bottom">
-
-          </div>
         </div>
-
-      );
+        <div className="bottom">
+        </div>
+      </div>
+    );
   }
 }
 export default JoinStatusCampaign;

@@ -9,13 +9,9 @@ class Login extends Component {
     super();
     this.state = {
       redirect: false,
-  };
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    console.log('STORAGE: ', localStorage);
   }
 
   handleChange(event) {
@@ -43,6 +39,7 @@ class Login extends Component {
                 id: user.user.id,
                 name: user.user.name
               };
+              localStorage.setItem('login_status', "true")
               localStorage.setItem('user_id', userData.id);
               localStorage.setItem('username', userData.name);
               this.setState({
@@ -67,34 +64,33 @@ class Login extends Component {
     }
   }
     render() {
-        return(
-                 <div className="Login">
-                 {this.renderRedirect()}
-                    <div className="Login-Box">
-                        <div className="Login-Details">
-                            <h1>Login</h1>
-                            <form onSubmit={this.handleSubmit}>
-                            <div className="form">
-                            <label>
-                              Email:
-                              <br></br>
-                              <input name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
-                            </label>
-                            </div>
-                            <div className="form">
-                            <label>
-                              Password:
-                              <br></br>
-                              <input name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
-                            </label>
-                            </div>
-
-                            <input className="Input" type="submit" value="Submit" />
-                            </form>
-                        </div>
-                    </div>
+      return(
+        <div className="Login">
+          {this.renderRedirect()}
+          <div className="Login-Box">
+            <div className="Login-Details">
+              <h1>Login</h1>
+              <form onSubmit={this.handleSubmit}>
+                <div className="form">
+                  <label>
+                    Email:
+                    <br />
+                    <input name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
+                  </label>
+                </div>
+                <div className="form">
+                  <label>
+                    Password:
+                    <br />
+                    <input name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
+                  </label>
+                </div>
+                <input className="Input" type="submit" value="Submit" />
+              </form>
             </div>
-        );
+          </div>
+        </div>
+      );
     }
 }
 export default Login;
