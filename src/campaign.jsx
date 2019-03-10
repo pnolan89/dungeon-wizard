@@ -23,13 +23,13 @@ class Campaign extends Component {
     this.handleRequestForm = this.handleRequestForm.bind(this);
     this.getPlayerList = this.getPlayerList.bind(this);
     this.checkUserIsPlayer = this.checkUserIsPlayer.bind(this);
+    this.checkUserIsDM = this.checkUserIsDM.bind(this);
     this.getSynopsis = this.getSynopsis.bind(this);
     this.getPlayingStyle = this.getPlayingStyle.bind(this);
     this.dateToString = this.dateToString.bind(this);
     this.showLocation = this.showLocation.bind(this);
     this.getPlayerSpots = this.getPlayerSpots.bind(this);
     this.getImage = this.getImage.bind(this);
-
   }
 
   componentDidMount() {
@@ -68,7 +68,7 @@ class Campaign extends Component {
         let route = `/campaigns/edit/${this.state.campaignID}`;
         if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
             return(
-                <Link to={route} className='edit'>Edit This Campaign</Link>
+                <Link to={route} id="campaign-edit-btn">Edit This Campaign</Link>
             )}
         }
 
@@ -79,6 +79,14 @@ class Campaign extends Component {
           result = true;
         }
       })
+      return result;
+    }
+
+    checkUserIsDM() {
+      let result = false;
+      if (parseInt(localStorage.user_id) === this.state.campaign.user_id) {
+        result = true;
+      }
       return result;
     }
 
@@ -156,11 +164,11 @@ class Campaign extends Component {
           {this.showSession()}
           <p>Description: {this.state.campaign.description}</p>
           <p>Playing Style: {this.getPlayingStyle()}</p>
-          <span>{this.getEdit()}</span>
+          <div id="campaign-edit-container">{this.getEdit()}</div>
           </React.Fragment>
-        );
+       );
       } else {
-          return (<p>Loading...</p>);
+        return (<p>Loading...</p>);
       }
     }
 
@@ -222,7 +230,7 @@ class Campaign extends Component {
 
   getPlayerList() {
     let player = this.state.players.map((object) => {
-      return (<PlayerCard key={object.id} playerInfo={object} />
+      return (<PlayerCard key={object.id} playerInfo={object} isPlayer={this.checkUserIsPlayer()} isDM={this.checkUserIsDM()} />
         )
     })
 
@@ -258,21 +266,20 @@ class Campaign extends Component {
     <div className="Campaign">
       <div className="Campaign-Box">
         <div className="campaign-top">
-        <div className="Campaign-Details">
-          {this.getCampaignData()}
-        </div>
-          <div className="Campaign-Image">
-          <img src={this.getImage()} />
+          <div className="Campaign-Details">
+            {this.getCampaignData()}
           </div>
         </div>
-
-          <div className="Campaign-Description">
+        <div className="Campaign-Description">
           <h2>Synopsis</h2>
           <p>{this.getSynopsis()}</p>
-      </div>
+        </div>
       </div>
 
       <div className="player-box">
+      <div className="Campaign-Image">
+            <img src={this.getImage()} />
+          </div>
         <div id="campaign-join-requests">
           <h3>Requests</h3>
           { this.state.campaign ? (

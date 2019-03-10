@@ -8,13 +8,17 @@
   text-align: left;
   background: rgba(13, 31, 45, 0.7);
   font-family: 'Montserrat', sans-serif;
-  border: 1px solid;  
+  border: 1px solid;
   border-radius: 5px;
   padding: 20px;
   position: relative;
   margin: 0 auto;
   top: 120px;
-  box-shadow: 3px 3px 10px; 
+  box-shadow: 3px 3px 10px;
+}
+
+.user-top h1 {
+  color: #D4A446;
 }
 
 .user-box  {
@@ -93,7 +97,8 @@
   flex-direction: row;
   border: solid 1px;
   border-radius: 3px;
-  margin: 10px;
+  margin: auto;
+  margin-bottom: 20px;
 }
 
 .player:hover {
@@ -104,7 +109,7 @@
 .player-info {
   margin-right: 0px;
   padding-right: 0px;
-  flex-basis: 20%;  
+  flex-basis: 20%;
 }
 
 .player-img {
@@ -114,6 +119,6 @@
 .player-img img {
   padding-left: 0px;
   margin-right: 100px;
-  border: 1px solid;  
+  border: 1px solid;
 
 }

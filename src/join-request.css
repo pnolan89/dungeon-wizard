@@ -68,13 +68,14 @@
   height: 100px;
   width: 100px;
   position: relative;
-  right: 40px;
+  right: 20px;
   top: 18px;
 }
 
 .player-info {
   padding-left: 15px;
   flex-basis: 80%;
+  max-width: 340px;
 
 }
 
@@ -88,4 +89,35 @@
   left: 5em; top: 1.7em;
   width: 5em;
   height: 5em;
+}
+
+.campaign-card {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #D4A446;
+  border-radius: 5px;
+  width: 450px;
+  color: white;
+}
+
+.campaign-card h3 {
+  color: #D4A446;
+}
+
+.campaign-card img {
+  width: 150px;
+  height: 100px;
+  display: flex;
+  position: relative;
+  left: -1em;
+  top: 1.3em;
+}
+
+.campaign-info {
+  padding-left: 15px;
+  flex-basis: 80%;
+}
+
+.campaign-img {
+  flex-basis: 20%;
 }

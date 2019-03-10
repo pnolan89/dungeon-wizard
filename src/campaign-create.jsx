@@ -41,7 +41,7 @@ class CampaignRegistration extends Component {
       exp_level: this.state.exp,
       player_limit: this.state.player_limit,
       image: this.state.image,
-     
+
     }
     console.log(formData);
     axios.post('http://localhost:3000/campaigns', formData)
@@ -69,7 +69,7 @@ class CampaignRegistration extends Component {
         return(
 
 
-<div className="Campaign-Create">
+<div className="campaign-create">
     {this.renderRedirect()}
 
     <div className="Campaign-Box">
@@ -80,7 +80,7 @@ class CampaignRegistration extends Component {
 
                 <h1>Create Campaign...</h1>
 
-                        <div className="form">
+                        <div className="form name">
                         <label>
                         Campaign Name:
                         <br></br>
@@ -88,7 +88,7 @@ class CampaignRegistration extends Component {
                         </label>
                         </div>
 
-                        <div className="form">
+                        <div className="form description">
                         <label>
                         Description:
                         <br></br>
@@ -96,20 +96,19 @@ class CampaignRegistration extends Component {
                         </label>
                         </div>
 
-                        <div className="form">
+                        <div className="form synopsis">
                         <label>
                         Synopsis:
                         <br></br>
                         <textarea name='synopsis' type="text"  value={this.state.synopsis} onChange={this.handleChange}/>
                         </label>
-                        </div> 
+                        </div>
 
                         <div className="form">
                         <label>
                         Player limit:
                         <br></br>
                         <select name="player_limit" value={this.state.player_limit} onChange={this.handleChange}>
-                        <option value=":">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -118,20 +117,19 @@ class CampaignRegistration extends Component {
                         <option value="6">6</option>
                         <option value="7">7</option>
                         <option value="8">8</option>
-                        <option value="9  ">9</option>
+                        <option value="9">9</option>
                         </select>
                         </label>
                         </div>
 
                         <div className="form">
                         <label>
-                        Play-style:
+                        Playing style:
                         <br></br>
                         <select name="playing_style" value={this.state.playing_style} onChange={this.handleChange}>
                         <option value=":">Choose...</option>
-                        <option value="aggressive">Aggressive</option>
-                        <option value="rpg">RPG</option>
-                        <option value="easy-going">Easy-going</option>
+                        <option value="combat-focused">Combat-focused</option>
+                        <option value="story-focused">Story-focused</option>
                         </select>
                         </label>
                         </div>
@@ -140,12 +138,35 @@ class CampaignRegistration extends Component {
                         <label>
                         Experience level:
                         <br></br>
-                        <select name="exp" value={this.state.exp} onChange={this.handleChange}>
+                        <select placeholder="Choose..." name="exp" value={this.state.exp} onChange={this.handleChange}>
                         <option value=":">Choose...</option>
-                        <option value="newbie">Newbie</option>
-                        <option value="moderate">Moderate</option>
-                        <option value="advanced">Advanced</option>
-                        <option value="wizard">Wizard</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="expert">Expert</option>
+                        </select>
+                        </label>
+                        </div>
+
+                        <div className="form">
+                        <label>
+                        Campaign Image:
+                        <br></br>
+                        <select name="image" value={this.state.image} onChange={this.handleChange}>
+                        <option value=":">Choose...</option>
+                        <option value="https://bit.ly/2VOZZ3s">Mountain Meadow</option>
+                        <option value="https://bit.ly/2NP1X0V">Cloudy</option>
+                        <option value="https://bit.ly/2SSo6w7">Castle</option>
+                        <option value="https://bit.ly/2IZdgVj">Sunset</option>
+                        <option value="https://bit.ly/2EWHQtJ">Coastline</option>
+                        <option value="https://bit.ly/2H9qb5u">Misty</option>
+                        <option value="https://bit.ly/2VLXpee">Aurora</option>
+                        <option value="https://bit.ly/2TsVApR">Obelisks</option>
+                        <option value="https://bit.ly/2H9B7Qw">Great Lighthouse</option>
+                        <option value="https://bit.ly/2EMtUCs">Gear City</option>
+                        <option value="https://bit.ly/2UsFbOJ">Forest Village</option>
+                        <option value="https://bit.ly/2EM9KZc">Tree of Life</option>
+                        <option value="https://bit.ly/2TIzBdO">Ancient City</option>
+                        <option value="https://bit.ly/2Hlac3w">Monestary</option>
                         </select>
                         </label>
                         </div>
@@ -153,7 +174,7 @@ class CampaignRegistration extends Component {
                         <div className="form-tiny">
                         <tiny>Location and session time will be visible only to approved players.</tiny>
                         </div>
-                        <div className="form">
+                        <div className="form location">
                         <label>
                         Location:
                         <br></br>
@@ -169,43 +190,8 @@ class CampaignRegistration extends Component {
                         <input name="next_session" type="datetime-local" value={this.state.next_session} onChange={this.handleChange} />
                         </label>
                         </div>
- 
-                        
 
-                        <div className="form">
-                        <label>
-                        Playing Style:
-                        <br></br>
-                        <select name="playing_style" value={this.state.playing_style} onChange={this.handleChange}>
-                        <option value=":">Choose...</option>
-                        <option value="Easy Peasy">Easy Peasy</option>
-                        <option value="We're serious.">We're serious.</option>
-                        <option value="Dungeon Wizard level play">Dungeon Wizard level play</option>
-                        </select>
-                        </label>
-                        </div>
-
-                        <div className="form">
-                        <label>
-                        Campaign Image:
-                        <br></br>
-                        <select name="image" value={this.state.image} onChange={this.handleChange}>
-                        <option value=":">Choose...</option>
-                        <option value="https://bit.ly/2SSsawu">Snowy</option>
-                        <option value="https://bit.ly/2VOZZ3s">Mountain Meadow</option>
-                        <option value="https://bit.ly/2NP1X0V">Cloudy</option>
-                        <option value="https://bit.ly/2SSo6w7">Castle</option>
-                        <option value="https://bit.ly/2IZdgVj">Magick Sunset</option>
-                        <option value="https://bit.ly/2EWHQtJ">Apua'a</option>
-                        <option value="https://bit.ly/2EZ35fx">Icy</option>
-                        <option value="https://bit.ly/2H9qb5u">Misty</option>
-                        <option value="https://bit.ly/2VLXpee">Pretty</option>
-                        <option value="https://bit.ly/2UtBpEG">Spooky</option>
-                        </select>
-                        </label>
-                        </div>
-
-                <input className="Input" type="submit" value="Submit"/>
+                <input className="submit" type="submit" value="Submit"/>
 
             </form>
 
