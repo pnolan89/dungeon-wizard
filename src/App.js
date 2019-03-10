@@ -6,7 +6,7 @@ import NotFound from './NotFound'
 class App extends Component {
   constructor(props) {
     super(props);
-  }
+  } 
 
   render () {
     return <Router>

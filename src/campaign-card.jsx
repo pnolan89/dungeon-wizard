@@ -7,16 +7,10 @@ class CampaignCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
     };
   }
 
-
-  componentDidMount() {
-  }
-
   render() {
-
     return(
       <Link to={`/campaigns/${this.props.campaign.id}`}>
       <div className="campaign-card">
