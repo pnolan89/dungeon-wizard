@@ -84,6 +84,14 @@ class Campaign extends Component {
 
     dateToString(dateString) {
       let date = new Date(dateString)
+
+      function addZero(min) {
+        if (min < 10) {
+          min = "0" + min;
+        }
+        return min;
+      }
+
       let months = [
         "January",
         "February",
@@ -104,7 +112,7 @@ class Campaign extends Component {
       let year = date.getFullYear();
 
       let hours = (date.getHours()) + 6;
-      let minutes = date.getMinutes();
+      let minutes = addZero(date.getMinutes());
       let time = (hours > 11 ? (hours - 11) : (hours + 1)) + ":" + minutes + (hours > 11 ? "PM" : "AM");
 
       return month + " " + day + ", " + year + " - " + time + " ";
@@ -139,21 +147,21 @@ class Campaign extends Component {
     }
 
     getCampaignData() {
-        if (this.state.campaign) {
-          return (
-            <React.Fragment>
-            <h1>{this.state.campaign.name}</h1>
-            <p>Dungeon Master: {this.state.dm.name}</p>
-            {this.showLocation()}
-            {this.showSession()}
-            <p>Description: {this.state.campaign.description}</p>
-            <p>Playing Style: {this.getPlayingStyle()}</p>
-            <span>{this.getEdit()}</span>
-            </React.Fragment>
-         );
-        } else {
-            return (<p>Loading...</p>);
-        }
+      if (this.state.campaign) {
+        return (
+          <React.Fragment>
+          <h1>{this.state.campaign.name}</h1>
+          <p>Dungeon Master: {this.state.dm.name}</p>
+          {this.showLocation()}
+          {this.showSession()}
+          <p>Description: {this.state.campaign.description}</p>
+          <p>Playing Style: {this.getPlayingStyle()}</p>
+          <span>{this.getEdit()}</span>
+          </React.Fragment>
+        );
+      } else {
+          return (<p>Loading...</p>);
+      }
     }
 
   getSynopsis() {
