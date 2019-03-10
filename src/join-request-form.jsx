@@ -57,13 +57,8 @@ class JoinRequestForm extends Component {
     render() {
         return(
           <div className="join-box">
-          <div className="top">
           <h4 className="join-form-heading">Request to join this campaign!</h4>
-          </div>
-          <div className="bottom">
-            <div>Username: {localStorage.username}</div>
-            <div>Campaign Name: {this.props.campaign.name}</div>
-            <div className="form">
+            <div className="join-form-message">
             <form onSubmit={this.handleSubmit}>
             <div>
               <label for="message" className="message">Message</label></div>
@@ -73,7 +68,6 @@ class JoinRequestForm extends Component {
                 <input type="submit" value="Submit" /></div>
             </form>
             </div>
-          </div>
           </div>
 
         );
