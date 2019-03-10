@@ -10,8 +10,8 @@ class User extends Component {
         this.state = {
             userID: this.props.match.params.userID
         };
-      this.renderCampaignDMCard = this.renderCampaignDMCard.bind(this);
-      this.renderCampaignPlayCard = this.renderCampaignPlayCard.bind(this);
+      this.renderCampaignDMCards = this.renderCampaignDMCards.bind(this);
+      this.renderCampaignPlayCards = this.renderCampaignPlayCards.bind(this);
       this.hasMultipleColumns = this.hasMultipleColumns.bind(this);
     }
 
@@ -64,7 +64,11 @@ class User extends Component {
       return month + " " + day + ", " + year + " ";
     }
 
-    renderCampaignPlayCard() {
+    capitalize(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    renderCampaignPlayCards() {
       let playCards = this.state.playCampaigns.map((object) => {
         return (
           <CampaignCard key={object.id} campaign={object} />
@@ -73,7 +77,7 @@ class User extends Component {
       return playCards
     }
 
-    renderCampaignDMCard() {
+    renderCampaignDMCards() {
       let playCards = this.state.dmCampaigns.map((object) => {
         return (
           <CampaignCard key={object.id} campaign={object} />
@@ -97,8 +101,8 @@ class User extends Component {
                 <React.Fragment>
                     <h1>{this.state.user.user.name}</h1>
                     <p>Member since: {this.dateToString(this.state.user.user.created_at)}</p>
-                    <p>Playing Style: {this.state.user.user.playing_style} </p>
-                    <p>Experience level: {this.state.user.user.exp_level}</p>
+                    <p>Playing Style: {this.capitalize(this.state.user.user.playing_style)} </p>
+                    <p>Experience level: {this.capitalize(this.state.user.user.exp_level)}</p>
                     <span>{this.getEdit()}</span> <span>{this.getAvatar()}</span>
                 </React.Fragment>
             );
@@ -153,11 +157,11 @@ class User extends Component {
           <div className="campaign-box">
             <div className="left-list">
               {this.getDmof()}
-              {this.renderCampaignDMCard()}
+              {this.renderCampaignDMCards()}
             </div>
             <div className="right-list">
               {this.getPlaying()}
-              {this.renderCampaignPlayCard()}
+              {this.renderCampaignPlayCards()}
             </div>
           </div>
         )
@@ -166,7 +170,7 @@ class User extends Component {
           <div className="campaign-box">
             <div className="center-list">
               {this.getPlaying()}
-              {this.renderCampaignPlayCard()}
+              {this.renderCampaignPlayCards()}
             </div>
           </div>
         )
@@ -175,7 +179,7 @@ class User extends Component {
           <div className="campaign-box">
             <div className="center-list">
               {this.getDmof()}
-              {this.renderCampaignDMCard()}
+              {this.renderCampaignDMCards()}
             </div>
           </div>
         )
