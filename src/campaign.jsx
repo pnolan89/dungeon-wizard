@@ -5,6 +5,7 @@ import JoinRequestForm from "./join-request-form";
 import JoinStatusCampaign from "./join-status-campaign";
 import JoinRequestDM from "./join-request-dm";
 import PlayerCard from "./player-card";
+import Modal from './modal.js';
 import { join } from "path";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -15,6 +16,7 @@ class Campaign extends Component {
     super(props);
     this.state = {
       campaignID: this.props.match.params.campaignID,
+      isShowing: false
     };
     this.getJoinRequestObject = this.getJoinRequestObject.bind(this);
     this.getUserRequest = this.getUserRequest.bind(this);
@@ -50,6 +52,18 @@ class Campaign extends Component {
     console.log(error);
     });
   }
+
+  openModalHandler = () => {
+    this.setState({
+        isShowing: true
+    });
+}
+
+closeModalHandler = () => {
+    this.setState({
+        isShowing: false
+    });
+}
 
   handleRequestForm(newPostData) {
     let joinRequests = this.state.join_requests.slice(0)
@@ -135,8 +149,28 @@ class Campaign extends Component {
       }
     }
 
+    
+
     showSession() {
       let date = this.state.campaign.next_session
+      if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
+        return (
+          <React.Fragment>
+          <p>Next session: {this.dateToString(date)}</p>
+                <p>{ this.state.isShowing ? <p onClick={this.closeModalHandler} className="back-drop"></p> : null }
+
+                <button className="open-modal-btn" onClick={this.openModalHandler}>Update</button>
+
+                <Modal
+                    className="modal"
+                    show={this.state.isShowing}
+                    close={this.closeModalHandler}
+                    campaignID={this.state.campaignID}
+                    >
+                </Modal></p>
+                </React.Fragment>
+        )
+      }
       if (this.checkUserIsPlayer() === true || this.state.campaign.user_id === parseInt(localStorage.user_id)) {
         return (
           <p>Next session: {this.dateToString(date)}</p>
