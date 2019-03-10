@@ -185,7 +185,13 @@ class Campaign extends Component {
     if (!localStorage.user_id) {
       return <p>You must log in or register to join a campaign!</p>
     } else if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
-      return <JoinRequestDM requests={this.state.join_requests} />
+      return (
+        <React.Fragment>
+          <h3>Requests</h3>
+          <JoinRequestDM requests={this.state.join_requests} />
+        </React.Fragment>
+      )
+
     } else {
       return this.checkUserRequest()
     }
@@ -275,7 +281,6 @@ class Campaign extends Component {
             <img src={this.getImage()} />
           </div>
         <div id="campaign-join-requests">
-          <h3>Requests</h3>
           { this.state.campaign ? (
             this.getRequestData()
           ) : (

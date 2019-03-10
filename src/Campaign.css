@@ -123,8 +123,15 @@
   }
 
   #campaign-join-requests .join-form-heading {
-    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
     color:  #D4A446;
+  }
+
+  #campaign-join-requests .join-form-message {
+    margin-top: 15px;
   }
 
   #campaign-join-requests input {
@@ -134,7 +141,7 @@
     width: 80px;
     border: 1px solid #D4A446;
     border-radius: 5px;
-    margin-top: 10px;
+    margin-top: 15px;
   }
 
   #campaign-join-requests input:hover {
@@ -148,7 +155,7 @@
   }
 
   #campaign-join-requests .message {
-    font-size: 15px;
+    font-size: 18px;
     margin: 0 0 20px 0;
   }
 
@@ -174,20 +181,20 @@
   .join-status-accepted {
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-    color: green;
+    color: #35a535;
   }
 
   .join-status-rejected {
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-    color: red;
+    color: #d12e25;
   }
 
   .approve-btn {
     width: 130px;
     height: 30px;
     margin-right: 20px;
-    background-color: green;
+    background-color: #35a535;
     border-radius: 5px;
   }
 
@@ -199,7 +206,7 @@
   .reject-btn {
     width: 130px;
     height: 30px;
-    background-color: red;
+    background-color: #d12e25;
     border-radius: 5px;
   }
 

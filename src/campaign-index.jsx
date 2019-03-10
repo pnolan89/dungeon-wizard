@@ -27,6 +27,10 @@ componentDidMount() {
     });
 }
 
+capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
 filterCampaigns(campaigns) {
   let filteredList = campaigns;
   if (this.state.filters.exp_level) {
@@ -50,7 +54,8 @@ getCampaignData() {
                     <h1>{campaign.campaign.name}</h1>
                     <p className="campaign-description">{campaign.campaign.description}</p>
                     <p className="campaign-detail">Dungeon Master: {campaign.dm.name}</p>
-                    <p className="campaign-detail">Location: {campaign.campaign.location}</p>
+                    <p className="campaign-detail">Playing Style: {this.capitalize(campaign.campaign.playing_style)}</p>
+                    <p className="campaign-detail">Experience Level: {this.capitalize(campaign.campaign.exp_level)}</p>
                   </div>
                   <div className="Campaign-Index-Image">
                     <img src={campaign.campaign.image} />
@@ -128,13 +133,13 @@ getFilters() {
     )
 }
 
-    render() {
-        return(
-          <React.Fragment>
-          {this.getFilters()}
-          {this.getCampaignData()}
-          </React.Fragment>
-        );
-    }
+  render() {
+    return(
+      <React.Fragment>
+      {this.getFilters()}
+      {this.getCampaignData()}
+      </React.Fragment>
+    );
+  }
 }
 export default CampaignIndex;
