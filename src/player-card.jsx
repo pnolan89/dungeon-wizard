@@ -20,6 +20,14 @@ class PlayerCard extends Component {
     }
   }
 
+  renderRemoveBtn() {
+    if (this.props.isDM) {
+      return (
+        <button className="player-delete-btn">Remove</button>
+      )
+    }
+  }
+
   capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
@@ -32,13 +40,17 @@ class PlayerCard extends Component {
     return(
       <Link to={`/users/${this.props.playerInfo.id}`}>
       <div className="player">
-      <div className="player-info">
-      <h3>{this.props.playerInfo.name}</h3>
-      {this.renderEmail()}
-      <h4>Experience level: <span className="card-value">{this.capitalize(this.props.playerInfo.exp_level)}</span></h4>
-      <h4>Play style: <span className="card-value">{this.capitalize(this.props.playerInfo.playing_style)}</span></h4>
-      </div>
-      <img src={this.props.playerInfo.avatar} />
+        <div className="player-info">
+          <h3>{this.props.playerInfo.name}</h3>
+          {this.renderEmail()}
+          <h4>Experience level: <span className="card-value">{this.capitalize(this.props.playerInfo.exp_level)}</span></h4>
+          <h4>Play style: <span className="card-value">{this.capitalize(this.props.playerInfo.playing_style)}</span></h4>
+
+        </div>
+        <div className="player-badges">
+          <img src={this.props.playerInfo.avatar} />
+          {this.renderRemoveBtn()}
+        </div>
       </div>
       </Link>
     )

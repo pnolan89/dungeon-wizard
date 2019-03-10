@@ -69,8 +69,8 @@
   height: 100px;
   width: 100px;
   position: relative;
-  right: 20px;
   top: 18px;
+  right: -5px;
 }
 
 .player h4 {
@@ -85,8 +85,19 @@
 .player-info {
   padding-left: 15px;
   flex-basis: 80%;
-  max-width: 340px;
+  max-width: 300px;
+}
 
+.player-badges {
+  flex-basis: 20%;
+}
+
+.player .player-delete-btn {
+  margin-top: 35px;
+  background-color: #d12e25;
+  height: 40px;
+  width: 120px;
+  border-radius: 5px;
 }
 
 .player-img {
