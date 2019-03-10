@@ -147,21 +147,21 @@ class Campaign extends Component {
     }
 
     getCampaignData() {
-        if (this.state.campaign) {
-          return (
-            <React.Fragment>
-            <h1>{this.state.campaign.name}</h1>
-            <p>Dungeon Master: {this.state.dm.name}</p>
-            {this.showLocation()}
-            {this.showSession()}
-            <p>Description: {this.state.campaign.description}</p>
-            <p>Playing Style: {this.getPlayingStyle()}</p>
-            <p id="campaign-edit-container">{this.getEdit()}</p>
-            </React.Fragment>
-         );
-        } else {
-            return (<p>Loading...</p>);
-        }
+      if (this.state.campaign) {
+        return (
+          <React.Fragment>
+          <h1>{this.state.campaign.name}</h1>
+          <p>Dungeon Master: {this.state.dm.name}</p>
+          {this.showLocation()}
+          {this.showSession()}
+          <p>Description: {this.state.campaign.description}</p>
+          <p>Playing Style: {this.getPlayingStyle()}</p>
+          <div id="campaign-edit-container">{this.getEdit()}</div>
+          </React.Fragment>
+       );
+      } else {
+        return (<p>Loading...</p>);
+      }
     }
 
   getSynopsis() {
@@ -258,14 +258,14 @@ class Campaign extends Component {
     <div className="Campaign">
       <div className="Campaign-Box">
         <div className="campaign-top">
-        <div className="Campaign-Details">
-          {this.getCampaignData()}
+          <div className="Campaign-Details">
+            {this.getCampaignData()}
+          </div>
         </div>
-        </div>
-          <div className="Campaign-Description">
+        <div className="Campaign-Description">
           <h2>Synopsis</h2>
           <p>{this.getSynopsis()}</p>
-      </div>
+        </div>
       </div>
 
       <div className="player-box">
