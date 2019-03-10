@@ -69,7 +69,7 @@ class CampaignRegistration extends Component {
         return(
 
 
-<div className="Campaign-Create">
+<div className="campaign-create">
     {this.renderRedirect()}
 
     <div className="Campaign-Box">
@@ -80,7 +80,7 @@ class CampaignRegistration extends Component {
 
                 <h1>Create Campaign...</h1>
 
-                        <div className="form">
+                        <div className="form name">
                         <label>
                         Campaign Name:
                         <br></br>
@@ -88,7 +88,7 @@ class CampaignRegistration extends Component {
                         </label>
                         </div>
 
-                        <div className="form">
+                        <div className="form description">
                         <label>
                         Description:
                         <br></br>
@@ -96,7 +96,7 @@ class CampaignRegistration extends Component {
                         </label>
                         </div>
 
-                        <div className="form">
+                        <div className="form synopsis">
                         <label>
                         Synopsis:
                         <br></br>
@@ -147,26 +147,6 @@ class CampaignRegistration extends Component {
                         </label>
                         </div>
 
-                        <div className="form-tiny">
-                        <tiny>Location and session time will be visible only to approved players.</tiny>
-                        </div>
-                        <div className="form">
-                        <label>
-                        Location:
-                        <br></br>
-                        <input name="location" type="text"  value={this.state.location} onChange={this.handleChange}/>
-                        </label>
-                        </div>
-
-                        <div className="form">
-                        <label>
-                        First session:
-                        <br></br>
-
-                        <input name="next_session" type="datetime-local" value={this.state.next_session} onChange={this.handleChange} />
-                        </label>
-                        </div>
-
                         <div className="form">
                         <label>
                         Campaign Image:
@@ -191,7 +171,27 @@ class CampaignRegistration extends Component {
                         </label>
                         </div>
 
-                <input className="Input" type="submit" value="Submit"/>
+                        <div className="form-tiny">
+                        <tiny>Location and session time will be visible only to approved players.</tiny>
+                        </div>
+                        <div className="form location">
+                        <label>
+                        Location:
+                        <br></br>
+                        <input name="location" type="text"  value={this.state.location} onChange={this.handleChange}/>
+                        </label>
+                        </div>
+
+                        <div className="form">
+                        <label>
+                        First session:
+                        <br></br>
+
+                        <input name="next_session" type="datetime-local" value={this.state.next_session} onChange={this.handleChange} />
+                        </label>
+                        </div>
+
+                <input className="submit" type="submit" value="Submit"/>
 
             </form>
 

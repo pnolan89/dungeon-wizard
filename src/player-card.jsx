@@ -10,6 +10,13 @@ class PlayerCard extends Component {
     };
   }
 
+  renderEmail() {
+    if (this.props.isPlayer || this.props.isDM) {
+      return (
+        <h4>Email: {this.props.playerInfo.email}</h4>
+      );
+    }
+  }
 
   componentDidMount() {
     console.log('PLAYER CARD REACHED: ', this.props.playerInfo)
@@ -22,6 +29,7 @@ class PlayerCard extends Component {
       <div className="player">
       <div className="player-info">
       <h3>{this.props.playerInfo.name}</h3>
+      {this.renderEmail()}
       <h4>Experience level: {this.props.playerInfo.exp_level}</h4>
       <h4>Play style: {this.props.playerInfo.playing_style}</h4>
       </div>

@@ -1,18 +1,16 @@
 .registration {
-  width: 20em;
+  width: 25em;
   height: 40em;
 
   text-align: left;
   background: rgba(13, 31, 45, 0.7);
   font-family: 'Montserrat', sans-serif;
-  border: 1px solid;  
+  border: 1px solid;
   border-radius: 5px;
   padding: 20px;
   position: relative;
   margin: 0 auto;
   top: 140px;
-  
-
   box-shadow: 3px 3px 10px;
 }
 
@@ -22,41 +20,17 @@
 
 .user-details h1 {
     color: #D4A446;
-
-    padding-top: 0px;
-    padding-right: 10px;
-    padding-bottom: 20px;
-    padding-left: 0px;
+    padding: 0 10px 20px 0;
 }
 
 .form {
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 20px;
-    padding-left: 10px;
+    padding: 10px 10px 20px 10px;
 }
 
-.input {
-
-    background-color: #D4A446;
-
-    color: black;
-    padding-top: 5px;
-    padding-right: 10px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-
-    border: solid black 1px;
-    border-radius: 5px;
-
-
-    position: relative;
-    top: .4em; left: .7em
+.form select {
+  width: 200px;
 }
 
-.input:hover {
-    background-color: #285D82;
-    color: white;
-    
-
+.form input {
+  width: 300px;
 }

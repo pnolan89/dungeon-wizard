@@ -23,6 +23,7 @@ class Campaign extends Component {
     this.handleRequestForm = this.handleRequestForm.bind(this);
     this.getPlayerList = this.getPlayerList.bind(this);
     this.checkUserIsPlayer = this.checkUserIsPlayer.bind(this);
+    this.checkUserIsDM = this.checkUserIsDM.bind(this);
     this.getSynopsis = this.getSynopsis.bind(this);
     this.getPlayingStyle = this.getPlayingStyle.bind(this);
     this.dateToString = this.dateToString.bind(this);
@@ -79,6 +80,14 @@ class Campaign extends Component {
           result = true;
         }
       })
+      return result;
+    }
+
+    checkUserIsDM() {
+      let result = false;
+      if (parseInt(localStorage.user_id) === this.state.campaign.user_id) {
+        result = true;
+      }
       return result;
     }
 
@@ -214,7 +223,7 @@ class Campaign extends Component {
 
   getPlayerList() {
     let player = this.state.players.map((object) => {
-      return (<PlayerCard key={object.id} playerInfo={object} />
+      return (<PlayerCard key={object.id} playerInfo={object} isPlayer={this.checkUserIsPlayer()} isDM={this.checkUserIsDM()} />
         )
     })
 
