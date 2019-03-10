@@ -34,10 +34,8 @@ class UserRegistration extends Component {
       password: this.state.password,
       avatar: this.state.avatar
     }
-    console.log(formData);
     axios.post('http://localhost:3000/users', formData)
       .then((response) => {
-        console.log(response.data);
         localStorage.setItem('user_id', response.data.id);
         localStorage.setItem('username', response.data.username);
         this.setState({
@@ -63,83 +61,80 @@ class UserRegistration extends Component {
   render() {
     return(
       <div className="registration">
-      {this.renderRedirect()}
-      <div className="user-box">
-        <div className="user-details">
-          <form onSubmit={this.handleSubmit}>
+        {this.renderRedirect()}
+        <div className="user-box">
+          <div className="user-details">
+            <form onSubmit={this.handleSubmit}>
+              <div className="form">
+                <h1>Register</h1>
+                <label>
+                  Username:
+                  <br />
+                  <input name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
+                </label>
+              </div>
 
-            <div className="form">
-              <h1>Register</h1>
-              <label>
-                Username:
-                <br></br>
-                <input name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
-              </label>
-            </div>
+              <div className="form">
+                <label>
+                  Email:
+                  <br />
+                  <input name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
+                </label>
+              </div>
 
-            <div className="form">
-              <label>
-                Email:
-                <br></br>
-                <input name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
-              </label>
-            </div>
+              <div className="form">
+                <label>
+                  Password:
+                  <br />
+                  <input name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
+                </label>
+              </div>
 
-            <div className="form">
-              <label>
-                Password:
-                <br></br>
-                <input name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
-              </label>
-            </div>
+              <div className="form">
+                <label>
+                  Play-style:
+                  <br />
+                  <select name="play_style" value={this.state.play_style} onChange={this.handleChange}>
+                    <option value=":">Choose...</option>
+                    <option value="story-focused">Story-focused</option>
+                    <option value="combat-focused">Combat-focused</option>
+                  </select>
+                </label>
+              </div>
 
-            <div className="form">
-              <label>
-                Play-style:
-                <br></br>
-                <select name="play_style" value={this.state.play_style} onChange={this.handleChange}>
-                  <option value=":">Choose...</option>
-                  <option value="story-focused">Story-focused</option>
-                  <option value="combat-focused">Combat-focused</option>
-                </select>
-              </label>
-            </div>
+              <div className="form">
+                <label>
+                  Experience level:
+                  <br />
+                  <select name="exp" value={this.state.exp} onChange={this.handleChange}>
+                    <option value=":">Choose...</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="expert">Expert</option>
+                  </select>
+                </label>
+              </div>
 
-            <div className="form">
-              <label>
-                Experience level:
-                <br></br>
-                <select name="exp" value={this.state.exp} onChange={this.handleChange}>
-                  <option value=":">Choose...</option>
-                  <option value="beginner">Beginner</option>
-                  <option value="intermediate">Intermediate</option>
-                  <option value="expert">Expert</option>
-                </select>
-              </label>
-            </div>
-
-            <div className="form">
-              <label>
-                Avatar:
-                <br></br>
-                  <select name="avatar" value={this.state.avatar} onChange={this.handleChange}>
-                  <option value=":">Choose...</option>
-                  <option value="https://bit.ly/2XGVwkU">Mage </option>
-                  <option value="https://bit.ly/2tX8YU2">Wizard</option>
-                  <option value="https://bit.ly/2H7saHd">Soldier</option>
-                  <option value="https://bit.ly/2CaG1bT">Elf</option>
-                  <option value="https://bit.ly/2H4WFxy">Orc Shaman</option>
-                  <option value="https://bit.ly/2TIELH6">Hell Knight</option>
-                  <option value="https://bit.ly/2VG0jRM">Assassin</option>
-                  <option value="https://bit.ly/2EWW1ji">Orc</option>
-                  <option value="https://bit.ly/2tUndsO">Skeleton</option>
-                </select>
-              </label>
-            </div>
-
+              <div className="form">
+                <label>
+                  Avatar:
+                  <br />
+                    <select name="avatar" value={this.state.avatar} onChange={this.handleChange}>
+                      <option value=":">Choose...</option>
+                      <option value="https://bit.ly/2XGVwkU">Mage </option>
+                      <option value="https://bit.ly/2tX8YU2">Wizard</option>
+                      <option value="https://bit.ly/2H7saHd">Soldier</option>
+                      <option value="https://bit.ly/2CaG1bT">Elf</option>
+                      <option value="https://bit.ly/2H4WFxy">Orc Shaman</option>
+                      <option value="https://bit.ly/2TIELH6">Hell Knight</option>
+                      <option value="https://bit.ly/2VG0jRM">Assassin</option>
+                      <option value="https://bit.ly/2EWW1ji">Orc</option>
+                      <option value="https://bit.ly/2tUndsO">Skeleton</option>
+                  </select>
+                </label>
+              </div>
             <input className="Input" type="submit" value="Submit"/>
-
-          </form>
+            </form>
           </div>
         </div>
       </div>
