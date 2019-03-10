@@ -60,11 +60,18 @@ export default class Nav extends Component {
     }
   }
 
+getRegister() {
+  if (!localStorage.user_id) {
+    return(
+      <span>| <Link to="/users/new/">Register</Link></span> 
+  )}
+}
+
 getCreate() {
 
 if (localStorage.user_id) {
   return(
- <span> | <Link to="/campaigns/new/">Create</Link></span>
+    <span> | <Link to="/campaigns/new/">Create</Link></span>
   )}
 }
 
@@ -97,7 +104,7 @@ if (localStorage.user_id) {
       return (
         <nav className='navbar'>
           <span className='logo'><a href='/' className='navbar-brand'><h1>DuNgeOn WiZarD</h1></a> </span>
-          <span className='links'> <Link to="/users/">Users</Link> | <Link to="/campaigns/">Campaigns</Link> | <Link to="/users/new/">Register</Link>   {this.getCreate()} </span>
+          <span className='links'> <Link to="/users/">Users</Link> | <Link to="/campaigns/">Campaigns</Link>    {this.getCreate()} </span>
        
           {this.getDropdown()}
         </nav>
