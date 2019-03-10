@@ -72,23 +72,23 @@
   top:-150px;
 }
 
-.dm-list {
+.left-list {
   flex-basis: 50%;
 }
 
-.dm-list h1 {
+.left-list h1 {
   font-size: 1.5em;
   padding-left: 25px;
   font-family: 'Cinzel', serif;
 }
 
-.campaign-list h1 {
+.right-list h1 {
   font-size: 1.5em;
   padding-left: 25px;
   font-family: 'Cinzel', serif;
 }
 
-.campaign-list {
+.right-list {
   flex-basis: 50%;
 }
 

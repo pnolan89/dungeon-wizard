@@ -60,7 +60,7 @@ class User extends Component {
       let day = date.getDate();
       let year = date.getFullYear();
 
-      
+
 
       return month + " " + day + ", " + year + " ";
     }
@@ -100,7 +100,7 @@ class User extends Component {
                     <p>Member since: {this.dateToString(this.state.user.user.created_at)}</p>
                     <p>Currently playing:</p>
                     <p>Playing Style: {this.state.user.user.playing_style} </p>
-                    <p>Experience level: {this.state.user.user.exp_level}</p>            
+                    <p>Experience level: {this.state.user.user.exp_level}</p>
                     <span>{this.getEdit()}</span> <span>{this.getAvatar()}</span>
                 </React.Fragment>
             );
@@ -110,7 +110,7 @@ class User extends Component {
     }
 
     getAvatar() {
-        return(           
+        return(
             <div className="user-image">
                 <img src={this.state.user.user.avatar} />
             </div>
@@ -124,7 +124,7 @@ class User extends Component {
                     <h1>DM of:</h1>
                 )
             }
-        }   
+        }
     }
 
     getPlaying() {
@@ -136,44 +136,42 @@ class User extends Component {
             }
         }
     }
-    
+
+    renderCampaignBox() {
+
+    }
+
 
     render() {
         return(
-                <div className="user-container">
-                  <div className="user-top">
-                    <div className="user-box">
-                      <div className="user-details">
-                        {this.getUserData()}
-                      </div>
-                    
-                    </div>
-                  <div className="campaign-box">
-                     <React.Fragment>
-                     <div className="dm-list">
-                        {this.getDmof()}
-                     { this.state.playCampaigns ? (
-                       this.renderCampaignDMCard()
-                         ): (
-                        <p>loading</p>
-                        )}
-
-                     </div>
-                     <div className="campaign-list">
-                        {this.getPlaying()}
-                     { this.state.playCampaigns ? (
-                       this.renderCampaignPlayCard()
-                     ): (
-                       <p>loading</p>
-                     )}
-                     </div>
-                     </React.Fragment>
-                  
-                   
-                 </div>
-                 </div>
+          <div className="user-container">
+            <div className="user-top">
+              <div className="user-box">
+                <div className="user-details">
+                  {this.getUserData()}
                 </div>
-         
+              </div>
+              <div className="campaign-box">
+                <div className="left-list">
+                  {this.getDmof()}
+                  {this.state.playCampaigns ? (
+                    this.renderCampaignDMCard()
+                  ) : (
+                    <p>loading</p>
+                  )}
+                </div>
+                <div className="right-list">
+                  {this.getPlaying()}
+                  {this.state.playCampaigns ? (
+                    this.renderCampaignPlayCard()
+                  ) : (
+                    <p>loading</p>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
         );}
 }
 export default User;
