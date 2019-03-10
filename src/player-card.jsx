@@ -13,9 +13,15 @@ class PlayerCard extends Component {
   renderEmail() {
     if (this.props.isPlayer || this.props.isDM) {
       return (
-        <h4>Email: {this.props.playerInfo.email}</h4>
+        <React.Fragment>
+        <h4>Email: <span className="card-value">{this.props.playerInfo.email}</span></h4>
+        </React.Fragment>
       );
     }
+  }
+
+  capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
   componentDidMount() {
@@ -29,8 +35,8 @@ class PlayerCard extends Component {
       <div className="player-info">
       <h3>{this.props.playerInfo.name}</h3>
       {this.renderEmail()}
-      <h4>Experience level: {this.props.playerInfo.exp_level}</h4>
-      <h4>Play style: {this.props.playerInfo.playing_style}</h4>
+      <h4>Experience level: <span className="card-value">{this.capitalize(this.props.playerInfo.exp_level)}</span></h4>
+      <h4>Play style: <span className="card-value">{this.capitalize(this.props.playerInfo.playing_style)}</span></h4>
       </div>
       <img src={this.props.playerInfo.avatar} />
       </div>

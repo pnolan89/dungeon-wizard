@@ -174,20 +174,20 @@
   .join-status-accepted {
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-    color: green;
+    color: #35a535;
   }
 
   .join-status-rejected {
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-    color: red;
+    color: #d12e25;
   }
 
   .approve-btn {
     width: 130px;
     height: 30px;
     margin-right: 20px;
-    background-color: green;
+    background-color: #35a535;
     border-radius: 5px;
   }
 
@@ -199,7 +199,7 @@
   .reject-btn {
     width: 130px;
     height: 30px;
-    background-color: red;
+    background-color: #d12e25;
     border-radius: 5px;
   }
 

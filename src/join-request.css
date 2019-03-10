@@ -58,6 +58,7 @@
   border-radius: 5px;
   width: 450px;
   color: white;
+  padding-bottom: 15px;
 }
 
 .player h3 {
@@ -70,6 +71,15 @@
   position: relative;
   right: 20px;
   top: 18px;
+}
+
+.player h4 {
+  margin-bottom: 0;
+  color: #8b9faf;
+}
+
+.player .card-value {
+  color: white;
 }
 
 .player-info {
