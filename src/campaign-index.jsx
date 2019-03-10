@@ -45,7 +45,8 @@ filterCampaigns(campaigns) {
     }
     if (this.state.filters.open_for_requests === "yes") {
       filteredList = filteredList.filter((campaign) => campaign.players.length < campaign.campaign.player_limit)
-    } else if (this.state.filters.open_for_requests === "no") {
+    } 
+    if (this.state.filters.open_for_requests === "no") {
       filteredList = filteredList.filter((campaign) => campaign.players.length === campaign.campaign.player_limit)
     }
     return filteredList;
@@ -114,9 +115,10 @@ filterChange(event) {
           open_for_requests: event.target.value
         }
       })
+
     }
-    // console.log("EVENT: ", event.target.name)
-    // console.log("EVENT: ", event.target.value)
+    console.log("EVENT: ", event.target.name)
+    console.log("EVENT: ", event.target.value)
 }
 
 getFilters() {
@@ -148,7 +150,7 @@ getFilters() {
                 <tr>
                     <td><label for="open_for_requests">Looking for Players </label></td>
                     <td>
-                        <select name="exp_level" onChange={this.filterChange}>
+                        <select name="open_for_requests" onChange={this.filterChange}>
                             <option value=""></option>
                             <option value="yes">Yes</option>
                             <option value="no">No</option>
