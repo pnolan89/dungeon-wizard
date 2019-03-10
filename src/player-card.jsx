@@ -23,7 +23,6 @@ class PlayerCard extends Component {
   }
 
   render() {
-
     return(
       <Link to={`/users/${this.props.playerInfo.id}`}>
       <div className="player">
@@ -33,7 +32,7 @@ class PlayerCard extends Component {
       <h4>Experience level: {this.props.playerInfo.exp_level}</h4>
       <h4>Play style: {this.props.playerInfo.playing_style}</h4>
       </div>
-      <img src="https://bit.ly/2C3tnvb" />
+      <img src={this.props.playerInfo.avatar} />
       </div>
       </Link>
     )
