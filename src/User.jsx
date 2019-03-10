@@ -12,6 +12,7 @@ class User extends Component {
         };
       this.renderCampaignDMCard = this.renderCampaignDMCard.bind(this);
       this.renderCampaignPlayCard = this.renderCampaignPlayCard.bind(this);
+      this.dateToString = this.dateToString.bind(this);
     }
 
     componentDidMount() {
@@ -28,6 +29,40 @@ class User extends Component {
         .catch(function (error) {
             console.log(error);
         });
+    }
+
+    dateToString(dateString) {
+      let date = new Date(dateString)
+
+      function addZero(min) {
+        if (min < 10) {
+          min = "0" + min;
+        }
+        return min;
+      }
+
+      let months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ];
+
+      let month = months[date.getMonth()];
+      let day = date.getDate();
+      let year = date.getFullYear();
+
+      
+
+      return month + " " + day + ", " + year + " ";
     }
 
     renderCampaignPlayCard() {
@@ -62,7 +97,7 @@ class User extends Component {
             return (
                 <React.Fragment>
                     <h1>{this.state.user.user.name}</h1>
-                    <p>Member since: {this.state.user.user.created_at}</p>
+                    <p>Member since: {this.dateToString(this.state.user.user.created_at)}</p>
                     <p>Currently playing:</p>
                     <p>Playing Style: {this.state.user.user.playing_style} </p>
                     <p>Experience level: {this.state.user.user.exp_level}</p>            
