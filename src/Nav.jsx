@@ -15,6 +15,7 @@ export default class Nav extends Component {
     this.dropdownClick = this.dropdownClick.bind(this);
     this.logoutClick = this.logoutClick.bind(this);
     this.handleWindowClick = this.handleWindowClick.bind(this);
+    this.getCreate = this.getCreate.bind(this);
   }
 
   componentWillUnmount() {
@@ -115,7 +116,7 @@ if (localStorage.user_id) {
         <nav className='navbar'>
         {this.renderRedirect()}
           <span className='logo'><a href='/' className='navbar-brand'><h1>DuNgeOn WiZarD</h1></a> </span>
-          <span className='links'> <Link to="/users/">Users</Link> | <Link to="/campaigns/">Campaigns</Link>    {this.getCreate()} </span>
+          <span className='links'> <Link to="/users/">Users</Link> | <Link to="/campaigns/">Campaigns</Link> {this.getRegister()}   {this.getCreate()} </span>
        
           {this.getDropdown()}
         </nav>
