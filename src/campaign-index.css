@@ -7,7 +7,7 @@
       border: 1px solid;
 
       width: 630px;
-      height: 13em;
+      min-height: 13em;
 
       border-radius: 5px;
       margin: 0 auto;
