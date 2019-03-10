@@ -5,7 +5,7 @@ import JoinRequestForm from "./join-request-form";
 import JoinStatusCampaign from "./join-status-campaign";
 import JoinRequestDM from "./join-request-dm";
 import PlayerCard from "./player-card";
-import { BrowserRouter as Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Campaign extends Component {
   constructor(props) {
