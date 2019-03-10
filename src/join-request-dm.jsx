@@ -9,21 +9,20 @@ class JoinRequestDM extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      requests: this.props.requests
+      requests: this.props.requests,
+      players: this.props.players,
     };
-    this.handleDMForm = this.handleDMForm.bind(this);
+    // this.handleDMForm = this.handleDMForm.bind(this);
     this.getPendingRequests = this.getPendingRequests.bind(this);
   }
 
   getPendingRequests() {
     let requests = this.state.requests;
-    console.log("Requests from props: ", requests);
     let pendingRequests = requests.map((request) => {
       if (request.request.dm_confirm === "pending") {
         return request;
       }
     });
-    console.log("Pending requests: ", pendingRequests);
     return pendingRequests;
   }
 
@@ -48,7 +47,7 @@ class JoinRequestDM extends Component {
               <p className="message">{request.request.message}</p>
             </div>
             <div className="operations">
-            <DMButton handleDMForm={this.handleDMForm} requests={this.state.requests} dm_confirm={request.request.dm_confirm} id={request.request.id} />
+            <DMButton handleDMForm={this.props.handleDMForm} requests={this.state.requests} players={this.state.players} dm_confirm={request.request.dm_confirm} id={request.request.id} />
             </div>
           </div>
         )
@@ -57,22 +56,17 @@ class JoinRequestDM extends Component {
     }
   }
 
-  handleDMForm(newStatus, id) {
-    console.log("NEWSTATUS: ", newStatus)
-    console.log("ID: ", id)
-    let updateRequests = this.state.requests.map((request) => {
-      if (request.request.id === id) {
-        request.request.dm_confirm = newStatus;
-      }
-      return request;
-    })
-    console.log("REQUESTS BEFORE: ", this.state.requests)
-    console.log("UPDATED-REQUESTS: ", updateRequests)
-    this.setState({
-      requests: updateRequests
-    })
-    console.log("REQUESTS AFTER?: ", this.state.requests)
-  }
+  // handleDMForm(newStatus, id) {
+  //   let updateRequests = this.state.requests.map((request) => {
+  //     if (request.request.id === id) {
+  //       request.request.dm_confirm = newStatus;
+  //     }
+  //     return request;
+  //   })
+  //   this.setState({
+  //     requests: updateRequests
+  //   })
+  // }
 
   componentDidMount() {
     this.getPendingRequests()
