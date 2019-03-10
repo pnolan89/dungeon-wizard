@@ -9,7 +9,7 @@ class UserRegistration extends Component {
     super();
     this.state = {
       redirect: false,
-  };
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }

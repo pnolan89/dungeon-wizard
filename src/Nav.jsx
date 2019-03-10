@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import './Nav.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Redirect } from 'react-router-dom'
+
 
 export default class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
       dropClass: "dropdown-content",
-      logout: false
+      logout: false,
+      redirect: false
     };
     this.dropdownClick = this.dropdownClick.bind(this);
     this.logoutClick = this.logoutClick.bind(this);
@@ -24,6 +27,12 @@ export default class Nav extends Component {
     document.addEventListener('click', this.handleWindowClick);
   }
 
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      let route = `/`
+      return <Redirect to={route} />
+    }
+  }
 
   dropdownClick() {
     console.log(this.state.dropClass)
@@ -44,7 +53,8 @@ export default class Nav extends Component {
       localStorage.removeItem('user_id');
       localStorage.removeItem('username');
       this.setState({
-        logout: true
+        logout: true,
+        redirect: true
       });
     };
   }
@@ -103,6 +113,7 @@ if (localStorage.user_id) {
   render() {
       return (
         <nav className='navbar'>
+        {this.renderRedirect()}
           <span className='logo'><a href='/' className='navbar-brand'><h1>DuNgeOn WiZarD</h1></a> </span>
           <span className='links'> <Link to="/users/">Users</Link> | <Link to="/campaigns/">Campaigns</Link>    {this.getCreate()} </span>
        
