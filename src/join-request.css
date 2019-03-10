@@ -100,6 +100,10 @@
   border-radius: 5px;
 }
 
+.player .player-delete-btn:hover {
+  color: white;
+}
+
 .player-img {
   flex-basis: 20%;
 }
