@@ -19,7 +19,6 @@ class User extends Component {
         let userID = this.state.userID;
         axios.get(`http://localhost:3000/users/${userID}`)
         .then ((response) => {
-            console.log('USER: ', response.data.user.campaigns);
             this.setState({
                 user: response.data,
                 playCampaigns: response.data.campaigns,
@@ -138,7 +137,52 @@ class User extends Component {
     }
 
     renderCampaignBox() {
-
+      if (this.state.playCampaigns) {
+        if (this.state.playCampaigns.length > 0 && this.state.dmCampaigns.length > 0) {
+          return (
+            <div className="campaign-box">
+              <div className="left-list">
+                {this.getDmof()}
+                {this.state.playCampaigns ? (
+                  this.renderCampaignDMCard()
+                ) : (
+                  <p>loading</p>
+                )}
+              </div>
+              <div className="right-list">
+                {this.getPlaying()}
+                {this.state.playCampaigns ? (
+                  this.renderCampaignPlayCard()
+                ) : (
+                  <p>loading</p>
+                )}
+              </div>
+            </div>
+          )
+        } else if (this.state.playCampaigns.length > 0) {
+          return (
+            <div className="campaign-box">
+              {this.getPlaying()}
+              {this.state.playCampaigns ? (
+                this.renderCampaignPlayCard()
+              ) : (
+                <p>loading</p>
+              )}
+            </div>
+          )
+        } else if (this.state.dmCampaigns.length > 0) {
+          return (
+            <div className="campaign-box">
+              {this.getDmof()}
+              {this.state.playCampaigns ? (
+                this.renderCampaignDMCard()
+              ) : (
+                <p>loading</p>
+              )}
+            </div>
+          )
+        }
+      }
     }
 
 
@@ -151,24 +195,7 @@ class User extends Component {
                   {this.getUserData()}
                 </div>
               </div>
-              <div className="campaign-box">
-                <div className="left-list">
-                  {this.getDmof()}
-                  {this.state.playCampaigns ? (
-                    this.renderCampaignDMCard()
-                  ) : (
-                    <p>loading</p>
-                  )}
-                </div>
-                <div className="right-list">
-                  {this.getPlaying()}
-                  {this.state.playCampaigns ? (
-                    this.renderCampaignPlayCard()
-                  ) : (
-                    <p>loading</p>
-                  )}
-                </div>
-              </div>
+              {this.renderCampaignBox()}
             </div>
           </div>
 
