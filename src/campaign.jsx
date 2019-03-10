@@ -30,6 +30,7 @@ class Campaign extends Component {
     this.showLocation = this.showLocation.bind(this);
     this.getPlayerSpots = this.getPlayerSpots.bind(this);
     this.getImage = this.getImage.bind(this);
+    this.handleDMForm = this.handleDMForm.bind(this);
   }
 
   componentDidMount() {
@@ -184,6 +185,17 @@ class Campaign extends Component {
     }
   }
 
+  handleDMForm(newStatus, id, requests) {
+    let updateRequests = requests.map((request) => {
+      if (request.request.id === id) {
+        request.request.dm_confirm = newStatus;
+      }
+      return request;
+    })
+    this.setState({
+      join_requests: updateRequests
+    })
+  }
 
   getRequestData() {
     if (!localStorage.user_id) {
@@ -192,7 +204,7 @@ class Campaign extends Component {
       return (
         <React.Fragment>
           <h3>Requests</h3>
-          <JoinRequestDM requests={this.state.join_requests} />
+          <JoinRequestDM requests={this.state.join_requests} players={this.state.players} handleDMForm={this.handleDMForm}/>
         </React.Fragment>
       )
 
