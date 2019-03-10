@@ -5,10 +5,7 @@ import JoinRequestForm from "./join-request-form";
 import JoinStatusCampaign from "./join-status-campaign";
 import JoinRequestDM from "./join-request-dm";
 import PlayerCard from "./player-card";
-import { join } from "path";
-
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import { BrowserRouter as Link } from "react-router-dom";
 
 class Campaign extends Component {
   constructor(props) {
@@ -63,114 +60,113 @@ class Campaign extends Component {
     })
   }
 
-
-    getEdit() {
-        let route = `/campaigns/edit/${this.state.campaignID}`;
-        if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
-            return(
-                <Link to={route} id="campaign-edit-btn">Edit This Campaign</Link>
-            )}
-        }
-
-    checkUserIsPlayer() {
-      let result = false;
-      this.state.players.forEach((player) => {
-        if (player.id === parseInt(localStorage.user_id)) {
-          result = true;
-        }
-      })
-      return result;
+  getEdit() {
+    let route = `/campaigns/edit/${this.state.campaignID}`;
+    if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
+        return(
+            <Link to={route} id="campaign-edit-btn">Edit This Campaign</Link>
+        )
     }
+  }
 
-    checkUserIsDM() {
-      let result = false;
-      if (parseInt(localStorage.user_id) === this.state.campaign.user_id) {
+  checkUserIsPlayer() {
+    let result = false;
+    this.state.players.forEach((player) => {
+      if (player.id === parseInt(localStorage.user_id)) {
         result = true;
       }
-      return result;
+    })
+    return result;
+  }
+
+  checkUserIsDM() {
+    let result = false;
+    if (parseInt(localStorage.user_id) === this.state.campaign.user_id) {
+      result = true;
     }
+    return result;
+  }
 
-    dateToString(dateString) {
-      let date = new Date(dateString)
+  dateToString(dateString) {
+    let date = new Date(dateString)
 
-      function addZero(min) {
-        if (min < 10) {
-          min = "0" + min;
-        }
-        return min;
+    function addZero(min) {
+      if (min < 10) {
+        min = "0" + min;
       }
-
-      let months = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-      ];
-
-      let month = months[date.getMonth()];
-      let day = date.getDate();
-      let year = date.getFullYear();
-
-      let hours = (date.getHours()) + 6;
-      let minutes = addZero(date.getMinutes());
-      let time = (hours > 11 ? (hours - 11) : (hours + 1)) + ":" + minutes + (hours > 11 ? "PM" : "AM");
-
-      return month + " " + day + ", " + year + " - " + time + " ";
+      return min;
     }
 
-    showLocation() {
-      console.log("LOCALSTORAGE: ", this.state.campaign.user_id)
-      if (this.checkUserIsPlayer() === true || this.state.campaign.user_id === parseInt(localStorage.user_id)) {
-        return (
-          <p>Location: {this.state.campaign.location}</p>
-        )
-      }
-    }
+    let months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
 
-    showSession() {
-      let date = this.state.campaign.next_session
-      if (this.checkUserIsPlayer() === true || this.state.campaign.user_id === parseInt(localStorage.user_id)) {
-        return (
-          <p>Next session: {this.dateToString(date)}</p>
-        )
-      }
-    }
+    let month = months[date.getMonth()];
+    let day = date.getDate();
+    let year = date.getFullYear();
 
-    getPlayerSpots() {
-      if (this.state.campaign) {
-        return (
-          <p className="subtext">({this.state.players.length}/{this.state.campaign.player_limit} Spots Filled)</p>
-        )
-      } else {
-        return (<p>Loading...</p>)
-      }
-    }
+    let hours = (date.getHours()) + 6;
+    let minutes = addZero(date.getMinutes());
+    let time = (hours > 11 ? (hours - 11) : (hours + 1)) + ":" + minutes + (hours > 11 ? "PM" : "AM");
 
-    getCampaignData() {
-      if (this.state.campaign) {
-        return (
-          <React.Fragment>
-          <h1>{this.state.campaign.name}</h1>
-          <p>Dungeon Master: {this.state.dm.name}</p>
-          {this.showLocation()}
-          {this.showSession()}
-          <p>Description: {this.state.campaign.description}</p>
-          <p>Playing Style: {this.getPlayingStyle()}</p>
-          <div id="campaign-edit-container">{this.getEdit()}</div>
-          </React.Fragment>
-       );
-      } else {
-        return (<p>Loading...</p>);
-      }
+    return month + " " + day + ", " + year + " - " + time + " ";
+  }
+
+  showLocation() {
+    if (this.checkUserIsPlayer() === true || this.state.campaign.user_id === parseInt(localStorage.user_id)) {
+      return (
+        <p>Location: {this.state.campaign.location}</p>
+      )
     }
+  }
+
+  showSession() {
+    let date = this.state.campaign.next_session
+    if (this.checkUserIsPlayer() === true || this.state.campaign.user_id === parseInt(localStorage.user_id)) {
+      return (
+        <p>Next session: {this.dateToString(date)}</p>
+      )
+    }
+  }
+
+  getPlayerSpots() {
+    if (this.state.campaign) {
+      return (
+        <p className="subtext">({this.state.players.length}/{this.state.campaign.player_limit} Spots Filled)</p>
+      )
+    } else {
+      return (<p>Loading...</p>)
+    }
+  }
+
+  getCampaignData() {
+    if (this.state.campaign) {
+      return (
+        <React.Fragment>
+        <h1>{this.state.campaign.name}</h1>
+        <p>Dungeon Master: {this.state.dm.name}</p>
+        {this.showLocation()}
+        {this.showSession()}
+        <p>Description: {this.state.campaign.description}</p>
+        <p>Playing Style: {this.getPlayingStyle()}</p>
+        <div id="campaign-edit-container">{this.getEdit()}</div>
+        </React.Fragment>
+      );
+    } else {
+      return (<p>Loading...</p>);
+    }
+  }
 
   getSynopsis() {
     if (this.state.campaign) {
@@ -189,12 +185,10 @@ class Campaign extends Component {
     if (!localStorage.user_id) {
       return <p>You must log in or register to join a campaign!</p>
     } else if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
-      console.log(this.state.join_requests)
       return <JoinRequestDM requests={this.state.join_requests} />
-
     } else {
       return this.checkUserRequest()
-  }
+    }
   }
 
   checkUserRequest() {
@@ -288,6 +282,7 @@ class Campaign extends Component {
             <p>Loading...</p>
           ) }
         </div>
+        
         <div className="player-list">
           <h2>Players</h2>
           {this.getPlayerSpots()}
