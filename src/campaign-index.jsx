@@ -14,15 +14,16 @@ class CampaignIndex extends Component {
         }
     };
     this.filterChange = this.filterChange.bind(this);
+    this.openForRequests = this.openForRequests.bind(this);
 }
 
 
 componentDidMount() {
   axios.get('http://localhost:3000/campaigns/')
   .then ((response) => {
-      this.setState({
-          campaigns: response.data
-      });
+    this.setState({
+        campaigns: response.data
+    });
   })
   .catch(function (error) {
       console.log(error);
@@ -44,18 +45,31 @@ filterCampaigns(campaigns) {
     return filteredList;
 }
 
+openForRequests(campaign) {
+  let players = campaign.players
+  if (players.length < campaign.campaign.player_limit) {
+    return (
+      <p className="campaign-detail">Looking for players!</p>
+    )
+  } else {
+    return (
+      <p></p>
+    )
+  }
+}
 
 getCampaignData() {
   if (this.state.campaigns) {
     let filteredList = this.filterCampaigns(this.state.campaigns);
     const campaigns = filteredList.map((campaign) => {
       return(
-        <div className="Campaign-Index" >
+        <div className="Campaign-Index" key={campaign.campaign.id} >
             <Link to={`/campaigns/${campaign.campaign.id}`}>
                 <div className="Campaign-Card">
                     <div className="Campaign-Card-Details">
                         <h1>{campaign.campaign.name}</h1>
                         <p className="campaign-description">{campaign.campaign.description}</p>
+                        {this.openForRequests(campaign)}
                         <p className="campaign-detail">Dungeon Master: {campaign.dm.name}</p>
                         <p className="campaign-detail">Playing Style: {this.capitalize(campaign.campaign.playing_style)}</p>
                         <p className="campaign-detail">Experience Level: {this.capitalize(campaign.campaign.exp_level)}</p>
