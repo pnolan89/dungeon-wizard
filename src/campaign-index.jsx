@@ -10,7 +10,8 @@ class CampaignIndex extends Component {
     this.state = {
         filters: {
             exp_level: "",
-            playing_style: ""
+            playing_style: "",
+            open_for_requests: ""
         }
     };
     this.filterChange = this.filterChange.bind(this);
@@ -41,6 +42,12 @@ filterCampaigns(campaigns) {
     }
     if (this.state.filters.playing_style) {
         filteredList = filteredList.filter((campaign) => campaign.campaign.playing_style === this.state.filters.playing_style);
+    }
+    if (this.state.filters.open_for_requests === "yes") {
+      filteredList = filteredList.filter((campaign) => campaign.players.length < campaign.campaign.player_limit)
+    } 
+    if (this.state.filters.open_for_requests === "no") {
+      filteredList = filteredList.filter((campaign) => campaign.players.length === campaign.campaign.player_limit)
     }
     return filteredList;
 }
@@ -95,16 +102,23 @@ filterChange(event) {
                 exp_level: event.target.value
             }
         })
-    } else {
+    } else if (event.target.name === 'playing_style') {
         this.setState({
             filters: {
                 playing_style: event.target.value
             }
         })
     console.log(this.state)
+    } else if (event.target.name === 'open_for_requests') {
+      this.setState({
+        filters: {
+          open_for_requests: event.target.value
+        }
+      })
+
     }
-    // console.log("EVENT: ", event.target.name)
-    // console.log("EVENT: ", event.target.value)
+    console.log("EVENT: ", event.target.name)
+    console.log("EVENT: ", event.target.value)
 }
 
 getFilters() {
@@ -130,6 +144,16 @@ getFilters() {
                           <option value=""></option>
                           <option value="story-focused">Story-focused</option>
                           <option value="combat-focused">Combat-focused</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="open_for_requests">Looking for Players </label></td>
+                    <td>
+                        <select name="open_for_requests" onChange={this.filterChange}>
+                            <option value=""></option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
                         </select>
                     </td>
                 </tr>
