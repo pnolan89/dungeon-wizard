@@ -12,7 +12,7 @@ class User extends Component {
         };
       this.renderCampaignDMCard = this.renderCampaignDMCard.bind(this);
       this.renderCampaignPlayCard = this.renderCampaignPlayCard.bind(this);
-      this.dateToString = this.dateToString.bind(this);
+      this.hasMultipleColumns = this.hasMultipleColumns.bind(this);
     }
 
     componentDidMount() {
@@ -97,7 +97,6 @@ class User extends Component {
                 <React.Fragment>
                     <h1>{this.state.user.user.name}</h1>
                     <p>Member since: {this.dateToString(this.state.user.user.created_at)}</p>
-                    <p>Currently playing:</p>
                     <p>Playing Style: {this.state.user.user.playing_style} </p>
                     <p>Experience level: {this.state.user.user.exp_level}</p>
                     <span>{this.getEdit()}</span> <span>{this.getAvatar()}</span>
@@ -136,52 +135,65 @@ class User extends Component {
         }
     }
 
+    hasMultipleColumns() {
+      return (this.state.playCampaigns.length > 0 && this.state.dmCampaigns.length > 0);
+    }
+
+    campaignSizeClass() {
+      if (this.hasMultipleColumns()) {
+        return "user-top double-column"
+      } else {
+        return "user-top single-column"
+      }
+    }
+
     renderCampaignBox() {
-      if (this.state.playCampaigns) {
-        if (this.state.playCampaigns.length > 0 && this.state.dmCampaigns.length > 0) {
-          return (
-            <div className="campaign-box">
-              <div className="left-list">
-                {this.getDmof()}
-                {this.state.playCampaigns ? (
-                  this.renderCampaignDMCard()
-                ) : (
-                  <p>loading</p>
-                )}
-              </div>
-              <div className="right-list">
-                {this.getPlaying()}
-                {this.state.playCampaigns ? (
-                  this.renderCampaignPlayCard()
-                ) : (
-                  <p>loading</p>
-                )}
-              </div>
-            </div>
-          )
-        } else if (this.state.playCampaigns.length > 0) {
-          return (
-            <div className="campaign-box">
-              {this.getPlaying()}
-              {this.state.playCampaigns ? (
-                this.renderCampaignPlayCard()
-              ) : (
-                <p>loading</p>
-              )}
-            </div>
-          )
-        } else if (this.state.dmCampaigns.length > 0) {
-          return (
-            <div className="campaign-box">
+      if (this.hasMultipleColumns()) {
+        return (
+          <div className="campaign-box">
+            <div className="left-list">
               {this.getDmof()}
-              {this.state.playCampaigns ? (
-                this.renderCampaignDMCard()
-              ) : (
-                <p>loading</p>
-              )}
+              {this.renderCampaignDMCard()}
             </div>
-          )
-        }
+            <div className="right-list">
+              {this.getPlaying()}
+              {this.renderCampaignPlayCard()}
+            </div>
+          </div>
+        )
+      } else if (this.state.playCampaigns.length > 0) {
+        return (
+          <div className="campaign-box">
+            <div className="center-list">
+              {this.getPlaying()}
+              {this.renderCampaignPlayCard()}
+            </div>
+          </div>
+        )
+      } else if (this.state.dmCampaigns.length > 0) {
+        return (
+          <div className="campaign-box">
+            <div className="center-list">
+              {this.getDmof()}
+              {this.renderCampaignDMCard()}
+            </div>
+          </div>
+        )
+      }
+    }
+
+    renderUserTop() {
+      if (this.state.playCampaigns) {
+        return (
+          <div className={this.campaignSizeClass()}>
+            <div className="user-box">
+              <div className="user-details">
+                {this.getUserData()}
+              </div>
+            </div>
+            {this.renderCampaignBox()}
+          </div>
+        )
       }
     }
 
@@ -189,14 +201,7 @@ class User extends Component {
     render() {
         return(
           <div className="user-container">
-            <div className="user-top">
-              <div className="user-box">
-                <div className="user-details">
-                  {this.getUserData()}
-                </div>
-              </div>
-              {this.renderCampaignBox()}
-            </div>
+          {this.renderUserTop()}
           </div>
 
         );}

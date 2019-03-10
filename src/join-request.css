@@ -123,6 +123,8 @@
   border-radius: 5px;
   width: 450px;
   color: white;
+  background: rgba(58, 9, 13, 0.7);
+  margin-bottom: 15px;
 }
 
 .campaign-card h3 {
