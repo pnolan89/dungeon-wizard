@@ -29,7 +29,6 @@ class Campaign extends Component {
     this.showLocation = this.showLocation.bind(this);
     this.getPlayerSpots = this.getPlayerSpots.bind(this);
     this.getImage = this.getImage.bind(this);
-
   }
 
   componentDidMount() {
