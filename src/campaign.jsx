@@ -30,7 +30,6 @@ class Campaign extends Component {
     this.showLocation = this.showLocation.bind(this);
     this.getPlayerSpots = this.getPlayerSpots.bind(this);
     this.getImage = this.getImage.bind(this);
-
   }
 
   componentDidMount() {
@@ -69,7 +68,7 @@ class Campaign extends Component {
         let route = `/campaigns/edit/${this.state.campaignID}`;
         if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
             return(
-                <Link to={route} className='edit'>Edit This Campaign</Link>
+                <Link to={route} id="campaign-edit-btn">Edit This Campaign</Link>
             )}
         }
 
@@ -157,7 +156,7 @@ class Campaign extends Component {
             {this.showSession()}
             <p>Description: {this.state.campaign.description}</p>
             <p>Playing Style: {this.getPlayingStyle()}</p>
-            <span>{this.getEdit()}</span>
+            <p id="campaign-edit-container">{this.getEdit()}</p>
             </React.Fragment>
          );
         } else {
@@ -262,11 +261,7 @@ class Campaign extends Component {
         <div className="Campaign-Details">
           {this.getCampaignData()}
         </div>
-          <div className="Campaign-Image">
-          <img src={this.getImage()} />
-          </div>
         </div>
-
           <div className="Campaign-Description">
           <h2>Synopsis</h2>
           <p>{this.getSynopsis()}</p>
@@ -274,6 +269,9 @@ class Campaign extends Component {
       </div>
 
       <div className="player-box">
+      <div className="Campaign-Image">
+            <img src={this.getImage()} />
+          </div>
         <div id="campaign-join-requests">
           <h3>Requests</h3>
           { this.state.campaign ? (
