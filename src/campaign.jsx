@@ -33,6 +33,7 @@ class Campaign extends Component {
     this.getPlayerSpots = this.getPlayerSpots.bind(this);
     this.getImage = this.getImage.bind(this);
     this.setNewSession = this.setNewSession.bind(this);
+    this.closeModalHandler = this.closeModalHandler.bind(this);
   }
 
   componentDidMount() {
@@ -134,9 +135,9 @@ closeModalHandler = () => {
       let day = date.getDate();
       let year = date.getFullYear();
 
-      let hours = (date.getHours()) + 6;
+      let hours = (date.getHours()) - 6;
       let minutes = addZero(date.getMinutes());
-      let time = (hours > 11 ? (hours - 11) : (hours + 1)) + ":" + minutes + (hours > 11 ? "PM" : "AM");
+      let time = (hours > 11 ? (hours - 11) : (hours + 1)) + ":" + minutes + (hours < 11 ? "PM" : "AM");
 
       return month + " " + day + ", " + year + " - " + time + " ";
     }

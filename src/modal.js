@@ -70,7 +70,7 @@ class Modal extends Component {
               <input className="Input" type="submit" value="Submit"/>
 
                       </form>
-
+                      <button className="btn-cancel" onClick={this.props.close}>CLOSE</button>
                   </p>
               </div>
               
