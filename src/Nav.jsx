@@ -29,7 +29,7 @@ export default class Nav extends Component {
   }
 
   renderRedirect = () => {
-    if (this.state.redirect) {
+    if (!localStorage.login) {
       let route = `/`
       return <Redirect to={route} />
     }
@@ -53,6 +53,7 @@ export default class Nav extends Component {
     return () => {
       localStorage.removeItem('user_id');
       localStorage.removeItem('username');
+      localStorage.removeItem('login');
       this.setState({
         logout: true,
         redirect: true
