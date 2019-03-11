@@ -54,21 +54,37 @@ class JoinRequestForm extends Component {
       console.log("next", nextProps)
     }
 
+    componentWillMount() {
+      console.log("this", this.props)
+    }
+
     render() {
         return(
-          <div className="join-box">
-          <h4 className="join-form-heading">Request to join this campaign!</h4>
-            <div className="join-form-message">
-            <form onSubmit={this.handleSubmit}>
-            <div>
-              <label for="message" className="message">Message</label></div>
-                <p className="message-subtext"></p>
-                <textarea id="message" name="message"  placeholder="Tell the DM why you'd like to join!" value={this.state.message} onChange={this.handleChange}/>
-              <div>
-                <input type="submit" value="Submit" /></div>
-            </form>
-            </div>
+          <React.Fragment>
+            {this.props.campaign.players < this.props.campaign.player_limit ? (
+              <div className="join-box">
+              <h4 className="join-form-heading">Request to join this campaign!</h4>
+                <div className="join-form-message">
+                <form onSubmit={this.handleSubmit}>
+                <div>
+                  <label for="message" className="message">Message</label></div>
+                    <p className="message-subtext"></p>
+                    <textarea id="message" name="message"  placeholder="Tell the DM why you'd like to join!" value={this.state.message} onChange={this.handleChange}/>
+                  <div>
+                    <input type="submit" value="Submit" /></div>
+                </form>
+                </div>
+              </div>
+            ) : (
+              <div className="join-box">
+          <h4 className="join-form-heading">This campaign has all the players it needs!
+           </h4>
+            
           </div>
+            )}
+            
+          </React.Fragment>
+          
 
         );
     }
