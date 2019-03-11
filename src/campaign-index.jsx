@@ -165,6 +165,65 @@ filterChange(event) {
     this.setState({
       filters: filters
     })
+  } else if (event.target.name === 'sandbox') {
+    let value = event.target.value;
+    if (value === 'yes') {
+      value = true;
+    } else if (value === 'no') {
+      value = false;
+    }
+    filters.sandbox = value;
+    this.setState({
+      filters: filters
+    })
+  }
+  else if (event.target.name === 'battle_focused') {
+    let value = event.target.value;
+    if (value === 'yes') {
+      value = true;
+    } else if (value === 'no') {
+      value = false;
+    }
+    filters.battle_focused = value;
+    this.setState({
+      filters: filters
+    })
+  }
+  else if (event.target.name === 'kick_in_the_door') {
+    let value = event.target.value;
+    if (value === 'yes') {
+      value = true;
+    } else if (value === 'no') {
+      value = false;
+    }
+    filters.kick_in_the_door = value;
+    this.setState({
+      filters: filters
+    })
+  }
+  else if (event.target.name === 'exploration') {
+    let value = event.target.value;
+    if (value === 'yes') {
+      value = true;
+    } else if (value === 'no') {
+      value = false;
+    }
+    filters.exploration = value;
+    this.setState({
+      filters: filters
+    })
+  }
+  else if (event.target.name === 'random') {
+    let value = event.target.value;
+    if (value === 'yes') {
+      value = true;
+    } else if (value === 'no') {
+      value = false;
+    }
+    filters.random = value;
+    this.setState({
+      filters: filters
+    })
   }
 }
 
@@ -209,6 +268,56 @@ getFilters() {
           <td><label for="deep_immersion">Deep Immersion: </label></td>
           <td>
             <select name="deep_immersion" onChange={this.filterChange}>
+              <option value=""></option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="sandbox">Sandbox: </label></td>
+          <td>
+            <select name="sandbox" onChange={this.filterChange}>
+              <option value=""></option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="battle_focused">Battle-focused: </label></td>
+          <td>
+            <select name="battle_focused" onChange={this.filterChange}>
+              <option value=""></option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="kick_in_the_door">Kick-in-the-door: </label></td>
+          <td>
+            <select name="kick_in_the_door" onChange={this.filterChange}>
+              <option value=""></option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="exploration">Exploration: </label></td>
+          <td>
+            <select name="exploration" onChange={this.filterChange}>
+              <option value=""></option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="random">Random: </label></td>
+          <td>
+            <select name="random" onChange={this.filterChange}>
               <option value=""></option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
