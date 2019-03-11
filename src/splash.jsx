@@ -23,6 +23,9 @@ class Splash extends Component {
 
                 <div className="image">
                 <img src="https://i.imgur.com/JKNZONw.png"/>
+
+                {/* <img src="https://i.imgur.com/TFXcMoU.png" /> */}
+
                 </div>
 
                 <div className="users overlay" >
