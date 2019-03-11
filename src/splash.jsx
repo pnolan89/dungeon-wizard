@@ -18,8 +18,13 @@ class Splash extends Component {
                 <div className="splash">
                
                {/* <h1>WELCOME TO DUNGEON WIZARD</h1> */}
+
+               
                
                 <div className="splash-details">
+
+
+           
 
                 <div className="image">
                 <img src="https://i.imgur.com/g4k3xxt.png"/>
