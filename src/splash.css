@@ -2,7 +2,7 @@
 .splash h1 {
     height: 30px;
     position: relative;
-    top: 300px; left: 0px;
+    top: 130px; left: 0px;
     color: black;
     background-color: rgba(242,246,248,.5);
     font-weight: 900;
@@ -28,6 +28,9 @@
     padding-right: 5em;
     position: relative;
     top: 0px; 
+
+    /* background-color: #d4a446;
+    background-image: url(http://www.transparenttextures.com/patterns/black-linen.png); */
 }
 
 
@@ -40,15 +43,18 @@
 .campaigns {
     /* border: 1px white solid; */
     color: black;
-    width: 10em;
+    width: 12em;
     height: 20em;
-    margin: 90px;
+    margin: 50px;
     position: relative;
     right: 150px; top: -200px;
     padding: 10px;
-    background-image: url("https://i.imgur.com/cGbwG7g.png" );
+    /* background-image: url("https://i.imgur.com/cGbwG7g.png" ); */
+
+    background-color: white;
+    background-image: url(http://www.transparenttextures.com/patterns/black-linen.png);
     background-repeat: no-repeat;
-    background-size: 250px 350px;
+    background-size: 300px 350px;
     background-position: center; 
 }
 
@@ -71,18 +77,21 @@
 .users {
     /* border: 1px white solid; */
     color: black;
-    width: 10em;
+    width: 12em;
     height: 20em;
-    margin: 90px;
+    margin: 50px;
     position: relative;
     right: 150px; top: -200px;
     margin-left: 0em;
     padding: 10px;
-    background-image: url("https://i.imgur.com/U3CBUoI.png" );
+    /* background-image: url("https://i.imgur.com/U3CBUoI.png" ); */
     /* opacity: 0.5; */
     background-repeat: no-repeat;
-    background-size: 250px 350px;
+    background-size: 300px 350px;
     background-position: center; 
+
+    background-color: white;
+    background-image: url(http://www.transparenttextures.com/patterns/black-linen.png);
 }
 
 
@@ -95,7 +104,7 @@
     color: #0D1F2D;
 }
 .users h2 {
-    padding-bottom: 2em;
+    padding-bottom: 3em;
     padding-right: 2px;
     padding-left: 2px;
 }
@@ -108,16 +117,19 @@
 .login {
     /* border: 1px white solid; */
     color: black;
-    width: 10em;
+    width: 12em;
     height: 20em;
-    margin: 20px;
+    margin: 10px;
     position: relative;
     right: 150px; top: -200px;
     padding: 10px;
-    background-image: url("https://i.imgur.com/w1hsLhb.png" ) ;
+    /* background-image: url("https://i.imgur.com/w1hsLhb.png" ) ; */
     background-repeat: no-repeat;
-    background-size: 250px 350px;
+    background-size: 300px 350px;
     background-position: center; 
+
+    background-color: white;
+    background-image: url(http://www.transparenttextures.com/patterns/black-linen.png);
 
 
 }

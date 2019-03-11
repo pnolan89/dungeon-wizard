@@ -17,7 +17,7 @@ class Splash extends Component {
 
                 <div className="splash">
                
-               {/* <h1>WELCOME TO DUNGEON WIZARD</h1> */}
+               <h1>find the dungeons and dragons campaign right for YOU</h1>
 
                
                
