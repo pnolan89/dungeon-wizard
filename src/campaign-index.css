@@ -1,7 +1,16 @@
+.campaigns-index-container {
+  display: flex;
+  flex-direction: row;
+}
+
+ .filter-spacer {
+    flex-basis: 40%;
+ }
+
  .Campaign-Index {
       text-align: left;
 
-
+      margin: auto;
       background: rgba(58, 9, 13, 0.7);
       font-family: 'Montserrat', sans-serif;
       border: 1px solid;
@@ -10,7 +19,6 @@
       min-height: 13em;
 
       border-radius: 5px;
-      margin: 0 auto;
       margin-bottom: 20px;
 
       padding: 20px;

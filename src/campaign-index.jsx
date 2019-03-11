@@ -200,10 +200,14 @@ getFilters() {
     render() {
 
         return(
-            <React.Fragment>
-            {this.getFilters()}
-            {this.getCampaignData()}
-            </React.Fragment>
+            <div className="campaigns-index-container">
+                <div className="filter-spacer">
+                    {this.getFilters()}
+                </div>
+                <div className="campaigns-container">
+                    {this.getCampaignData()}
+                </div>
+            </div>
         );
     }
 }
