@@ -124,3 +124,16 @@
     font-size: 14px;
   }
 
+  .collapse {
+    display: none
+  }
+
+  .collapse.in {
+    display: block
+  }
+
+  .button {
+    background: rgba(58, 9, 13, 0.0);
+    border: 0px;
+    color: #D4A446; 
+  }

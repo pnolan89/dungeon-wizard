@@ -18,7 +18,8 @@ class CampaignIndex extends Component {
         battle_focused: "",
         kick_in_the_door: "",
         exploration: "",
-        random: ""
+        random: "",
+        open: false
       }
     };
     this.filterChange = this.filterChange.bind(this);
@@ -94,6 +95,12 @@ openForRequests(campaign) {
       <p></p>
     )
   }
+}
+
+toggle() {
+  this.setState({
+    open: !this.state.open
+  })
 }
 
 getPlaystyles(playing_styles) {
@@ -229,6 +236,7 @@ filterChange(event) {
 
 getFilters() {
   return(
+    <React.Fragment>
     <div className="filter-container">
       <h2>Filters</h2>
       <table>
@@ -264,6 +272,9 @@ getFilters() {
             </select>
           </td>
         </tr>
+        </table>
+        <button className="button button-block" onClick={this.toggle.bind(this)}>Advanced Options ▼</button>
+        <table className={"collapse" + (this.state.open ? ' in ' : '')}>
         <tr>
           <td><label for="deep_immersion">Deep Immersion: </label></td>
           <td>
@@ -326,6 +337,7 @@ getFilters() {
         </tr>
       </table>
       </div>
+      </React.Fragment>
     )
   }
 
