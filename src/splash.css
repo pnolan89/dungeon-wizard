@@ -12,7 +12,7 @@
 
 .splash-details {
     width: auto;
-    height: 33em;
+    height: 67vh;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
