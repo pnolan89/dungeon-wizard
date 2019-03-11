@@ -28,12 +28,13 @@ class Campaign extends Component {
     this.checkUserIsDM = this.checkUserIsDM.bind(this);
     this.getSynopsis = this.getSynopsis.bind(this);
     this.getPlayingStyle = this.getPlayingStyle.bind(this);
-    this.dateToString = this.dateToString.bind(this);
     this.showLocation = this.showLocation.bind(this);
     this.getPlayerSpots = this.getPlayerSpots.bind(this);
     this.getImage = this.getImage.bind(this);
     this.setNewSession = this.setNewSession.bind(this);
     this.closeModalHandler = this.closeModalHandler.bind(this);
+    this.handleDMForm = this.handleDMForm.bind(this);
+    this.handlePlayerRemove = this.handlePlayerRemove.bind(this);
   }
 
   componentDidMount() {
@@ -77,6 +78,37 @@ closeModalHandler = () => {
     this.setState({
       join_requests: joinRequests
     })
+  }
+
+  handlePlayerRemove(id) {
+    let update = {
+      dm_confirm: "rejected"
+    };
+    let joinId = "";
+    this.state.join_requests.forEach((request) => {
+      console.log("ID: ", id);
+      console.log("JOINREQ: ", request.request.user_id);
+      console.log(id === request.request.user_id);
+      if (request.request.user_id === id) {
+        joinId = request.request.id;
+      }
+    });
+
+    axios.put(`http://localhost:3000/join_requests/${joinId}`, update)
+      .then((response) => {
+        let updatePlayers = [];
+        this.state.players.forEach((player) => {
+          if (player.id !== id) {
+            updatePlayers.push(player);
+          }
+        });
+        this.setState({
+          players: updatePlayers
+        });
+      })
+      .catch((response) => {
+        console.log("Failure", response);
+      });
   }
 
 
@@ -228,6 +260,22 @@ closeModalHandler = () => {
     }
   }
 
+  handleDMForm(newStatus, id, requests, players) {
+    let updatePlayers = players;
+    let updateRequests = requests.map((request) => {
+      if (request.request.id === id) {
+        request.request.dm_confirm = newStatus;
+        if (newStatus === "accepted") {
+          updatePlayers.push(request.user)
+        }
+      }
+      return request;
+    })
+    this.setState({
+      join_requests: updateRequests,
+      players: updatePlayers
+    })
+  }
 
   getRequestData() {
     if (!localStorage.user_id) {
@@ -236,7 +284,7 @@ closeModalHandler = () => {
       return (
         <React.Fragment>
           <h3>Requests</h3>
-          <JoinRequestDM requests={this.state.join_requests} />
+          <JoinRequestDM requests={this.state.join_requests} players={this.state.players} handleDMForm={this.handleDMForm}/>
         </React.Fragment>
       )
 
@@ -277,12 +325,16 @@ closeModalHandler = () => {
   }
 
   getPlayerList() {
-    let player = this.state.players.map((object) => {
-      return (<PlayerCard key={object.id} playerInfo={object} isPlayer={this.checkUserIsPlayer()} isDM={this.checkUserIsDM()} />
-        )
+    let players = this.state.players.map((player) => {
+      return (<PlayerCard key={player.id}
+                          player={player}
+                          isPlayer={this.checkUserIsPlayer()}
+                          isDM={this.checkUserIsDM()}
+                          handlePlayerRemove={this.handlePlayerRemove}
+              />
+      )
     })
-
-    return player
+    return players
   }
 
   getJoinRequestObject() {

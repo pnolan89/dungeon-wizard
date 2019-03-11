@@ -25,12 +25,16 @@ componentDidMount() {
   });
 }
 
-pluralizer(array) {
+pluralize(array) {
   if (array.length === 1) {
     return "campaign";
   } else {
     return "campaigns";
   }
+}
+
+capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 
@@ -43,10 +47,10 @@ getUserData() {
           <div className="User-Card">
             <div className="User-Card-Details">
                 <h1>{user.user.name}</h1>
-                <p>Playing in {user.campaigns.length} {this.pluralizer(user.campaigns)}</p>
-                <p>DMing {user.owned_campaigns.length} {this.pluralizer(user.owned_campaigns)}</p>
-                <p>Play-style: {user.user.playing_style}</p>
-                <p>Experience level: {user.user.exp_level}</p>
+                <p>Playing in {user.campaigns.length} {this.pluralize(user.campaigns)}</p>
+                <p>DMing {user.owned_campaigns.length} {this.pluralize(user.owned_campaigns)}</p>
+                <p>Play-style: {this.capitalize(user.user.playing_style)}</p>
+                <p>Experience level: {this.capitalize(user.user.exp_level)}</p>
             </div>
             <div className="User-Index-Image">
                 <img src={user.user.avatar} />

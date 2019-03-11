@@ -11,9 +11,9 @@ class CampaignCard extends Component {
     };
   }
 
-
-  componentDidMount() {
-  }
+  capitalize(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 
   render() {
 
@@ -22,8 +22,8 @@ class CampaignCard extends Component {
       <div className="campaign-card">
       <div className="campaign-info">
       <h3>{this.props.campaign.name}</h3>
-      <h4>Experience level: {this.props.campaign.exp_level}</h4>
-      <h4>Play style: {this.props.campaign.playing_style}</h4>
+      <h4>Experience level: <span class="card-value">{this.capitalize(this.props.campaign.exp_level)}</span></h4>
+      <h4>Play style: <span class="card-value">{this.capitalize(this.props.campaign.playing_style)}</span></h4>
       </div>
       <div className="campaign-img">
       <img src={this.props.campaign.image} />

@@ -14,10 +14,6 @@ class CampaignRegistration extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    console.log(localStorage.currentUser)
-  }
-
   handleChange(event) {
     const target = event.target;
     const value = target.value;
@@ -41,17 +37,13 @@ class CampaignRegistration extends Component {
       exp_level: this.state.exp,
       player_limit: this.state.player_limit,
       image: this.state.image,
-
     }
-    console.log(formData);
     axios.post('http://localhost:3000/campaigns', formData)
       .then((response) => {
         this.setState({
             campaignID: response.data,
             redirect: true
         });
-          //handle success
-          console.log(response);
       })
       .catch(function (response) {
           //handle error

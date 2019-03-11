@@ -69,8 +69,8 @@
   height: 100px;
   width: 100px;
   position: relative;
-  right: 20px;
   top: 18px;
+  right: -5px;
 }
 
 .player h4 {
@@ -78,15 +78,30 @@
   color: #8b9faf;
 }
 
-.player .card-value {
+.card-value {
   color: white;
 }
 
 .player-info {
   padding-left: 15px;
   flex-basis: 80%;
-  max-width: 340px;
+  max-width: 300px;
+}
 
+.player-badges {
+  flex-basis: 20%;
+}
+
+.player .player-delete-btn {
+  margin-top: 35px;
+  background-color: #d12e25;
+  height: 40px;
+  width: 120px;
+  border-radius: 5px;
+}
+
+.player .player-delete-btn:hover {
+  color: white;
 }
 
 .player-img {
@@ -107,7 +122,9 @@
   border: 1px solid #D4A446;
   border-radius: 5px;
   width: 450px;
-  color: white;
+  color: #8b9faf;
+  background: rgba(58, 9, 13, 0.7);
+  margin-bottom: 15px;
 }
 
 .campaign-card h3 {
