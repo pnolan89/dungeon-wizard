@@ -7,24 +7,23 @@
     background-color: rgba(249, 194, 99, 0.5);
     font-weight: 900;
     padding: 10px;
-    margin-top: -0px;
     margin-bottom: 50px;
 }
 
 .splash-details {
     width: auto;
+    position: relative;
+    bottom: 12vh;
     height: 100vh;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-end;
     align-items: center;
-
+    margin: 0;
     color: white;
     background-color: rgba(0, 0, 0, 0.2);
-    padding-top: 0em;
-    padding-bottom: 0em;
-    padding-right: 0em;
+    padding: 0;
 }
 
 .image {
