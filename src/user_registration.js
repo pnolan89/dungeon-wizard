@@ -40,7 +40,6 @@ class UserRegistration extends Component {
         console.log(response.data);
         localStorage.setItem('user_id', response.data.id);
         localStorage.setItem('username', response.data.username);
-        localStorage.setItem('login', true);
         this.setState({
           userId: response.data.id,
           redirect: true

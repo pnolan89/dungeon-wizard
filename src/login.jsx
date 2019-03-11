@@ -45,7 +45,6 @@ class Login extends Component {
               };
               localStorage.setItem('user_id', userData.id);
               localStorage.setItem('username', userData.name);
-              localStorage.setItem('login', true);
               this.setState({
                 redirect: true
               });
