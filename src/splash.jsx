@@ -28,7 +28,7 @@ class Splash extends Component {
 
                 </div>
 
-                <div className="users overlay" >
+                <div className="users" >
                 <h2>begin your journey!</h2>
                 <Link to="/users/new/">
                 <h3>REGISTER</h3>
