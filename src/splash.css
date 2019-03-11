@@ -1,0 +1,162 @@
+
+.splash h1 {
+    height: 30px;
+    position: relative;
+    top: 130px; left: 0px;
+    color: black;
+    background-color: rgba(242,246,248,.5);
+    font-weight: 900;
+    padding: 10px;
+    margin-top: -0px;
+    margin-bottom: 50px;
+}
+
+
+
+.splash-details {
+    width: 100em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    top: 200px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 10em;
+    padding-bottom: -5em;
+    padding-right: 5em;
+    position: relative;
+    top: 0px; 
+
+    /* background-color: #d4a446;
+    background-image: url(http://www.transparenttextures.com/patterns/black-linen.png); */
+}
+
+
+.image {
+    position: relative;
+    right: 280px; 
+    margin-right: 0;
+}
+
+.campaigns {
+    /* border: 1px white solid; */
+    color: black;
+    width: 12em;
+    height: 20em;
+    margin: 50px;
+    position: relative;
+    right: 150px; top: -200px;
+    padding: 10px;
+    /* background-image: url("https://i.imgur.com/cGbwG7g.png" ); */
+
+    background-color: white;
+    background-image: url(http://www.transparenttextures.com/patterns/black-linen.png);
+    background-repeat: no-repeat;
+    background-size: 300px 350px;
+    background-position: center; 
+}
+
+
+
+.campaigns h3 { 
+    transition: all .2s ease-in-out;
+    color: #0D1F2D;
+}
+
+.campaigns h2 {
+    padding-bottom: 3em;
+}
+
+.campaigns h3:hover { 
+    transform: scale(1.1); 
+    transition: all .2s ease-in-out;
+}
+
+.users {
+    /* border: 1px white solid; */
+    color: black;
+    width: 12em;
+    height: 20em;
+    margin: 50px;
+    position: relative;
+    right: 150px; top: -200px;
+    margin-left: 0em;
+    padding: 10px;
+    /* background-image: url("https://i.imgur.com/U3CBUoI.png" ); */
+    /* opacity: 0.5; */
+    background-repeat: no-repeat;
+    background-size: 300px 350px;
+    background-position: center; 
+
+    background-color: white;
+    background-image: url(http://www.transparenttextures.com/patterns/black-linen.png);
+}
+
+
+
+
+
+
+.users h3 { 
+    transition: all .2s ease-in-out;
+    color: #0D1F2D;
+}
+.users h2 {
+    padding-bottom: 3em;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.users h3:hover { 
+    transform: scale(1.1); 
+    transition: all .2s ease-in-out;
+}
+
+.login {
+    /* border: 1px white solid; */
+    color: black;
+    width: 12em;
+    height: 20em;
+    margin: 10px;
+    position: relative;
+    right: 150px; top: -200px;
+    padding: 10px;
+    /* background-image: url("https://i.imgur.com/w1hsLhb.png" ) ; */
+    background-repeat: no-repeat;
+    background-size: 300px 350px;
+    background-position: center; 
+
+    background-color: white;
+    background-image: url(http://www.transparenttextures.com/patterns/black-linen.png);
+
+
+}
+
+
+
+.login h3 { 
+    transition: all .2s ease-in-out;
+    color: #0D1F2D;
+}
+
+.login h2 {
+    padding-bottom: 3em;
+}
+
+.login h3:hover { 
+    transform: scale(1.1); 
+    transition: all .2s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+

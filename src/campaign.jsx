@@ -5,6 +5,7 @@ import JoinRequestForm from "./join-request-form";
 import JoinStatusCampaign from "./join-status-campaign";
 import JoinRequestDM from "./join-request-dm";
 import PlayerCard from "./player-card";
+import Modal from './modal.js';
 import { join } from "path";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -15,6 +16,7 @@ class Campaign extends Component {
     super(props);
     this.state = {
       campaignID: this.props.match.params.campaignID,
+      isShowing: false
     };
     this.getJoinRequestObject = this.getJoinRequestObject.bind(this);
     this.getUserRequest = this.getUserRequest.bind(this);
@@ -29,6 +31,8 @@ class Campaign extends Component {
     this.showLocation = this.showLocation.bind(this);
     this.getPlayerSpots = this.getPlayerSpots.bind(this);
     this.getImage = this.getImage.bind(this);
+    this.setNewSession = this.setNewSession.bind(this);
+    this.closeModalHandler = this.closeModalHandler.bind(this);
     this.handleDMForm = this.handleDMForm.bind(this);
     this.handlePlayerRemove = this.handlePlayerRemove.bind(this);
   }
@@ -51,6 +55,18 @@ class Campaign extends Component {
     console.log(error);
     });
   }
+
+  openModalHandler = () => {
+    this.setState({
+        isShowing: true
+    });
+}
+
+closeModalHandler = () => {
+    this.setState({
+        isShowing: false
+    });
+}
 
   handleRequestForm(newPostData) {
     let joinRequests = this.state.join_requests.slice(0)
@@ -151,9 +167,9 @@ class Campaign extends Component {
       let day = date.getDate();
       let year = date.getFullYear();
 
-      let hours = (date.getHours()) + 6;
+      let hours = (date.getHours()) - 6;
       let minutes = addZero(date.getMinutes());
-      let time = (hours > 11 ? (hours - 11) : (hours + 1)) + ":" + minutes + (hours > 11 ? "PM" : "AM");
+      let time = (hours > 11 ? (hours - 11) : (hours + 1)) + ":" + minutes + (hours < 11 ? "PM" : "AM");
 
       return month + " " + day + ", " + year + " - " + time + " ";
     }
@@ -167,8 +183,36 @@ class Campaign extends Component {
       }
     }
 
+    setNewSession(newDate) {
+      let newCampaign = this.state.campaign
+      console.log("newDate", newDate)
+      newCampaign.next_session = newDate.next_session
+      this.setState({
+        campaign: newCampaign
+      })
+    }
+
     showSession() {
       let date = this.state.campaign.next_session
+      if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
+        return (
+          <React.Fragment>
+          <p>Next session: {this.dateToString(date)}</p>
+            <p>{ this.state.isShowing ? <p onClick={this.closeModalHandler} className="back-drop"></p> : null }
+
+            <button className="open-modal-btn" onClick={this.openModalHandler}>Update</button>
+
+            <Modal
+                className="modal"
+                show={this.state.isShowing}
+                close={this.closeModalHandler}
+                campaignID={this.state.campaignID}
+                setNewSession={this.setNewSession}
+                />
+            </p>
+          </React.Fragment>
+        )
+      }
       if (this.checkUserIsPlayer() === true || this.state.campaign.user_id === parseInt(localStorage.user_id)) {
         return (
           <p>Next session: {this.dateToString(date)}</p>
