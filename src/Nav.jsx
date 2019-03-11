@@ -29,7 +29,7 @@ export default class Nav extends Component {
   }
 
   renderRedirect = () => {
-    if (this.state.redirect) {
+    if (!localStorage.user_id) {
       let route = `/`
       return <Redirect to={route} />
     }

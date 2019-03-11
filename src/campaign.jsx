@@ -341,7 +341,9 @@ closeModalHandler = () => {
     if (this.state.campaign) {
       let campaign = {
         name: this.state.campaign.name,
-        id: this.state.campaign.id
+        id: this.state.campaign.id,
+        player_limit: this.state.campaign.player_limit,
+        players: this.state.join_requests.length
       }
       return <JoinRequestForm handleRequestForm={this.handleRequestForm} campaign={campaign} />
     } else {
