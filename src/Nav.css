@@ -20,11 +20,19 @@ a {
   float: center;
   margin-right: 0;
   line-height: 40px;
+  text-shadow: 3px 5px 8px rgba(0,0,0,0.33);
 }
 
 .links {
   float: right;
-  line-height: 100px;
+  font-size: 25px;
+  border-top: 1.5px solid #D4A446;
+  border-bottom: 1.5px solid #D4A446;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 25px;
+  height: 30px;
+  line-height: 1.4;
 }
 
 .links a {
