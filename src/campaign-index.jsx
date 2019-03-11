@@ -40,7 +40,7 @@ class CampaignIndex extends Component {
 
 capitalize(string) {
   let stringArray = string.split('_');
-  let outputArray = []
+  let outputArray = [];
   stringArray.forEach((word) => {
     outputArray.push(word.charAt(0).toUpperCase() + word.slice(1));
   });
@@ -144,13 +144,24 @@ filterChange(event) {
     this.setState({
       filters: filters
     })
-  } else if (event.target.name === 'playing_style') {
-    filters.playing_style = event.target.value;
+  } else if (event.target.name === 'commitment') {
+    filters.commitment = event.target.value;
     this.setState({
       filters: filters
     })
   } else if (event.target.name === 'open_for_requests') {
     filters.open_for_requests = event.target.value;
+    this.setState({
+      filters: filters
+    })
+  } else if (event.target.name === 'deep_immersion') {
+    let value = event.target.value;
+    if (value === 'yes') {
+      value = true;
+    } else if (value === 'no') {
+      value = false;
+    }
+    filters.deep_immersion = value;
     this.setState({
       filters: filters
     })
@@ -174,17 +185,18 @@ getFilters() {
           </td>
         </tr>
         <tr>
-          <td><label for="playing_style">Playing Style: </label></td>
+          <td><label for="commitment">Commitment: </label></td>
           <td>
-            <select name="playing_style" onChange={this.filterChange}>
+            <select name="commitment" onChange={this.filterChange}>
               <option value=""></option>
-              <option value="story-focused">Story-focused</option>
-              <option value="combat-focused">Combat-focused</option>
+              <option value="long-term">Long-term</option>
+              <option value="single-session">Single session</option>
+              <option value="casual">Casual</option>
             </select>
           </td>
         </tr>
         <tr>
-          <td><label for="open_for_requests">Looking for Players </label></td>
+          <td><label for="open_for_requests">Looking for Players: </label></td>
           <td>
             <select name="open_for_requests" onChange={this.filterChange}>
               <option value=""></option>
@@ -193,25 +205,17 @@ getFilters() {
             </select>
           </td>
         </tr>
+        <tr>
+          <td><label for="deep_immersion">Deep Immersion: </label></td>
+          <td>
+            <select name="deep_immersion" onChange={this.filterChange}>
+              <option value=""></option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </td>
+        </tr>
       </table>
-      <div className="filter-list">
-          <div className="filter-item">
-              <div className="filter-label">
-
-              </div>
-              <div className="filter-select">
-
-              </div>
-          </div>
-          <div className="filter-item">
-              <div className="filter-label">
-
-              </div>
-              <div className="filter-select">
-
-              </div>
-          </div>
-        </div>
       </div>
     )
   }
