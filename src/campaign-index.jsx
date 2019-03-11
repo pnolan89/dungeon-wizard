@@ -8,61 +8,79 @@ class CampaignIndex extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        filters: {
-            exp_level: "",
-            playing_style: "",
-            open_for_requests: ""
-        }
+      filters: {
+        exp_level: "",
+        playing_style: "",
+        open_for_requests: "",
+        commitment: "",
+        deep_immersion: "",
+        sandbox: "",
+        battle_focused: "",
+        kick_in_the_door: "",
+        exploration: "",
+        random: ""
+      }
     };
     this.filterChange = this.filterChange.bind(this);
     this.openForRequests = this.openForRequests.bind(this);
-}
+  }
 
 
-componentDidMount() {
-  axios.get('http://localhost:3000/campaigns/')
-  .then ((response) => {
-    this.setState({
-        campaigns: response.data
+  componentDidMount() {
+    axios.get('http://localhost:3000/campaigns/')
+    .then ((response) => {
+      this.setState({
+          campaigns: response.data
+      });
+    })
+    .catch(function (error) {
+        console.log(error);
     });
-  })
-  .catch(function (error) {
-      console.log(error);
-  });
-}
+  }
 
 capitalize(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+  let stringArray = string.split('_');
+  let outputArray = [];
+  stringArray.forEach((word) => {
+    outputArray.push(word.charAt(0).toUpperCase() + word.slice(1));
+  });
+  return outputArray.join(' ');
   }
 
 filterCampaigns(campaigns) {
-    let openCampaigns = campaigns.filter((campaign) => campaign.players.length < campaign.campaign.player_limit);
-    let closedCampaigns = campaigns.filter((campaign) => campaign.players.length === campaign.campaign.player_limit);
-    if (this.state.filters.open_for_requests === "yes") {
-        if (this.state.filters.exp_level) {
-            openCampaigns = openCampaigns.filter((campaign) => campaign.campaign.exp_level === this.state.filters.exp_level);
-        }
-        if (this.state.filters.playing_style) {
-            openCampaigns = openCampaigns.filter((campaign) => campaign.campaign.playing_style === this.state.filters.playing_style);
-        }
-        return openCampaigns;
-    } else if (this.state.filters.open_for_requests === "no") {
-        if (this.state.filters.exp_level) {
-            closedCampaigns = closedCampaigns.filter((campaign) => campaign.campaign.exp_level === this.state.filters.exp_level);
-        }
-        if (this.state.filters.playing_style) {
-            closedCampaigns = closedCampaigns.filter((campaign) => campaign.campaign.playing_style === this.state.filters.playing_style);
-        }
-        return closedCampaigns;
-    } else {
-        if (this.state.filters.exp_level) {
-            campaigns = campaigns.filter((campaign) => campaign.campaign.exp_level === this.state.filters.exp_level);
-        }
-        if (this.state.filters.playing_style) {
-            campaigns = campaigns.filter((campaign) => campaign.campaign.playing_style === this.state.filters.playing_style);
-        }
-        return campaigns;
-    }
+  if (this.state.filters.open_for_requests === "yes") {
+    campaigns = campaigns.filter((campaign) => campaign.players.length < campaign.campaign.player_limit);
+  }
+  if (this.state.filters.open_for_requests === "no") {
+    campaigns = campaigns.filter((campaign) => campaign.players.length === campaign.campaign.player_limit);
+  }
+  if (this.state.filters.exp_level !== "") {
+    campaigns = campaigns.filter((campaign) => campaign.campaign.exp_level === this.state.filters.exp_level);
+  }
+  if (this.state.filters.commitment !== "") {
+    campaigns = campaigns.filter((campaign) => campaign.campaign.commitment === this.state.filters.commitment);
+  }
+  if (this.state.filters.deep_immersion !== "") {
+    campaigns = campaigns.filter((campaign) => campaign.campaign.deep_immersion === this.state.filters.deep_immersion);
+  }
+  if (this.state.filters.sandbox !== "") {
+    campaigns = campaigns.filter((campaign) => campaign.campaign.sandbox === this.state.filters.sandbox);
+  }
+  if (this.state.filters.battle_focused !== "") {
+    campaigns = campaigns.filter((campaign) => campaign.campaign.battle_focused === this.state.filters.battle_focused);
+  }
+  if (this.state.filters.kick_in_the_door !== "") {
+    campaigns = campaigns.filter((campaign) => campaign.campaign.kick_in_the_door === this.state.filters.kick_in_the_door);
+  }
+  if (this.state.filters.exploration !== "") {
+    campaigns = campaigns.filter((campaign) => campaign.campaign.exploration === this.state.filters.exploration);
+  }
+  if (this.state.filters.random !== "") {
+    campaigns = campaigns.filter((campaign) => campaign.campaign.random === this.state.filters.random);
+  }
+
+
+  return campaigns;
 }
 
 openForRequests(campaign) {
@@ -78,27 +96,38 @@ openForRequests(campaign) {
   }
 }
 
+getPlaystyles(playing_styles) {
+  let playstyles = playing_styles.map((style) => {
+    return this.capitalize(style)
+  })
+  let output = playstyles.join(', ')
+  return output;
+}
+
+
 getCampaignData() {
   if (this.state.campaigns) {
     let filteredList = this.filterCampaigns(this.state.campaigns);
     const campaigns = filteredList.map((campaign) => {
       return(
         <div className="Campaign-Index" key={campaign.campaign.id} >
-            <Link to={`/campaigns/${campaign.campaign.id}`}>
-                <div className="Campaign-Card">
-                    <div className="Campaign-Card-Details">
-                        <h1>{campaign.campaign.name}</h1>
-                        <p className="campaign-description">{campaign.campaign.description}</p>
-                        {this.openForRequests(campaign)}
-                        <p className="campaign-detail">Dungeon Master: {campaign.dm.name}</p>
-                        <p className="campaign-detail">Playing Style: {this.capitalize(campaign.campaign.playing_style)}</p>
-                        <p className="campaign-detail">Experience Level: {this.capitalize(campaign.campaign.exp_level)}</p>
-                    </div>
-                    <div className="Campaign-Index-Image">
-                        <img src={campaign.campaign.image} />
-                    </div>
-                </div>
-            </Link>
+          <Link to={`/campaigns/${campaign.campaign.id}`}>
+            <div className="Campaign-Card">
+              <div className="Campaign-Card-Details">
+                <h1>{campaign.campaign.name}</h1>
+                <p className="campaign-description">{campaign.campaign.description}</p>
+                {this.openForRequests(campaign)}
+                <p className="campaign-detail">Dungeon Master: {campaign.dm.name}</p>
+                <p className="campaign-detail">Playing styles: {this.getPlaystyles(campaign.playing_styles)}</p>
+                <p className="campaign-detail">Experience Level: {this.capitalize(campaign.campaign.exp_level)}</p>
+
+
+              </div>
+              <div className="Campaign-Index-Image">
+                <img src={campaign.campaign.image} />
+              </div>
+            </div>
+          </Link>
         </div>
         )
       })
@@ -109,93 +138,196 @@ getCampaignData() {
 }
 
 filterChange(event) {
-    if (event.target.name === 'exp_level') {
-        this.setState({
-            filters: {
-                exp_level: event.target.value,
-                playing_style: this.state.filters.playing_style,
-                open_for_requests: this.state.filters.open_for_requests
-            }
-        })
-    } else if (event.target.name === 'playing_style') {
-        this.setState({
-            filters: {
-                exp_level: this.state.filters.exp_level,
-                playing_style: event.target.value,
-                open_for_requests: this.state.filters.open_for_requests
-            }
-        })
-    } else if (event.target.name === 'open_for_requests') {
-      this.setState({
-        filters: {
-            exp_level: this.state.filters.exp_level,
-            playing_style: this.state.filters.playing_style,
-            open_for_requests: event.target.value
-        }
-      })
-
+  let filters = this.state.filters;
+  if (event.target.name === 'exp_level') {
+    filters.exp_level = event.target.value;
+    this.setState({
+      filters: filters
+    })
+  } else if (event.target.name === 'commitment') {
+    filters.commitment = event.target.value;
+    this.setState({
+      filters: filters
+    })
+  } else if (event.target.name === 'open_for_requests') {
+    filters.open_for_requests = event.target.value;
+    this.setState({
+      filters: filters
+    })
+  } else if (event.target.name === 'deep_immersion') {
+    let value = event.target.value;
+    if (value === 'yes') {
+      value = true;
+    } else if (value === 'no') {
+      value = false;
     }
+    filters.deep_immersion = value;
+    this.setState({
+      filters: filters
+    })
+  } else if (event.target.name === 'sandbox') {
+    let value = event.target.value;
+    if (value === 'yes') {
+      value = true;
+    } else if (value === 'no') {
+      value = false;
+    }
+    filters.sandbox = value;
+    this.setState({
+      filters: filters
+    })
+  }
+  else if (event.target.name === 'battle_focused') {
+    let value = event.target.value;
+    if (value === 'yes') {
+      value = true;
+    } else if (value === 'no') {
+      value = false;
+    }
+    filters.battle_focused = value;
+    this.setState({
+      filters: filters
+    })
+  }
+  else if (event.target.name === 'kick_in_the_door') {
+    let value = event.target.value;
+    if (value === 'yes') {
+      value = true;
+    } else if (value === 'no') {
+      value = false;
+    }
+    filters.kick_in_the_door = value;
+    this.setState({
+      filters: filters
+    })
+  }
+  else if (event.target.name === 'exploration') {
+    let value = event.target.value;
+    if (value === 'yes') {
+      value = true;
+    } else if (value === 'no') {
+      value = false;
+    }
+    filters.exploration = value;
+    this.setState({
+      filters: filters
+    })
+  }
+  else if (event.target.name === 'random') {
+    let value = event.target.value;
+    if (value === 'yes') {
+      value = true;
+    } else if (value === 'no') {
+      value = false;
+    }
+    filters.random = value;
+    this.setState({
+      filters: filters
+    })
+  }
 }
 
 getFilters() {
-    return(
-        <div className="filter-container">
-            <h2>Filters</h2>
-            <table>
-                <tr>
-                    <td><label for="exp_level">Experience Level: </label></td>
-                    <td>
-                        <select name="exp_level" onChange={this.filterChange}>
-                            <option value=""></option>
-                            <option value="beginner">Beginner</option>
-                            <option value="intermediate">Intermediate</option>
-                            <option value="expert">Expert</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="playing_style">Playing Style: </label></td>
-                    <td>
-                       <select name="playing_style" onChange={this.filterChange}>
-                          <option value=""></option>
-                          <option value="story-focused">Story-focused</option>
-                          <option value="combat-focused">Combat-focused</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="open_for_requests">Looking for Players </label></td>
-                    <td>
-                        <select name="open_for_requests" onChange={this.filterChange}>
-                            <option value=""></option>
-                            <option value="yes">Yes</option>
-                            <option value="no">No</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <div className="filter-list">
-                <div className="filter-item">
-                    <div className="filter-label">
-
-                    </div>
-                    <div className="filter-select">
-
-                    </div>
-                </div>
-                <div className="filter-item">
-                    <div className="filter-label">
-
-                    </div>
-                    <div className="filter-select">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
+  return(
+    <div className="filter-container">
+      <h2>Filters</h2>
+      <table>
+        <tr>
+          <td><label for="exp_level">Experience Level: </label></td>
+          <td>
+            <select name="exp_level" onChange={this.filterChange}>
+              <option value=""></option>
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="expert">Expert</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="commitment">Commitment: </label></td>
+          <td>
+            <select name="commitment" onChange={this.filterChange}>
+              <option value=""></option>
+              <option value="long-term">Long-term</option>
+              <option value="single-session">Single session</option>
+              <option value="casual">Casual</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="open_for_requests">Looking for Players: </label></td>
+          <td>
+            <select name="open_for_requests" onChange={this.filterChange}>
+              <option value=""></option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="deep_immersion">Deep Immersion: </label></td>
+          <td>
+            <select name="deep_immersion" onChange={this.filterChange}>
+              <option value=""></option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="sandbox">Sandbox: </label></td>
+          <td>
+            <select name="sandbox" onChange={this.filterChange}>
+              <option value=""></option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="battle_focused">Battle-focused: </label></td>
+          <td>
+            <select name="battle_focused" onChange={this.filterChange}>
+              <option value=""></option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="kick_in_the_door">Kick-in-the-door: </label></td>
+          <td>
+            <select name="kick_in_the_door" onChange={this.filterChange}>
+              <option value=""></option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="exploration">Exploration: </label></td>
+          <td>
+            <select name="exploration" onChange={this.filterChange}>
+              <option value=""></option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="random">Random: </label></td>
+          <td>
+            <select name="random" onChange={this.filterChange}>
+              <option value=""></option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      </div>
     )
-}
+  }
 
     render() {
 
