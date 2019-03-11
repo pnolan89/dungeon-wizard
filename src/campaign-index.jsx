@@ -78,6 +78,10 @@ openForRequests(campaign) {
   }
 }
 
+getCampaignPlayingStyles() {
+
+}
+
 getCampaignData() {
   if (this.state.campaigns) {
     let filteredList = this.filterCampaigns(this.state.campaigns);
