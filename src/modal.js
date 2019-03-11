@@ -27,8 +27,11 @@ class Modal extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    let date = new Date(this.state.next_session)
+    date.setHours(date.getHours() - 7);
+
     const formData = {
-      next_session: this.state.next_session
+      next_session: date
     }
     console.log("here's a form", formData);
     let campaignID = this.props.campaignID;

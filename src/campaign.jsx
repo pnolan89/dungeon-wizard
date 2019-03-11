@@ -166,19 +166,19 @@ closeModalHandler = () => {
         return (
           <React.Fragment>
           <p>Next session: {this.dateToString(date)}</p>
-                <p>{ this.state.isShowing ? <p onClick={this.closeModalHandler} className="back-drop"></p> : null }
+            <p>{ this.state.isShowing ? <p onClick={this.closeModalHandler} className="back-drop"></p> : null }
 
-                <button className="open-modal-btn" onClick={this.openModalHandler}>Update</button>
+            <button className="open-modal-btn" onClick={this.openModalHandler}>Update</button>
 
-                <Modal
-                    className="modal"
-                    show={this.state.isShowing}
-                    close={this.closeModalHandler}
-                    campaignID={this.state.campaignID}
-                    setNewSession={this.setNewSession}
-                    >
-                </Modal></p>
-                </React.Fragment>
+            <Modal
+                className="modal"
+                show={this.state.isShowing}
+                close={this.closeModalHandler}
+                campaignID={this.state.campaignID}
+                setNewSession={this.setNewSession}
+                />
+            </p>
+          </React.Fragment>
         )
       }
       if (this.checkUserIsPlayer() === true || this.state.campaign.user_id === parseInt(localStorage.user_id)) {
