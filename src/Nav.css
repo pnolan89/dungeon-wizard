@@ -26,6 +26,7 @@ a {
 .links {
   float: right;
   font-size: 25px;
+  color:  #D4A446;
   border-top: 1.5px solid #D4A446;
   border-bottom: 1.5px solid #D4A446;
   border-radius: 5px;
@@ -36,11 +37,10 @@ a {
 }
 
 .links a {
-  color: black;
 }
 
 .links a:hover {
-  color: #D4A446;
+  color: white;
 }
 
 .navbar h1 {
