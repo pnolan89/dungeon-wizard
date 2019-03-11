@@ -32,6 +32,7 @@ class Campaign extends Component {
     this.showLocation = this.showLocation.bind(this);
     this.getPlayerSpots = this.getPlayerSpots.bind(this);
     this.getImage = this.getImage.bind(this);
+    this.setNewSession = this.setNewSession.bind(this);
   }
 
   componentDidMount() {
@@ -149,7 +150,14 @@ closeModalHandler = () => {
       }
     }
 
-    
+    setNewSession(newDate) {
+      let newCampaign = this.state.campaign
+      console.log("newDate", newDate)
+      newCampaign.next_session = newDate.next_session
+      this.setState({
+        campaign: newCampaign
+      })
+    }
 
     showSession() {
       let date = this.state.campaign.next_session
@@ -166,6 +174,7 @@ closeModalHandler = () => {
                     show={this.state.isShowing}
                     close={this.closeModalHandler}
                     campaignID={this.state.campaignID}
+                    setNewSession={this.setNewSession}
                     >
                 </Modal></p>
                 </React.Fragment>

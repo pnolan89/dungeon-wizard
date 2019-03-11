@@ -22,6 +22,7 @@ class Modal extends Component {
     this.setState({
       [name]: value
     });
+
   }
 
   handleSubmit(event) {
@@ -29,21 +30,22 @@ class Modal extends Component {
     const formData = {
       next_session: this.state.next_session
     }
-
-    console.log(formData);
+    console.log("here's a form", formData);
     let campaignID = this.props.campaignID;
     axios.put(`http://localhost:3000/campaigns/${campaignID}`, formData)
       .then((response) => {
         this.setState({
         });
-        this.props.close()
+        this.props.setNewSession(formData)
           //handle success
+          console.log("form data!", formData)
           console.log(response);
       })
       .catch(function (response) {
           //handle error
           console.log(response);
       });
+      this.props.close()
   }
   render() {
     return (
@@ -56,14 +58,13 @@ class Modal extends Component {
              
               <div className="modal-body">
                   <p>
-          <form onSubmit={this.props.handleSubmit} id="modal" >
+          <form onSubmit={this.handleSubmit} id="modal" >
 
                   <div className="form">
                       <label>
                       Next session:
                       <br></br>
-
-                      <input name="next_session" id="next_session" type="datetime-local"  />
+                      <input name="next_session" id="next_session" type="datetime-local" onChange={this.handleChange} />
                       </label>
                       </div>
               <input className="Input" type="submit" value="Submit"/>
