@@ -17,27 +17,14 @@ class Splash extends Component {
 
                 <div className="splash">
                
-               <h1>bringing adventurers together</h1>
+                <h1>bringing adventurers together</h1>
 
-               
-               
                 <div className="splash-details">
 
-
-           
-
                 <div className="image">
-                <img src="https://i.imgur.com/g4k3xxt.png"/>
-                {/* <img src="https://i.imgur.com/mUIbPCl.png" /> */}
+                <img src="https://i.imgur.com/JKNZONw.png"/>
                 </div>
 
-               
-                       
-               
-               
-               
-
-               
                 <div className="users overlay" >
                 <h2>begin your journey!</h2>
                 <Link to="/users/new/">
@@ -45,18 +32,15 @@ class Splash extends Component {
                 </Link>
                 </div>
                
-
-               
                 <div className="login">
-                <h2>welcome back traveller...</h2>
+                <h2>welcome back traveller...</h2>          
                 <Link to="/login/">
                 <h3>LOGIN</h3>
                 </Link>
                 </div>
 
-
                 <div className="campaigns" >
-                <h2>your adventures await!</h2>
+                <h2>your adventures await!</h2>  
                 <Link to="/campaigns/">
                 <h3>CAMPAIGNS</h3>
                 </Link>
