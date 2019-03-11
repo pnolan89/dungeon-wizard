@@ -1,3 +1,4 @@
+
 .splash h1 {
     height: 30px;
     position: relative;
@@ -12,7 +13,7 @@
 
 .splash-details {
     width: auto;
-    height: 67vh;
+    height: 71vh;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -25,12 +26,12 @@
     padding-bottom: -5em;
     padding-right: 5em;
     position: relative;
-    top: 0px; 
+    top: 0px;
 }
 
 .image {
     position: relative;
-    right: 200px; 
+    right: 200px;
     margin-right: 0;
 }
 
@@ -45,12 +46,12 @@
     background-image: url("https://i.imgur.com/uxfQD55.png");
     background-repeat: no-repeat;
     background-size: 320px 350px;
-    background-position: center;  
+    background-position: center;
 }
 
 
 
-.campaigns h3 { 
+.campaigns h3 {
     transition: all .2s ease-in-out;
     color: #0D1F2D;
     font-size: 25px;
@@ -65,8 +66,8 @@
     top: 1em;
 }
 
-.campaigns h3:hover { 
-    transform: scale(1.1); 
+.campaigns h3:hover {
+    transform: scale(1.1);
     transition: all .2s ease-in-out;
 }
 
@@ -81,11 +82,11 @@
     padding: 10px;
     background-repeat: no-repeat;
     background-size: 320px 350px;
-    background-position: center; 
+    background-position: center;
     background-image: url("https://i.imgur.com/JCKxJe6.png");
 }
 
-.users h3 { 
+.users h3 {
     transition: all .2s ease-in-out;
     color: #0D1F2D;
     font-size: 25px;
@@ -101,8 +102,8 @@
     top: 1em;
 }
 
-.users h3:hover { 
-    transform: scale(1.1); 
+.users h3:hover {
+    transform: scale(1.1);
     transition: all .2s ease-in-out;
 }
 
@@ -116,12 +117,12 @@
     padding: 10px;
     background-repeat: no-repeat;
     background-size: 210px 350px;
-    background-position: center; 
+    background-position: center;
     background-image: url("https://i.imgur.com/eXIX00L.png");
 
 }
 
-.login h3 { 
+.login h3 {
     transition: all .2s ease-in-out;
     color: #0D1F2D;
     font-size: 25px;
@@ -135,11 +136,11 @@
 
     position: relative;
     top: 1em;
- 
+
 }
 
-.login h3:hover { 
-    transform: scale(1.1); 
+.login h3:hover {
+    transform: scale(1.1);
     transition: all .2s ease-in-out;
 }
 
