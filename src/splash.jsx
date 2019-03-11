@@ -17,7 +17,7 @@ class Splash extends Component {
 
                 <div className="splash">
                
-               <h1>find the dungeons and dragons campaign right for YOU</h1>
+               <h1>bringing adventurers together</h1>
 
                
                
@@ -39,7 +39,7 @@ class Splash extends Component {
 
                
                 <div className="users overlay" >
-                <h2>Register for Dungeon Wizard!</h2>
+                <h2>begin your journey!</h2>
                 <Link to="/users/new/">
                 <h3>REGISTER</h3>
                 </Link>
@@ -48,7 +48,7 @@ class Splash extends Component {
 
                
                 <div className="login">
-                <h2>Have an account? login!</h2>
+                <h2>welcome back traveller...</h2>
                 <Link to="/login/">
                 <h3>LOGIN</h3>
                 </Link>
@@ -56,7 +56,7 @@ class Splash extends Component {
 
 
                 <div className="campaigns" >
-                <h2>See all the great campaigns!</h2>
+                <h2>your adventures await!</h2>
                 <Link to="/campaigns/">
                 <h3>CAMPAIGNS</h3>
                 </Link>
