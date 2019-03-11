@@ -11,7 +11,14 @@ class CampaignIndex extends Component {
       filters: {
         exp_level: "",
         playing_style: "",
-        open_for_requests: ""
+        open_for_requests: "",
+        commitment: "",
+        deep_immersion: "",
+        sandbox: "",
+        battle_focused: "",
+        kick_in_the_door: "",
+        exploration: "",
+        random: ""
       }
     };
     this.filterChange = this.filterChange.bind(this);
@@ -41,33 +48,39 @@ capitalize(string) {
   }
 
 filterCampaigns(campaigns) {
-  let openCampaigns = campaigns.filter((campaign) => campaign.players.length < campaign.campaign.player_limit);
-  let closedCampaigns = campaigns.filter((campaign) => campaign.players.length === campaign.campaign.player_limit);
   if (this.state.filters.open_for_requests === "yes") {
-    if (this.state.filters.exp_level) {
-      openCampaigns = openCampaigns.filter((campaign) => campaign.campaign.exp_level === this.state.filters.exp_level);
-    }
-    if (this.state.filters.playing_style) {
-      openCampaigns = openCampaigns.filter((campaign) => campaign.campaign.playing_style === this.state.filters.playing_style);
-    }
-    return openCampaigns;
-  } else if (this.state.filters.open_for_requests === "no") {
-      if (this.state.filters.exp_level) {
-          closedCampaigns = closedCampaigns.filter((campaign) => campaign.campaign.exp_level === this.state.filters.exp_level);
-      }
-      if (this.state.filters.playing_style) {
-          closedCampaigns = closedCampaigns.filter((campaign) => campaign.campaign.playing_style === this.state.filters.playing_style);
-      }
-      return closedCampaigns;
-  } else {
-    if (this.state.filters.exp_level) {
-      campaigns = campaigns.filter((campaign) => campaign.campaign.exp_level === this.state.filters.exp_level);
-    }
-    if (this.state.filters.playing_style) {
-      campaigns = campaigns.filter((campaign) => campaign.campaign.playing_style === this.state.filters.playing_style);
-    }
-    return campaigns;
+    campaigns = campaigns.filter((campaign) => campaign.players.length < campaign.campaign.player_limit);
   }
+  if (this.state.filters.open_for_requests === "no") {
+    campaigns = campaigns.filter((campaign) => campaign.players.length === campaign.campaign.player_limit);
+  }
+  if (this.state.filters.exp_level !== "") {
+    campaigns = campaigns.filter((campaign) => campaign.campaign.exp_level === this.state.filters.exp_level);
+  }
+  if (this.state.filters.commitment !== "") {
+    campaigns = campaigns.filter((campaign) => campaign.campaign.commitment === this.state.filters.commitment);
+  }
+  if (this.state.filters.deep_immersion !== "") {
+    campaigns = campaigns.filter((campaign) => campaign.campaign.deep_immersion === this.state.filters.deep_immersion);
+  }
+  if (this.state.filters.sandbox !== "") {
+    campaigns = campaigns.filter((campaign) => campaign.campaign.sandbox === this.state.filters.sandbox);
+  }
+  if (this.state.filters.battle_focused !== "") {
+    campaigns = campaigns.filter((campaign) => campaign.campaign.battle_focused === this.state.filters.battle_focused);
+  }
+  if (this.state.filters.kick_in_the_door !== "") {
+    campaigns = campaigns.filter((campaign) => campaign.campaign.kick_in_the_door === this.state.filters.kick_in_the_door);
+  }
+  if (this.state.filters.exploration !== "") {
+    campaigns = campaigns.filter((campaign) => campaign.campaign.exploration === this.state.filters.exploration);
+  }
+  if (this.state.filters.random !== "") {
+    campaigns = campaigns.filter((campaign) => campaign.campaign.random === this.state.filters.random);
+  }
+
+
+  return campaigns;
 }
 
 openForRequests(campaign) {
@@ -125,29 +138,21 @@ getCampaignData() {
 }
 
 filterChange(event) {
+  let filters = this.state.filters;
   if (event.target.name === 'exp_level') {
+    filters.exp_level = event.target.value;
     this.setState({
-      filters: {
-        exp_level: event.target.value,
-        playing_style: this.state.filters.playing_style,
-        open_for_requests: this.state.filters.open_for_requests
-      }
+      filters: filters
     })
   } else if (event.target.name === 'playing_style') {
+    filters.playing_style = event.target.value;
     this.setState({
-      filters: {
-        exp_level: this.state.filters.exp_level,
-        playing_style: event.target.value,
-        open_for_requests: this.state.filters.open_for_requests
-      }
+      filters: filters
     })
   } else if (event.target.name === 'open_for_requests') {
+    filters.open_for_requests = event.target.value;
     this.setState({
-      filters: {
-        exp_level: this.state.filters.exp_level,
-        playing_style: this.state.filters.playing_style,
-        open_for_requests: event.target.value
-      }
+      filters: filters
     })
   }
 }
