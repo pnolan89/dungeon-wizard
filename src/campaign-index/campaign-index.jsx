@@ -88,7 +88,7 @@ openForRequests(campaign) {
   let players = campaign.players
   if (players.length < campaign.campaign.player_limit) {
     return (
-      <p className="campaign-detail">Looking for players!</p>
+      <p className="campaign-detail looking-for-players">Looking for players!</p>
     )
   } else {
     return (
