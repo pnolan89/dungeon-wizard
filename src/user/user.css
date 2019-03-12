@@ -28,6 +28,7 @@
 
 .user-top h1 {
   color: #D4A446;
+  hyphens: auto;
 }
 
 .user-box  {

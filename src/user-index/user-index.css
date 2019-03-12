@@ -46,6 +46,7 @@
     padding-left: 2px;
     color: #D4A446;
     font-family: 'Cinzel', serif;
+    hyphens: auto;
   }
 
   .User-Card-Details {
