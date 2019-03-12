@@ -4,7 +4,7 @@ Dungeon Wizard is a React/Rails application. This repository is the React front-
 
 
 ## Motivation
-Dungeon Wizard is the final group project for Web Development bootcamp at Lighthouse Labs. Group members: [Peter Nolan](https://github.com/pnolan89), [Matt Kelly](https://github.com/mattrkelly27), [Erin Toth](https://github.com/erinltoth)]
+Dungeon Wizard is the final group project for Web Development bootcamp at Lighthouse Labs. Group members: [Peter Nolan](https://github.com/pnolan89), [Matt Kelly](https://github.com/mattrkelly27), [Erin Toth](https://github.com/erinltoth)
 
 ## Project Stack
 * Front-end: HTML, CSS, Axios, React-Router, ReactJS, NodeJS
@@ -19,9 +19,13 @@ Dungeon Wizard is the final group project for Web Development bootcamp at Lighth
 
 4. Navigate to [http://localhost:3002](http://localhost:3002)
 
-##Screenshots
+## Screenshots
+
+<img src="https://github.com/pnolan89/dungeon-wizard/blob/master/public/images/campaign-index.png" alt="Campaign Index" width="1000" />
 
 
+<img src="https://github.com/pnolan89/dungeon-wizard/blob/master/public/images/campaign-detail.png" alt="Campaign Detail" width="1000" />
 
+<img src="https://github.com/pnolan89/dungeon-wizard/blob/master/public/images/user-detail.png" alt="User Detail" width="1000" />
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
