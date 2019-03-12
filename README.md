@@ -21,7 +21,7 @@ Dungeon Wizard is the final group project for Web Development bootcamp at Lighth
 
 ##Screenshots
 
-![Campaign Index Page](https://github.com/pnolan89/dungeon-wizard/blob/master/public/images/campaign-index.png =500)
+<img src="https://github.com/pnolan89/dungeon-wizard/blob/master/public/images/campaign-index.png" width="500" />
 
 ![Campaign Detail Page](https://github.com/pnolan89/dungeon-wizard/blob/master/public/images/campaign-detail.png =500)
 
