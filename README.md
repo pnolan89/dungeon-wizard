@@ -21,8 +21,10 @@ Dungeon Wizard is the final group project for Web Development bootcamp at Lighth
 
 ##Screenshots
 
+![Campaign Index Page](https://github.com/pnolan89/dungeon-wizard/blob/master/public/images/campaign-index.png | width=500)
 
+![Campaign Detail Page](https://github.com/pnolan89/dungeon-wizard/blob/master/public/images/campaign-detail.png | width=500)
 
-
+![User Detail Page](https://github.com/pnolan89/dungeon-wizard/blob/master/public/images/user-detail.png | width=500)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
