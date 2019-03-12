@@ -114,6 +114,16 @@ class UserEdit extends Component {
                          <input name="email" type="email" defaultValue={this.state.userEmail} onChange={this.handleChange}/>
                        </label>
                        </div>
+
+                       <div className="form">
+                       <label>
+                         Password: 
+                         <br></br>
+                         <input name="password" type="password" defaultValue={this.state.userPassword} onChange={this.handleChange}/>
+                       </label>
+                       </div>
+
+                       
                        <div className="form">
                        <label>
                          Play-style: 
@@ -139,13 +149,7 @@ class UserEdit extends Component {
                          </select>
                        </label>
                        </div>
-                       <div className="form">
-                       <label>
-                         Password: 
-                         <br></br>
-                         <input name="password" type="password" defaultValue={this.state.userPassword} onChange={this.handleChange}/>
-                       </label>
-                       </div>
+                     
 
                        <div className="form">
                             <label>
