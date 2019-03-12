@@ -260,12 +260,14 @@ closeModalHandler = () => {
     }
 
     getCampaignData() {
+      
       if (this.state.campaign) {
+        let routeDm = `/users/${this.state.campaign.user_id}`;  
           return (
             <div className={this.dmStyle}>
               <div className="Campaign-Details">
               <h1>{this.state.campaign.name}</h1>
-              <p>Dungeon Master: {this.state.dm.name}</p>
+              <span className="DM">Dungeon Master:<Link className="link" to={routeDm}>{this.state.dm.name}</Link></span>
               {this.showLocation()}
               {this.showSession()}
               <p className="campaign-details-description">Description: {this.state.campaign.description}</p>
