@@ -374,6 +374,13 @@
     margin-top: 0;
   }
 
+  button.open-modal-btn:hover {
+    color: white;
+    border-color: white;
+
+
+  }
+
 
 
 
