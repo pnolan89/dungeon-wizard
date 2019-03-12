@@ -125,15 +125,15 @@
   }
 
   .collapse {
-    display: none
+    display: none;
   }
 
   .collapse.in {
-    display: block
+    display: block;
   }
 
   .button {
     background: rgba(58, 9, 13, 0.0);
     border: 0px;
-    color: #D4A446; 
+    color: #D4A446;
   }

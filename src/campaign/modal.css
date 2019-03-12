@@ -41,11 +41,14 @@
 }
 
 .open-modal-btn {
+  position: relative;
+  bottom: 5px;
+  left: 20px;
   font-size: 12px;
   background: rgba(58, 9, 13, 0.7);
   color: #D4A446;
-  height: 20px;
-  width: 80px;
+  height: 25px;
+  width: 90px;
   border: 1px solid #D4A446;
   border-radius: 5px;
   line-height: 0.7;

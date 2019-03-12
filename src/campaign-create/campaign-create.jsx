@@ -26,13 +26,14 @@ class CampaignRegistration extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    let text = (this.state.synopsis).replace(/\n\r?/g, '"<br />"');
     const formData = {
       name: this.state.name,
       description: this.state.description,
       location: this.state.location,
       user_id: localStorage.user_id,
       next_session: this.state.next_session,
-      synopsis: this.state.synopsis,
+      synopsis: text,
       playing_style: this.state.playing_style,
       exp_level: this.state.exp,
       player_limit: this.state.player_limit,

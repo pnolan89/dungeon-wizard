@@ -18,6 +18,7 @@
 .Campaign-Box  {
   display: flex;
   flex-direction: column;
+  max-width: 598px;
 }
 
 .campaign-top {
@@ -221,6 +222,10 @@
   color: white;
 }
 
+.next-session-span {
+  width: 300px;
+}
+
 .Campaign-Image {
   flex-basis: 40%;
 }
@@ -345,6 +350,10 @@
     color:  #D4A446;
     margin-top: 10px;
     font-size: 25px;
+  }
+
+  .campaign-details-description {
+    margin-top: 0;
   }
 
 

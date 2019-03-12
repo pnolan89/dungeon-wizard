@@ -47,6 +47,7 @@ class Campaign extends Component {
         join_requests: response.data.join_requests,
         players: response.data.players,
         image: response.data.campaign.image,
+        playing_styles: response.data.playing_styles
       });
       console.log('Campaign: ', this.state.campaign)
     })
@@ -197,8 +198,9 @@ closeModalHandler = () => {
       if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
         return (
           <React.Fragment>
-          <p>Next session: {this.dateToString(date)}</p>
-            <p>{ this.state.isShowing ? <p onClick={this.closeModalHandler} className="back-drop"></p> : null }
+          <p>
+            <span className="next-session-span">Next session: {this.dateToString(date)}</span>
+            <span className="session-update-span">{ this.state.isShowing ? <p onClick={this.closeModalHandler} className="back-drop"></p> : null }
 
             <button className="open-modal-btn" onClick={this.openModalHandler}>Update</button>
 
@@ -209,7 +211,8 @@ closeModalHandler = () => {
                 campaignID={this.state.campaignID}
                 setNewSession={this.setNewSession}
                 />
-            </p>
+            </span>
+          </p>
           </React.Fragment>
         )
       }
@@ -230,6 +233,23 @@ closeModalHandler = () => {
       }
     }
 
+    getPlaystyles(playing_styles) {
+      let playstyles = playing_styles.map((style) => {
+        return this.capitalize(style)
+      })
+      let output = playstyles.join(', ')
+      return output;
+    }
+
+    capitalize(string) {
+      let stringArray = string.split('_');
+      let outputArray = [];
+      stringArray.forEach((word) => {
+        outputArray.push(word.charAt(0).toUpperCase() + word.slice(1));
+      });
+      return outputArray.join(' ');
+    }
+
     getCampaignData() {
       if (this.state.campaign) {
         return (
@@ -238,8 +258,8 @@ closeModalHandler = () => {
           <p>Dungeon Master: {this.state.dm.name}</p>
           {this.showLocation()}
           {this.showSession()}
-          <p>Description: {this.state.campaign.description}</p>
-          <p>Playing Style: {this.getPlayingStyle()}</p>
+          <p className="campaign-details-description">Description: {this.state.campaign.description}</p>
+          <p>Playing Style(s): {this.getPlaystyles(this.state.playing_styles)}</p>
           <div id="campaign-edit-container">{this.getEdit()}</div>
           </React.Fragment>
        );
@@ -250,9 +270,11 @@ closeModalHandler = () => {
 
   getSynopsis() {
     if (this.state.campaign) {
-      return (
-        <p>{this.state.campaign.synopsis}</p>
-      )
+      let paragraphsArray = this.state.campaign.synopsis.split('<br />');
+      let paragraphs = paragraphsArray.map((paragraph) => {
+        return <p>{paragraph}</p>
+      })
+      return paragraphs;
     } else {
       return (
         <p>Loading...</p>
