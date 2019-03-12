@@ -251,18 +251,38 @@ closeModalHandler = () => {
     }
 
     getCampaignData() {
+      
       if (this.state.campaign) {
-        return (
-          <React.Fragment>
-          <h1>{this.state.campaign.name}</h1>
-          <p>Dungeon Master: {this.state.dm.name}</p>
-          {this.showLocation()}
-          {this.showSession()}
-          <p className="campaign-details-description">Description: {this.state.campaign.description}</p>
-          <p>Playing Style(s): {this.getPlaystyles(this.state.playing_styles)}</p>
-          <div id="campaign-edit-container">{this.getEdit()}</div>
-          </React.Fragment>
-       );
+        if ((this.state.campaign.user_id === parseInt(localStorage.user_id))) {
+          return (
+            <div className="campaign-top-dm">
+              <div className="Campaign-Details">
+              <h1>{this.state.campaign.name}</h1>
+              <p>Dungeon Master: {this.state.dm.name}</p>
+              {this.showLocation()}
+              {this.showSession()}
+              <p className="campaign-details-description">Description: {this.state.campaign.description}</p>
+              <p>Playing Style(s): {this.getPlaystyles(this.state.playing_styles)}</p>
+              <p id="campaign-edit-container">{this.getEdit()}</p>
+              </div>
+              </div>
+           );
+        } else {
+          return (
+            <div className="campaign-top">
+              <div className="Campaign-Details">
+              <h1>{this.state.campaign.name}</h1>
+              <p>Dungeon Master: {this.state.dm.name}</p>
+              {this.showLocation()}
+              {this.showSession()}
+              <p className="campaign-details-description">Description: {this.state.campaign.description}</p>
+              <p>Playing Style(s): {this.getPlaystyles(this.state.playing_styles)}</p>
+              <p id="campaign-edit-container">{this.getEdit()}</p>
+              </div>
+              </div>
+          )
+        }
+        
       } else {
         return (<p>Loading...</p>);
       }
@@ -389,11 +409,9 @@ closeModalHandler = () => {
     return(
     <div className="Campaign">
       <div className="Campaign-Box">
-        <div className="campaign-top">
-          <div className="Campaign-Details">
+
+    
             {this.getCampaignData()}
-          </div>
-        </div>
         <div className="Campaign-Description">
           <h2>Synopsis</h2>
           <p>{this.getSynopsis()}</p>
