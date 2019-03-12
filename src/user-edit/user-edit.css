@@ -25,7 +25,7 @@
       padding-left: 5px;
   }
 
-  .Input {
+  .input {
     background-color: #D4A446;
     border: 1px solid black;  
     border-width: 1px;
@@ -37,6 +37,11 @@
     padding-left: 5px;
     position: relative;
     top: 1em; left: .7em
+  }
+
+  .input:hover {
+    background-color: #285D82;
+    color: white;
   }
 
   .Input:hover {

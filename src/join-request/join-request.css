@@ -131,20 +131,24 @@
   color: #D4A446;
 }
 
-.campaign-card img {
+.campaign-card .campaign-img img {
   width: 150px;
   height: 100px;
   display: flex;
   position: relative;
-  left: -1em;
   top: 1.3em;
+  margin: auto;
 }
 
 .campaign-info {
   padding-left: 15px;
-  flex-basis: 80%;
+  flex-basis: 55%;
+}
+
+.campaign-info-playstyles {
+  line-height: 1.5;
 }
 
 .campaign-img {
-  flex-basis: 20%;
+  flex-basis: 45%;
 }
