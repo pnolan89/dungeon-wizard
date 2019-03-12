@@ -218,6 +218,7 @@
 
 .Campaign-Details h1{
   font-family: 'Cinzel', serif;
+  font-size: 40px;
   color:  #D4A446;
   margin: auto;
   margin-bottom: 20px;
@@ -233,8 +234,10 @@
 .Campaign-Details span.DM {
   font-family: 'Montserrat', sans-serif;
   display: flex;
+  font-size: 21px;
   /* color: #285D82; */
   color: white;
+  margin-bottom: 20px;
 }
 
 .Campaign-Details .link {
@@ -243,11 +246,12 @@
   /* color: #285D82; */
   color: #D4A446;
   font-weight: bolder;
-  font-size: 21px;
+  font-size: 23px;
+  position: relative;
+  bottom: 2px;
   margin-left: 8px;
 
-  position: relative;
-  bottom: 4px;
+
   /* text-shadow: 5px 5px 5px black; */
 }
 
@@ -366,7 +370,7 @@
   .Campaign-Description h2 {
     font-family: 'Cinzel', serif;
     color:  #D4A446;
-    margin: 15px 0 10px 0;
+    margin: 0 0 10px 0;
     font-size: 25px;
   }
 
