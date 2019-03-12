@@ -9,7 +9,8 @@
 
  .Campaign-Index {
       text-align: left;
-
+      display: flex;
+      flex-direction: row;
       margin: auto;
       background: rgba(58, 9, 13, 0.7);
       font-family: 'Montserrat', sans-serif;
@@ -50,12 +51,16 @@
     margin-right: 1em;;
     padding: 2px;
     color: #D4A446;
+    max-width: 10em; 
   }
 
   .Campaign-Card-Details p {
     width: 23em;
   }
 
+  .Campaign-Card-Image {
+    flex-basis: 50%;
+  }
   .Campaign-Card-Details h3 {
     border: solid 1px;
     border-radius: 5px;
