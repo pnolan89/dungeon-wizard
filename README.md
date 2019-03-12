@@ -19,7 +19,7 @@ Dungeon Wizard is the final group project for Web Development bootcamp at Lighth
 
 4. Navigate to [http://localhost:3002](http://localhost:3002)
 
-##Screenshots
+## Screenshots
 
 <img src="https://github.com/pnolan89/dungeon-wizard/blob/master/public/images/campaign-index.png" alt="Campaign Index" width="1000" />
 
