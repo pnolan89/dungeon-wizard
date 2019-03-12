@@ -260,9 +260,9 @@ closeModalHandler = () => {
     }
 
     getCampaignData() {
-      
+
       if (this.state.campaign) {
-        let routeDm = `/users/${this.state.campaign.user_id}`;  
+        let routeDm = `/users/${this.state.campaign.user_id}`;
           return (
             <div className={this.dmStyle}>
               <div className="Campaign-Details">
@@ -271,7 +271,7 @@ closeModalHandler = () => {
               {this.showLocation()}
               {this.showSession()}
               <p className="campaign-details-description">Description: {this.state.campaign.description}</p>
-              <p>Playing Style(s): {this.getPlaystyles(this.state.playing_styles)}</p>
+              <p>Playing Styles: {this.getPlaystyles(this.state.playing_styles)}</p>
               <p id="campaign-edit-container">{this.getEdit()}</p>
               </div>
               </div>
@@ -402,9 +402,7 @@ closeModalHandler = () => {
     return(
     <div className="Campaign">
       <div className="Campaign-Box">
-
-    
-            {this.getCampaignData()}
+        {this.getCampaignData()}
         <div className="Campaign-Description">
           <h2>Synopsis</h2>
           <p>{this.getSynopsis()}</p>
