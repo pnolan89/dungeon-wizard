@@ -402,9 +402,7 @@ closeModalHandler = () => {
     return(
     <div className="Campaign">
       <div className="Campaign-Box">
-
-
-            {this.getCampaignData()}
+        {this.getCampaignData()}
         <div className="Campaign-Description">
           <h2>Synopsis</h2>
           <p>{this.getSynopsis()}</p>
