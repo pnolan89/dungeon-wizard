@@ -22,7 +22,8 @@ class Splash extends Component {
                 <div className="splash-details">
 
                 <div className="image">
-                <img src="https://i.imgur.com/JKNZONw.png"/>
+                {/* <img src="https://i.imgur.com/JKNZONw.png"/> */}
+                <img src="https://i.imgur.com/JDIWMnS.png"/>
 
                 {/* <img src="https://i.imgur.com/TFXcMoU.png" /> */}
 
