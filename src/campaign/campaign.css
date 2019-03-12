@@ -297,7 +297,7 @@
     font-family: 'Montserrat', sans-serif;
     display: flex;
     /* color: #285D82; */
-    color: black;
+    color: #D4A446;
     font-weight: bolder;
     font-size: 21px;
     margin-left: 8px;
@@ -308,7 +308,7 @@
   }
 
   .Campaign-Details .link:hover {
-    color:  #D4A446;
+    color:  white;
   }
 
   .Campaign-Image {
