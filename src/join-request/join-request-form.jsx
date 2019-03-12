@@ -61,7 +61,7 @@ class JoinRequestForm extends Component {
     render() {
         return(
           <React.Fragment>
-            {this.props.campaign.players < this.props.campaign.player_limit ? (
+            {this.props.campaign.players <= this.props.campaign.player_limit ? (
               <div className="join-box">
               <h4 className="join-form-heading">Request to join this campaign!</h4>
                 <div className="join-form-message">
