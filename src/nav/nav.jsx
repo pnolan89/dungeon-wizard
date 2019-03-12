@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Nav.css';
+import './nav.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Redirect } from 'react-router-dom'
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import './User.css';
+import './user.css';
 import axios from 'axios';
-import CampaignCard from './campaign-card.jsx';
+import CampaignCard from '../campaign-card/campaign-card.jsx';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class User extends Component {

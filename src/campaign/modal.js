@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { Component } from "react";
 
 
-import './Modal.css';
+import './modal.css';
 
 class Modal extends Component {
   constructor(props) {

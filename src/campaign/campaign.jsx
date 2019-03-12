@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import './Campaign.css';
+import './campaign.css';
 import axios from 'axios';
-import JoinRequestForm from "./join-request-form";
-import JoinStatusCampaign from "./join-status-campaign";
-import JoinRequestDM from "./join-request-dm";
-import PlayerCard from "./player-card";
+import JoinRequestForm from "../join-request/join-request-form";
+import JoinStatusCampaign from "../join-request/join-status-campaign";
+import JoinRequestDM from "../join-request/join-request-dm";
+import PlayerCard from "../join-request/player-card";
 import Modal from './modal.js';
 import { join } from "path";
 

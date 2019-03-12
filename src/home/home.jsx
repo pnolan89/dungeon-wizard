@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import './App.css';
-import Nav from './Nav.jsx';
-import User from './User.jsx';
-import UserIndex from './user-index.jsx';
-import UserRegistration from './user_registration.js';
-import UserEdit from './user-edit.jsx';
-import Campaign from './campaign.jsx';
-import CampaignIndex from './campaign-index.jsx';
-import CampaignRegistration from './campaign-create.jsx';
-import CampaignEdit from './campaign-edit.jsx'
-import Splash from './splash.jsx'
-import Login from './login.jsx';
+import './app.css';
+import Nav from '../nav/nav.jsx';
+import User from '../user/user.jsx';
+import UserIndex from '../user-index/user-index.jsx';
+import UserRegistration from '../user-registration/user_registration.js';
+import UserEdit from '../user-edit/user-edit.jsx';
+import Campaign from '../campaign/campaign.jsx';
+import CampaignIndex from '../campaign-index/campaign-index.jsx';
+import CampaignRegistration from '../campaign-create/campaign-create.jsx';
+import CampaignEdit from '../campaign-edit/campaign-edit.jsx'
+import Splash from '../splash/splash.jsx'
+import Login from '../login/login.jsx';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class Home extends Component {

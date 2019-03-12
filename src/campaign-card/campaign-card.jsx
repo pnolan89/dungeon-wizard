@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import './User.css';
-import './join-request.css';
+import '../user/user.css';
+import '../join-request/join-request.css';
 import { Link } from "react-router-dom";
 
 class CampaignCard extends Component {
