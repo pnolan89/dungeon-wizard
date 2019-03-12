@@ -103,7 +103,8 @@ class User extends Component {
                     <p>Member since: {this.dateToString(this.state.user.user.created_at)}</p>
                     <p>Playing Style: {this.capitalize(this.state.user.user.playing_style)} </p>
                     <p>Experience level: {this.capitalize(this.state.user.user.exp_level)}</p>
-                    <span>{this.getEdit()}</span> <span>{this.getAvatar()}</span>
+                    <span>{this.getEdit()}</span> 
+                    {/* <span>{this.getAvatar()}</span>  */}
                 </React.Fragment>
             );
         } else {
@@ -194,6 +195,8 @@ class User extends Component {
               <div className="user-details">
                 {this.getUserData()}
               </div>
+              {this.getAvatar()}
+
             </div>
             {this.renderCampaignBox()}
           </div>
