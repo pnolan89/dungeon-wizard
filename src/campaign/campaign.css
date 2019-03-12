@@ -283,13 +283,32 @@
     font-family: 'Cinzel', serif;
     color:  #D4A446;
     margin: auto;
+    margin-bottom: 20px;
   }
 
-  .Campaign-Details p {
+  .Campaign-Details span {
     font-family: 'Montserrat', sans-serif;
     display: flex;
     /* color: #285D82; */
     color: white;
+  }
+
+  .Campaign-Details .link {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    /* color: #285D82; */
+    color: black;
+    font-weight: bolder;
+    font-size: 21px;
+    margin-left: 8px;
+
+    position: relative;
+    bottom: 4px;
+    /* text-shadow: 5px 5px 5px black; */
+  }
+
+  .Campaign-Details .link:hover {
+    color:  #D4A446;
   }
 
   .Campaign-Image {
