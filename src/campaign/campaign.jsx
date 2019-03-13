@@ -214,10 +214,10 @@ closeModalHandler = () => {
                 />
             </span>
           </p>
+          <p>Next session: {this.dateToString(date)}</p>
           </React.Fragment>
         )
-      }
-      if (this.checkUserIsPlayer() === true || this.state.campaign.user_id === parseInt(localStorage.user_id)) {
+      } else {
         return (
           <p>Next session: {this.dateToString(date)}</p>
         )
