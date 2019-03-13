@@ -127,6 +127,8 @@ getCampaignData() {
                 <p className="campaign-detail">Dungeon Master: {campaign.dm.name}</p>
                 <p className="campaign-detail">Playing styles: {this.getPlaystyles(campaign.playing_styles)}</p>
                 <p className="campaign-detail">Experience Level: {this.capitalize(campaign.campaign.exp_level)}</p>
+                <p className="campaign-detail">Commitment Level: {this.capitalize(campaign.campaign.commitment)}</p>
+
 
 
               </div>
