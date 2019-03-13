@@ -169,9 +169,9 @@ closeModalHandler = () => {
       let day = date.getDate();
       let year = date.getFullYear();
 
-      let hours = (date.getHours()) - 6;
+      let hours = date.getUTCHours() ;
       let minutes = addZero(date.getMinutes());
-      let time = (hours > 11 ? (hours - 11) : (hours + 1)) + ":" + minutes + (hours < 11 ? "PM" : "AM");
+      let time = (hours > 12 ? (hours - 12) : (hours + 0)) + ":" + minutes + (hours < 12 || hours === 24 ? "AM" : "PM");
 
       return month + " " + day + ", " + year + " - " + time + " ";
     }
@@ -283,7 +283,14 @@ closeModalHandler = () => {
 
   getSynopsis() {
     if (this.state.campaign) {
-      let paragraphsArray = this.state.campaign.synopsis.split('<br />');
+      let allParagraphsArray = this.state.campaign.synopsis.split('<br />');
+      let paragraphsArray = []
+      allParagraphsArray.forEach((paragraph) => {
+        if (paragraph) {
+          paragraphsArray.push(paragraph)
+        }
+      })
+
       let paragraphs = paragraphsArray.map((paragraph) => {
         return <p>{paragraph}</p>
       })
