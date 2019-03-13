@@ -214,7 +214,6 @@ closeModalHandler = () => {
                 />
             </span>
           </p>
-          <p>Next session: {this.dateToString(date)}</p>
           </React.Fragment>
         )
       } else {
