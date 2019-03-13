@@ -169,8 +169,7 @@ closeModalHandler = () => {
       let day = date.getDate();
       let year = date.getFullYear();
 
-      let hours = (date.getHours() + 7);
-      console.log("hours", hours)
+      let hours = date.getUTCHours() ;
       let minutes = addZero(date.getMinutes());
       let time = (hours > 12 ? (hours - 12) : (hours + 0)) + ":" + minutes + (hours < 12 || hours === 24 ? "AM" : "PM");
 
