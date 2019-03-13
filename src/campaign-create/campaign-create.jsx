@@ -94,7 +94,7 @@ class CampaignRegistration extends Component {
                 <label>
                   Campaign Name:
                   <br></br>
-                  <input name="name" type="text" value={this.state.name} onChange={this.handleChange}/>
+                  <input name="name" type="text" value={this.state.name} onChange={this.handleChange} required/>
                 </label>
               </div>
 
@@ -102,7 +102,7 @@ class CampaignRegistration extends Component {
                 <label>
                   Description:
                   <br></br>
-                  <input name="description" type="text"  value={this.state.description} onChange={this.handleChange}/>
+                  <input name="description" type="text"  value={this.state.description} onChange={this.handleChange} required/>
                 </label>
               </div>
 
@@ -110,7 +110,7 @@ class CampaignRegistration extends Component {
                 <label>
                   Synopsis:
                   <br></br>
-                  <textarea name='synopsis' type="text"  value={this.state.synopsis} onChange={this.handleChange}/>
+                  <textarea name='synopsis' type="text"  value={this.state.synopsis} onChange={this.handleChange} required/>
                 </label>
               </div>
 
@@ -118,7 +118,7 @@ class CampaignRegistration extends Component {
                 <label>
                   Player limit:
                   <br></br>
-                  <select name="player_limit" value={this.state.player_limit} onChange={this.handleChange}>
+                  <select name="player_limit" value={this.state.player_limit} onChange={this.handleChange} required>
                     <option value="">Choose...</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -138,8 +138,8 @@ class CampaignRegistration extends Component {
                 <label>
                   Experience level:
                   <br></br>
-                  <select placeholder="Choose..." name="exp" value={this.state.exp} onChange={this.handleChange}>
-                    <option value=":">Choose...</option>
+                  <select required placeholder="Choose..." name="exp" value={this.state.exp} onChange={this.handleChange}>
+                    <option value="">Choose...</option>
                     <option value="beginner">Beginner</option>
                     <option value="intermediate">Intermediate</option>
                     <option value="expert">Expert</option>
@@ -151,8 +151,8 @@ class CampaignRegistration extends Component {
                 <label>
                   Commitment:
                   <br></br>
-                  <select placeholder="Choose..." name="commitment" value={this.state.commitment} onChange={this.handleChange}>
-                    <option value=":">Choose...</option>
+                  <select required placeholder="Choose..." name="commitment" value={this.state.commitment} onChange={this.handleChange}>
+                    <option value="">Choose...</option>
                     <option value="single-session">Single session</option>
                     <option value="casual">Casual</option>
                     <option value="long-term">Long-term</option>
@@ -236,8 +236,8 @@ class CampaignRegistration extends Component {
                 <label>
                   Campaign Image:
                   <br></br>
-                  <select name="image" value={this.state.image} onChange={this.handleChange}>
-                    <option value=":">Choose...</option>
+                  <select required name="image" value={this.state.image} onChange={this.handleChange}>
+                    <option value="">Choose...</option>
                     <option value="https://bit.ly/2VOZZ3s">Mountain Meadow</option>
                     <option value="https://bit.ly/2NP1X0V">Cloudy</option>
                     <option value="https://bit.ly/2SSo6w7">Castle</option>
@@ -264,7 +264,7 @@ class CampaignRegistration extends Component {
                 <label>
                   Location:
                   <br></br>
-                  <input name="location" type="text"  value={this.state.location} onChange={this.handleChange}/>
+                  <input required name="location" type="text"  value={this.state.location} onChange={this.handleChange}/>
                 </label>
               </div>
 
@@ -272,7 +272,7 @@ class CampaignRegistration extends Component {
                 <label>
                   First session:
                   <br></br>
-                  <input name="next_session" type="datetime-local" value={this.state.next_session} onChange={this.handleChange} />
+                  <input required name="next_session" type="datetime-local" value={this.state.next_session} onChange={this.handleChange} />
                 </label>
               </div>
               <input className="submit" type="submit" value="Submit"/>
