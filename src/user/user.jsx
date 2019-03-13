@@ -90,7 +90,7 @@ class User extends Component {
         let route = `/users/edit/${this.state.userID}`;
         if (localStorage.user_id === this.state.userID) {
             return(
-                <span className='edit'> <Link to={route}>EDIT</Link></span>
+              <Link to={route}><span className='edit'> Edit</span></Link>
             )}
           }
 
