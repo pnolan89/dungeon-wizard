@@ -42,7 +42,7 @@ class CampaignRegistration extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    let text = (this.state.synopsis).replace(/\n\r?/g, '"<br />"');
+    let text = (this.state.synopsis).replace(/\n\r?/g, '<br />');
     const formData = {
       name: this.state.name,
       description: this.state.description,
