@@ -283,7 +283,14 @@ closeModalHandler = () => {
 
   getSynopsis() {
     if (this.state.campaign) {
-      let paragraphsArray = this.state.campaign.synopsis.split('<br />');
+      let allParagraphsArray = this.state.campaign.synopsis.split('<br />');
+      let paragraphsArray = []
+      allParagraphsArray.forEach((paragraph) => {
+        if (paragraph) {
+          paragraphsArray.push(paragraph)
+        }
+      })
+
       let paragraphs = paragraphsArray.map((paragraph) => {
         return <p>{paragraph}</p>
       })
