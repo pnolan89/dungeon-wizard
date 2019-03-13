@@ -82,18 +82,6 @@ class CampaignRegistration extends Component {
     }
   }
 
-  //<div className="form">
-  //              <label>
-  //                Playing style:
-  //                <br></br>
-  //                <select name="playing_style" value={this.state.playing_style} onChange={this.handleChange}>
-  //                  <option value=":">Choose...</option>
-  //                  <option value="combat-focused">Combat-focused</option>
-  //                  <option value="story-focused">Story-focused</option>
-  //                </select>
-  //              </label>
-  //            </div>
-
   render() {
     return(
       <div className="campaign-create">

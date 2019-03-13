@@ -111,6 +111,41 @@ getPlaystyles(playing_styles) {
   return output;
 }
 
+dateToString(dateString) {
+  let date = new Date(dateString)
+
+  function addZero(min) {
+    if (min < 10) {
+      min = "0" + min;
+    }
+    return min;
+  }
+
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+
+  let month = months[date.getMonth()];
+  let day = date.getDate();
+  let year = date.getFullYear();
+
+  let hours = (date.getHours()) - 6;
+  let minutes = addZero(date.getMinutes());
+  let time = (hours > 11 ? (hours - 11) : (hours + 1)) + ":" + minutes + (hours < 11 ? "PM" : "AM");
+
+  return month + " " + day + ", " + year + " - " + time + " ";
+}
 
 getCampaignData() {
   if (this.state.campaigns) {
@@ -125,12 +160,10 @@ getCampaignData() {
                 <p className="campaign-description">{campaign.campaign.description}</p>
                 {this.openForRequests(campaign)}
                 <p className="campaign-detail">Dungeon Master: {campaign.dm.name}</p>
-                <p className="campaign-detail">Playing styles: {this.getPlaystyles(campaign.playing_styles)}</p>
+                <p className="campaign-detail">Playing Styles: {this.getPlaystyles(campaign.playing_styles)}</p>
                 <p className="campaign-detail">Experience Level: {this.capitalize(campaign.campaign.exp_level)}</p>
                 <p className="campaign-detail">Commitment Level: {this.capitalize(campaign.campaign.commitment)}</p>
-
-
-
+                <p className="campaign-detail">Next Session: {this.dateToString(campaign.campaign.next_session)}</p>
               </div>
               <div className="Campaign-Index-Image">
                 <img src={campaign.campaign.image} />
