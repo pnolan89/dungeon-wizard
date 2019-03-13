@@ -34,8 +34,8 @@ class UserRegistration extends Component {
       password: this.state.password,
       avatar: this.state.avatar
     }
-    console.log(formData);
-    axios.post('http://localhost:3000/users', formData)
+    if (formData.name && formData.email && formData.password) {
+      axios.post('http://localhost:3000/users', formData)
       .then((response) => {
         console.log(response.data);
         localStorage.setItem('user_id', response.data.id);
@@ -51,6 +51,10 @@ class UserRegistration extends Component {
           //handle error
           console.log(response);
       });
+    } else {
+
+    }
+    
   }
 
   renderRedirect = () => {
@@ -73,7 +77,7 @@ class UserRegistration extends Component {
               <label>
                 Username:
                 <br></br>
-                <input name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
+                <input name="username" type="text" value={this.state.username} onChange={this.handleChange} required/>
               </label>
             </div>
 
@@ -81,7 +85,7 @@ class UserRegistration extends Component {
               <label>
                 Email:
                 <br></br>
-                <input name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
+                <input name="email" type="email" value={this.state.email} onChange={this.handleChange} required/>
               </label>
             </div>
 
@@ -89,7 +93,7 @@ class UserRegistration extends Component {
               <label>
                 Password:
                 <br></br>
-                <input name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
+                <input name="password" type="password" value={this.state.password} onChange={this.handleChange} required/>
               </label>
             </div>
 
@@ -97,8 +101,8 @@ class UserRegistration extends Component {
               <label>
                 Play-style:
                 <br></br>
-                <select name="play_style" value={this.state.play_style} onChange={this.handleChange}>
-                  <option value=":">Choose...</option>
+                <select required name="play_style" value={this.state.play_style} onChange={this.handleChange} >
+                  <option value=""></option>
                   <option value="story-focused">Story-focused</option>
                   <option value="combat-focused">Combat-focused</option>
                 </select>
@@ -109,8 +113,8 @@ class UserRegistration extends Component {
               <label>
                 Experience level:
                 <br></br>
-                <select name="exp" value={this.state.exp} onChange={this.handleChange}>
-                  <option value=":">Choose...</option>
+                <select required name="exp" value={this.state.exp} onChange={this.handleChange} >
+                  <option value=""></option>
                   <option value="beginner">Beginner</option>
                   <option value="intermediate">Intermediate</option>
                   <option value="expert">Expert</option>
@@ -122,8 +126,8 @@ class UserRegistration extends Component {
               <label>
                 Avatar:
                 <br></br>
-                  <select name="avatar" value={this.state.avatar} onChange={this.handleChange}>
-                  <option value=":">Choose...</option>
+                  <select required name="avatar" value={this.state.avatar} onChange={this.handleChange} >
+                  <option value=""></option>
                   <option value="https://bit.ly/2XGVwkU">Mage </option>
                   <option value="https://bit.ly/2tX8YU2">Wizard</option>
                   <option value="https://bit.ly/2H7saHd">Soldier</option>
