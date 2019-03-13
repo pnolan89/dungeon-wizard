@@ -86,7 +86,10 @@ filterCampaigns(campaigns) {
 
 openForRequests(campaign) {
   let players = campaign.players
-  if (players.length <= campaign.campaign.player_limit) {
+  console.log('Campaign: ', campaign.campaign.name)
+  console.log('Players: ', campaign.players)
+  console.log('Limit: ', campaign.campaign.player_limit)
+  if (players.length < campaign.campaign.player_limit) {
     return (
       <p className="campaign-detail looking-for-players">Looking for players!</p>
     )
