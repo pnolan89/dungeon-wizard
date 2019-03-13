@@ -49,19 +49,10 @@ class JoinRequestForm extends Component {
         });
     }
 
-    componentWillUpdate(nextProps, nextState) {
-      console.log("this", this.props)
-      console.log("next", nextProps)
-    }
-
-    componentWillMount() {
-      console.log("this", this.props)
-    }
-
     render() {
         return(
           <React.Fragment>
-            {this.props.campaign.players <= this.props.campaign.player_limit ? (
+            {this.props.campaign.players < this.props.campaign.player_limit ? (
               <div className="join-box">
               <h4 className="join-form-heading">Request to join this campaign!</h4>
                 <div className="join-form-message">
@@ -79,12 +70,12 @@ class JoinRequestForm extends Component {
               <div className="join-box">
           <h4 className="join-form-heading">This campaign has all the players it needs!
            </h4>
-            
+
           </div>
             )}
-            
+
           </React.Fragment>
-          
+
 
         );
     }
