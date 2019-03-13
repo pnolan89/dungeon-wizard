@@ -50,10 +50,10 @@ capitalize(string) {
 
 filterCampaigns(campaigns) {
   if (this.state.filters.open_for_requests === "yes") {
-    campaigns = campaigns.filter((campaign) => campaign.players.length <= campaign.campaign.player_limit);
+    campaigns = campaigns.filter((campaign) => campaign.players.length < campaign.campaign.player_limit);
   }
   if (this.state.filters.open_for_requests === "no") {
-    campaigns = campaigns.filter((campaign) => campaign.players.length > campaign.campaign.player_limit);
+    campaigns = campaigns.filter((campaign) => campaign.players.length === campaign.campaign.player_limit);
   }
   if (this.state.filters.exp_level !== "") {
     campaigns = campaigns.filter((campaign) => campaign.campaign.exp_level === this.state.filters.exp_level);
