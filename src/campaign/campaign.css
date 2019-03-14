@@ -115,6 +115,10 @@
   margin-bottom: 20px;
 }
 
+#campaign-join-requests .join-request-box p.email{
+  margin-top: 0;
+}
+
 #campaign-join-requests .bottom {
   margin-top: 10px;
 }
