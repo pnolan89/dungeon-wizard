@@ -3,6 +3,8 @@ import './join-request.css';
 import DMButton from './dm_button.jsx';
 import { Redirect } from 'react-router-dom'
 import axios from 'axios';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 
 
 class JoinRequestDM extends Component {
@@ -40,10 +42,12 @@ class JoinRequestDM extends Component {
     } else {
       const result = pendingRequests.filter(request => request !== undefined);
       const join_requests = result.map((request) => {
+        let route = `/users/${request.user.id}`
         return (
           <div className="join-request-box" key={request.request.id}>
             <div className="user-info">
-              <p className="username">{request.user.name}</p>
+              <Link className="username" to={route}><p className="username">{request.user.name}</p></Link>
+              <p className="email">{request.user.email}</p>
               <p className="message">{request.request.message}</p>
             </div>
             <div className="operations">

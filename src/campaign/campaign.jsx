@@ -36,6 +36,7 @@ class Campaign extends Component {
     this.handleDMForm = this.handleDMForm.bind(this);
     this.handlePlayerRemove = this.handlePlayerRemove.bind(this);
     this.dmStyle = this.dmStyle.bind(this);
+    this.showDMEmail = this.showDMEmail.bind(this);
   }
 
   componentDidMount() {
@@ -194,6 +195,14 @@ closeModalHandler = () => {
       })
     }
 
+    showDMEmail() {
+      if (this.checkUserIsPlayer() === true || this.state.campaign.user_id === parseInt(localStorage.user_id)) {
+        return (
+          <p>DM Email: {this.state.dm.email}</p>
+        )
+      }
+    }
+
     showSession() {
       let date = this.state.campaign.next_session
       if (this.state.campaign.user_id === parseInt(localStorage.user_id)) {
@@ -267,6 +276,7 @@ closeModalHandler = () => {
               <div className="Campaign-Details">
               <h1>{this.state.campaign.name}</h1>
               <span className="DM">Dungeon Master:<Link className="link" to={routeDm}>{this.state.dm.name}</Link></span>
+              {this.showDMEmail()}
               {this.showLocation()}
               {this.showSession()}
               <p className="campaign-details-description">Description: {this.state.campaign.description}</p>
